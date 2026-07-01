@@ -52,6 +52,7 @@ public static class UserScoreCalculator
         if (IsAgeRestricted(game.ageRating, user.maxAgeRating))
         {
             result.ageRestricted = true;
+            Debug.Log("Test Max Age!");
             result.finalScore = 0;
             return result;
         }

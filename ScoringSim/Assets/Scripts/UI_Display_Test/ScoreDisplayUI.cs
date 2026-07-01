@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,9 @@ public class ScoreDisplayUI : MonoBehaviour
 {
     [Header("References")]
 
-    public GameData gameData;
+    private GameData gamedatatemp;
+
+    public GameDatabase database;
 
     public UserData userData;
 
@@ -19,6 +22,7 @@ public class ScoreDisplayUI : MonoBehaviour
     [Header("Icon/Logo")]
 
     public Image Icon;
+
     public Image Logo;
 
     [Header("Breakdown")]
@@ -33,7 +37,18 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public TMP_Text finalScoreText;
 
-    void Start()
+    [Header("Loop by Index")]
+
+    private int currentGame = 0;
+
+    public int StartGameID = 0;
+
+    private void Start()
+    {
+        ShowGameByIndex(StartGameID);
+    }
+
+    /*void Start()
     {
         UpdateUI();
     }
@@ -66,5 +81,70 @@ public class ScoreDisplayUI : MonoBehaviour
 
         Icon.sprite = gameData.Icon;
         Logo.sprite = gameData.Logo;
+    }*/
+
+    public void ShowGameByClicked(GameData game)
+    {
+        gamedatatemp = game;
+
+        UpdateUI();
+    }
+
+    public void ShowGameByIndex(int index)
+    {
+        gamedatatemp = database.games[index];
+
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        if (gamedatatemp == null || userData == null)
+            return;
+
+        ScoreBreakdown breakdown =
+            ScoreManager.GetScoreBreakdown(gamedatatemp, userData);
+
+        generalScoreText.text = breakdown.generalScore.ToString("F0");
+
+        userScoreText.text = breakdown.finalScore.ToString("F0");
+
+        genreModifierText.text = breakdown.genreModifier.ToString("+0;-0");
+
+        tagModifierText.text = breakdown.tagModifier.ToString("+0;-0");
+
+        priceModifierText.text = breakdown.priceModifier.ToString("+0;-0");
+
+        developerModifierText.text = breakdown.developerModifier.ToString("+0;-0");
+
+        finalScoreText.text = breakdown.finalScore.ToString("F0");
+
+        Icon.sprite = gamedatatemp.Icon;
+        Logo.sprite = gamedatatemp.Logo;
+    }
+
+    public void NextGame()
+    {
+        currentGame++;
+
+        if (currentGame >= database.games.Count)
+            currentGame = 0;
+
+        ShowGameByIndex(currentGame);
+    }
+
+    public void PreviousGame()
+    {
+        currentGame--;
+
+        if (currentGame < 0)
+            currentGame = database.games.Count - 1;
+
+        ShowGameByIndex(currentGame);
+    }
+
+    public void OnGameClicked(GameData selectedGame)
+    {
+        ShowGameByClicked(selectedGame);
     }
 }
