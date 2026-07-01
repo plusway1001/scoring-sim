@@ -8,17 +8,20 @@ public class UserData : MonoBehaviour
 
     public List<string> likedGenres = new();
 
-    public List<string> dislikedGenres = new();
+    //public List<string> dislikedGenres = new();
 
     public List<string> likedTags = new();
 
     public string maxAgeRating;
 
-    public float preferredMinPrice;
+    //public float preferredMinPrice;
 
     public float preferredMaxPrice;
 
     public List<string> favouriteDevelopers = new();
+
+    // Developers the user has rated 8+ before
+    public List<GameRating> playHistory = new(); // A Dynamic Design System
 
     // GameID -> Rating (1-10)
 

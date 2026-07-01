@@ -2,8 +2,11 @@ using UnityEngine;
 
 public static class UserScoreCalculator
 {
+
     public static ScoreBreakdown Calculate(GameData game, UserData user)
     {
+        bool hasPlayHistory = false; // Set this to true if you want to have play history over fav creator/developers.
+
         ScoreBreakdown result = new();
 
         float generalScore = GeneralScoreCalculator.Calculate(game);
@@ -28,8 +31,8 @@ public static class UserScoreCalculator
         if (user.likedGenres.Contains(game.primaryGenre))
             result.genreModifier += 20;
 
-        if (user.dislikedGenres.Contains(game.primaryGenre))
-            result.genreModifier -= 20;
+        /*if (user.dislikedGenres.Contains(game.primaryGenre))
+            result.genreModifier -= 20;*/
 
         //----------------------------------
         // Tags
@@ -56,16 +59,27 @@ public static class UserScoreCalculator
         //----------------------------------
         // Price
 
-        if (game.price >= user.preferredMinPrice &&
+        if (game.price >= 0 &&
            game.price <= user.preferredMaxPrice)
         {
             result.priceModifier = 5;
         }
 
+        /*if (game.price >= user.preferredMinPrice &&
+           game.price <= user.preferredMaxPrice)
+        {
+            result.priceModifier = 5;
+        }*/
+
         //----------------------------------
         // Developer
 
-        if (user.favouriteDevelopers.Contains(game.developer))
+        if (HasDeveloperHistory(game, user) && hasPlayHistory) // A Dynamic System Design on top of Fav Creator/Developer
+        {
+            result.developerModifier = 10;
+        }
+
+        if (user.favouriteDevelopers.Contains(game.developer) && !hasPlayHistory) // By Default - No Play History, only fav creator/developer
         {
             result.developerModifier = 10;
         }
@@ -90,5 +104,19 @@ public static class UserScoreCalculator
 
         return System.Array.IndexOf(ratings, game)
              > System.Array.IndexOf(ratings, user);
+    }
+
+    private static bool HasDeveloperHistory(GameData game, UserData user)
+    {
+        foreach (GameRating playedGame in user.playHistory)
+        {
+            if (playedGame.developer == game.developer &&
+               playedGame.rating >= 8)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

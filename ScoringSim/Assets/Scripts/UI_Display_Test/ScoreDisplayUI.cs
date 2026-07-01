@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreDisplayUI : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class ScoreDisplayUI : MonoBehaviour
     public TMP_Text generalScoreText;
 
     public TMP_Text userScoreText;
+
+    [Header("Icon/Logo")]
+
+    public Image Icon;
+    public Image Logo;
 
     [Header("Breakdown")]
 
@@ -57,5 +63,8 @@ public class ScoreDisplayUI : MonoBehaviour
 
         finalScoreText.text =
             breakdown.finalScore.ToString("F0");
+
+        Icon.sprite = gameData.Icon;
+        Logo.sprite = gameData.Logo;
     }
 }

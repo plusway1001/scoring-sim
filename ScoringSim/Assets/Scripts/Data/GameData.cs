@@ -6,6 +6,8 @@ public class GameData : MonoBehaviour
 {
     public string gameID;
     public string title;
+    public Sprite Icon;
+    public Sprite Logo;
 
     public string primaryGenre;
     public List<string> tags = new();
