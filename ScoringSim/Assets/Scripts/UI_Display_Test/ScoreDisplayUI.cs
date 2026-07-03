@@ -145,6 +145,19 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public void OnGameClicked(GameData selectedGame)
     {
+        gamedatatemp = selectedGame;
+
         ShowGameByClicked(selectedGame);
+    }
+
+    public void OpenWebsite()
+    {
+        if (gamedatatemp == null)
+            return;
+
+        if (string.IsNullOrEmpty(gamedatatemp.websiteURL))
+            return;
+
+        Application.OpenURL(gamedatatemp.websiteURL);
     }
 }
