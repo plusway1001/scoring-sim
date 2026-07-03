@@ -1,0 +1,60 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="detail-page" class="page">
+
+        <ui:VisualElement class="navbar">
+            <ui:Button name="btn-back" text="← Back" class="back-btn" />
+            <ui:Label class="navbar__brand" text="VIDEOSCOPE" />
+        </ui:VisualElement>
+
+        <ui:ScrollView>
+            <ui:VisualElement name="detail-hero" class="detail-hero">
+                <ui:Label name="hero-icon" text="🎮" class="detail-hero__icon" />
+                <ui:VisualElement class="detail-hero__info">
+                    <ui:Label name="hero-eyebrow" text="Genre · Year" class="detail-hero__eyebrow" />
+                    <ui:Label name="hero-title" text="Game Title" class="detail-hero__title" />
+                    <ui:Label name="hero-byline" text="by Developer · Rating · $0.00" class="detail-hero__byline" />
+                    <ui:VisualElement name="hero-tags" class="detail-hero__tags" />
+                </ui:VisualElement>
+                <ui:VisualElement name="hero-scores" class="detail-hero__scores">
+                    <ui:VisualElement name="hero-general-score" class="score-badge-col" />
+                    <ui:VisualElement name="hero-user-score" class="score-badge-col" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="detail-body">
+                <ui:VisualElement class="stats-columns">
+                    <ui:VisualElement class="panel" style="margin-right: 24px;">
+                        <ui:Label text="General Score Breakdown" class="panel__title" />
+                        <ui:VisualElement name="general-breakdown" />
+                        <ui:VisualElement class="panel-total-row">
+                            <ui:Label text="GENERAL SCORE" />
+                            <ui:Label name="general-total" text="0" class="panel-total-row__value" style="color: rgb(0,229,160);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="user-panel" class="panel hidden">
+                        <ui:Label text="Your Score Modifiers" class="panel__title" />
+                        <ui:VisualElement name="modifier-list" />
+                        <ui:VisualElement class="panel-total-row panel-total-row--accent">
+                            <ui:Label text="YOUR SCORE" />
+                            <ui:Label name="user-total" text="0" class="panel-total-row__value" style="color: rgb(233,69,96);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement name="action-row" class="action-row hidden">
+                    <ui:Button name="btn-wishlist" text="♡ Add to Wishlist" class="btn-toggle" />
+                    <ui:Button name="btn-completed" text="Mark as Completed" class="btn-toggle" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="rate-panel" class="panel hidden">
+                    <ui:Label text="Rate This Game" class="panel__title" style="color: white; margin-bottom: 4px;" />
+                    <ui:Label name="rate-sub" text="Your rating directly sets your User Score and may add this developer to your favourite creators." class="step-sub" style="margin-bottom: 16px;" />
+                    <ui:VisualElement name="rating-row" class="rating-row" />
+                    <ui:Label name="rating-confirm" text="" class="rating-confirm hidden" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

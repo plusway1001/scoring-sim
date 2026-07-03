@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="onboarding-page" class="page center-page">
+        <ui:VisualElement class="onboarding-wrap">
+
+            <ui:Label name="welcome-label" text="Welcome, Player" class="onboarding-eyebrow" />
+            <ui:Label text="Build Your Profile" class="onboarding-title" />
+
+            <ui:VisualElement name="progress-row" class="progress-row">
+                <ui:VisualElement name="seg-0" class="progress-seg progress-seg--active" />
+                <ui:VisualElement name="seg-1" class="progress-seg" />
+                <ui:VisualElement name="seg-2" class="progress-seg" />
+                <ui:VisualElement name="seg-3" class="progress-seg" style="margin-right: 0;" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="step-card">
+                <ui:Label name="step-title" text="What genres do you love?" class="step-title" />
+                <ui:Label name="step-sub" text="We'll boost scores for these." class="step-sub" />
+                <ui:VisualElement name="step-content" class="tag-row" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="step-nav-row">
+                <ui:Button name="btn-back" text="Back" class="btn-secondary hidden" />
+                <ui:Button name="btn-next" text="Next →" class="btn-primary" style="padding: 12px 28px;" />
+                <ui:Button name="btn-finish" text="Finish Setup ✓" class="btn-success hidden" />
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

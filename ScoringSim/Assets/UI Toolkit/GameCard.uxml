@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="card-root" class="game-card">
+        <ui:VisualElement name="card-body" class="game-card__body">
+            <ui:VisualElement class="game-card__top-row">
+                <ui:Label name="card-icon" text="🎮" class="game-card__icon" />
+                <ui:VisualElement name="card-scores" class="game-card__scores">
+                    <ui:VisualElement name="card-general-score" class="score-badge-col" />
+                    <ui:VisualElement name="card-user-score" class="score-badge-col" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement>
+                <ui:Label name="card-title" text="Game Title" class="game-card__title" />
+                <ui:Label name="card-meta" text="Genre · Year · $Price" class="game-card__meta" />
+            </ui:VisualElement>
+            <ui:VisualElement class="game-card__tags">
+                <ui:Label name="card-rating-chip" text="G" class="game-card__chip" />
+                <ui:Label name="card-tag-1" text="tag" class="game-card__chip game-card__chip--accent" />
+                <ui:Label name="card-tag-2" text="tag" class="game-card__chip game-card__chip--accent" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="card-wishlist-row" class="game-card__wishlist hidden">
+            <ui:Label name="card-heart" text="♡" class="game-card__heart" />
+            <ui:Label name="card-wishlist-text" text="Add to Wishlist" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

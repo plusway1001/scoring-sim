@@ -1,0 +1,59 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="catalogue-page" class="page">
+
+        <ui:VisualElement name="navbar" class="navbar">
+            <ui:Label name="nav-brand" class="navbar__brand" text="VIDEOSCOPE" />
+            <ui:VisualElement class="navbar__links">
+                <ui:Label text="CATALOGUE" class="navbar__link navbar__link--active" />
+                <ui:Label name="nav-profile-link" text="PROFILE" class="navbar__link" />
+                <ui:Label name="nav-username-link" text="" class="navbar__link" />
+                <ui:Label name="nav-signin-link" text="SIGN IN" class="navbar__link hidden" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:ScrollView class="page-content">
+
+            <ui:VisualElement name="hero-panel" class="hero-panel hidden">
+                <ui:VisualElement>
+                    <ui:Label text="Welcome back" class="hero-panel__eyebrow" />
+                    <ui:Label name="hero-username" text="Player" class="hero-panel__name" />
+                    <ui:Label name="hero-sub" text="0 liked genres · 0 in wishlist · 0 games rated" class="hero-panel__sub" />
+                </ui:VisualElement>
+                <ui:VisualElement class="hero-stats-row">
+                    <ui:VisualElement class="hero-stat">
+                        <ui:Label name="hero-matches" text="0" class="hero-stat__value hero-stat__value--good" />
+                        <ui:Label text="Great Matches" class="hero-stat__label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="hero-stat">
+                        <ui:Label name="hero-wishlist-count" text="0" class="hero-stat__value hero-stat__value--accent" />
+                        <ui:Label text="Wishlist" class="hero-stat__label" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="filters-row">
+                <ui:TextField name="search-field" class="search-field" />
+                <ui:DropdownField name="genre-dropdown" class="filter-dropdown" />
+                <ui:DropdownField name="rating-dropdown" class="filter-dropdown" />
+                <ui:DropdownField name="sort-dropdown" class="filter-dropdown" />
+                <ui:Label name="results-count" text="0 games" class="results-count" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="legend-row" class="legend-row hidden">
+                <ui:VisualElement class="legend-item">
+                    <ui:VisualElement class="legend-dot legend-dot--general" />
+                    <ui:Label text="General Score" class="legend-label" />
+                </ui:VisualElement>
+                <ui:VisualElement class="legend-item">
+                    <ui:VisualElement class="legend-dot legend-dot--user" />
+                    <ui:Label text="Your Score" class="legend-label legend-label--accent" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="game-grid" class="grid" />
+            <ui:Label name="empty-label" text="No games match your filters." class="empty-state hidden" />
+
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

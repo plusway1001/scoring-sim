@@ -1,0 +1,37 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="login-page" class="page center-page">
+        <ui:VisualElement class="auth-wrap">
+
+            <ui:VisualElement class="logo-block">
+                <ui:Label text="VIDEOSCOPE" class="logo" name="logo-label" />
+                <ui:Label text="Personalized Game Discovery" class="tagline" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="auth-card">
+                <ui:VisualElement class="auth-tabs">
+                    <ui:Button name="tab-login" text="Sign In" class="auth-tab auth-tab--active" />
+                    <ui:Button name="tab-signup" text="Create Account" class="auth-tab" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="field">
+                    <ui:Label text="Username" class="field__label" />
+                    <ui:TextField name="input-username" class="field__input" />
+                    <ui:Label name="username-hint" text="" class="hint-text" style="margin-top: 6px; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="field">
+                    <ui:Label text="Password" class="field__label" />
+                    <ui:TextField name="input-password" password="true" class="field__input" />
+                </ui:VisualElement>
+
+                <ui:Label name="error-label" text="" class="error-box hidden" />
+
+                <ui:Button name="btn-submit" text="Sign In" class="btn-primary" style="margin-bottom: 12px;" />
+                <ui:Button name="btn-guest" text="Browse as Guest" class="btn-guest" />
+            </ui:VisualElement>
+
+            <ui:Label text="Demo accounts: GamerSG · CasualPlayer" class="hint-text" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

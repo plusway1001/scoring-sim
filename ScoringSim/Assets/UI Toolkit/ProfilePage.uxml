@@ -1,0 +1,94 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="VideoScope.uss" />
+    <ui:VisualElement name="profile-page" class="page">
+
+        <ui:VisualElement class="navbar">
+            <ui:Label name="nav-brand" class="navbar__brand" text="VIDEOSCOPE" />
+            <ui:VisualElement class="navbar__links">
+                <ui:Label name="nav-catalogue-link" text="CATALOGUE" class="navbar__link" />
+                <ui:Label text="PROFILE" class="navbar__link navbar__link--active" />
+                <ui:Label name="nav-signout-link" text="Sign Out" class="navbar__link navbar__link--muted" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:ScrollView class="page-content" style="max-width: 900px;">
+
+            <ui:VisualElement class="profile-header">
+                <ui:VisualElement>
+                    <ui:Label name="profile-username" text="Player" class="profile-username" />
+                    <ui:Label name="profile-substats" text="0 games rated · 0 completed · 0 in wishlist" class="profile-substats" />
+                </ui:VisualElement>
+                <ui:Button name="btn-edit" text="Edit Profile" class="btn-primary" style="padding: 10px 24px; font-size: 14px;" />
+            </ui:VisualElement>
+
+            <!-- Read-only summary view -->
+            <ui:VisualElement name="summary-view" class="summary-grid">
+                <ui:VisualElement class="summary-card">
+                    <ui:Label text="Liked Genres" class="summary-card__label" />
+                    <ui:VisualElement name="summary-liked-genres" class="summary-tags" />
+                </ui:VisualElement>
+                <ui:VisualElement class="summary-card">
+                    <ui:Label text="Disliked Genres" class="summary-card__label" />
+                    <ui:VisualElement name="summary-disliked-genres" class="summary-tags" />
+                </ui:VisualElement>
+                <ui:VisualElement class="summary-card">
+                    <ui:Label text="Liked Tags" class="summary-card__label" />
+                    <ui:VisualElement name="summary-liked-tags" class="summary-tags" />
+                </ui:VisualElement>
+                <ui:VisualElement class="summary-card">
+                    <ui:Label text="Favourite Creators" class="summary-card__label" />
+                    <ui:VisualElement name="summary-fav-creators" class="summary-tags" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- Editable form, hidden by default -->
+            <ui:VisualElement name="edit-view" class="edit-panel hidden">
+                <ui:Label text="Edit Preferences" class="edit-panel__title" />
+
+                <ui:VisualElement class="edit-block">
+                    <ui:Label text="Liked Genres" class="section-label" />
+                    <ui:VisualElement name="edit-liked-genres" class="tag-row" />
+                </ui:VisualElement>
+                <ui:VisualElement class="edit-block">
+                    <ui:Label text="Disliked Genres" class="section-label" />
+                    <ui:VisualElement name="edit-disliked-genres" class="tag-row" />
+                </ui:VisualElement>
+                <ui:VisualElement class="edit-block">
+                    <ui:Label text="Liked Tags" class="section-label" />
+                    <ui:VisualElement name="edit-liked-tags" class="tag-row" />
+                </ui:VisualElement>
+                <ui:VisualElement class="edit-block">
+                    <ui:Label text="Max Age Rating" class="section-label" />
+                    <ui:VisualElement name="edit-max-rating" class="tag-row" />
+                </ui:VisualElement>
+                <ui:VisualElement class="edit-block">
+                    <ui:Label name="edit-price-label" text="Max Price: $100" class="section-label" />
+                    <ui:Slider name="edit-price-slider" low-value="5" high-value="100" />
+                </ui:VisualElement>
+
+                <ui:Button name="btn-save" text="Save Changes ✓" class="btn-success" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="reco-section" class="hidden">
+                <ui:VisualElement class="section-heading">
+                    <ui:Label text="✦" class="section-heading__icon" />
+                    <ui:Label text="Recommended For You" />
+                </ui:VisualElement>
+                <ui:VisualElement name="reco-grid" class="reco-grid" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="list-section">
+                <ui:Label name="wishlist-title" text="Wishlist (0)" class="list-section__title list-section__title--wishlist" />
+                <ui:Label name="wishlist-empty" text="Nothing here yet." class="summary-empty" />
+                <ui:VisualElement name="wishlist-chips" class="list-chips-row" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="list-section">
+                <ui:Label name="completed-title" text="Completed (0)" class="list-section__title list-section__title--completed" />
+                <ui:Label name="completed-empty" text="Nothing here yet." class="summary-empty" />
+                <ui:VisualElement name="completed-chips" class="list-chips-row" />
+            </ui:VisualElement>
+
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
