@@ -13,6 +13,11 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public UserData userData;
 
+    [Header("Game Title/ID")]
+
+    public TMP_Text gameTitle;
+    public TMP_Text gameID;
+
     [Header("Score Text")]
 
     public TMP_Text generalScoreText;
@@ -121,6 +126,8 @@ public class ScoreDisplayUI : MonoBehaviour
 
         Icon.sprite = gamedatatemp.Icon;
         Logo.sprite = gamedatatemp.Logo;
+        gameTitle.text = gamedatatemp.title.ToString();
+        gameID.text = gamedatatemp.gameID.ToString();
     }
 
     public void NextGame()
@@ -159,5 +166,48 @@ public class ScoreDisplayUI : MonoBehaviour
             return;
 
         Application.OpenURL(gamedatatemp.websiteURL);
+    }
+
+    public void AddToWishlist()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.wishlist.Contains(gamedatatemp))
+            userData.wishlist.Add(gamedatatemp);
+    }
+
+    public void RemoveFromWishlist()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (userData.wishlist.Contains(gamedatatemp))
+        {
+            userData.wishlist.Remove(gamedatatemp);
+        }
+    }
+
+    /*public void AddToCompleted()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.completedGames.Contains(gamedatatemp))
+            userData.completedGames.Add(gamedatatemp);
+    }*/
+
+    public void RateGame(int rating)
+    {
+        if (gamedatatemp == null)
+            return;
+
+        if (rating >= 8)
+        {
+            if (!userData.favouriteDevelopers.Contains(gamedatatemp.developer))
+                userData.favouriteDevelopers.Add(gamedatatemp.developer);
+        }
+        else
+        {
+            if (userData.favouriteDevelopers.Contains(gamedatatemp.developer))
+                userData.favouriteDevelopers.Remove(gamedatatemp.developer);
+        }
     }
 }

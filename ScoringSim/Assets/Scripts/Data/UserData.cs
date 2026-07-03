@@ -18,6 +18,12 @@ public class UserData : MonoBehaviour
 
     public float preferredMaxPrice;
 
+    [Header("Activity")]
+
+    public List<GameData> wishlist = new();
+
+    //public List<GameData> completedGames = new();
+
     public List<string> favouriteDevelopers = new();
 
     // Developers the user has rated 8+ before
