@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class ScoreDisplayUI : MonoBehaviour
     [Header("References")]
 
     private GameData gamedatatemp;
+
+    public List<GameData> gamesDatabase = new();
 
     public GameDatabase database;
 
@@ -209,5 +212,52 @@ public class ScoreDisplayUI : MonoBehaviour
             if (userData.favouriteDevelopers.Contains(gamedatatemp.developer))
                 userData.favouriteDevelopers.Remove(gamedatatemp.developer);
         }
+
+        gamedatatemp.UpdateNewUserRating(rating);
+
+        for (int j = 0; j < gamesDatabase.Count; j++)
+        {
+            bool isSimilar = false;
+
+            // Genre match
+            if (gamesDatabase[j].primaryGenre == gamedatatemp.primaryGenre)
+            {
+                isSimilar = true;
+            }
+            else
+            {
+                // Tag match
+                foreach (string tag in gamedatatemp.tags)
+                {
+                    if (gamesDatabase[j].tags.Contains(tag))
+                    {
+                        isSimilar = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isSimilar)
+            {
+                gamesDatabase[j].UpdateNewUserRating(rating);
+            }
+        }
+
+        /*for (int j = 0; j < gamesDatabase.Count; j++)
+        {
+            if (gamesDatabase[j].primaryGenre.Contains(gamedatatemp.primaryGenre))
+            {
+                gamesDatabase[j].UpdateNewUserRating(rating);
+                continue; // Found at least one matching tag
+            }
+            foreach (string tag in gamedatatemp.tags)
+            {
+                if (gamesDatabase[j].tags.Contains(tag))
+                {
+                    gamesDatabase[j].UpdateNewUserRating(rating);
+                    continue;    // Found at least one matching tag
+                }
+            }
+        }*/
     }
 }
