@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,9 +10,16 @@ public class ScoreDisplayUI : MonoBehaviour
 
     private GameData gamedatatemp;
 
+    public List<GameData> gamesDatabase = new();
+
     public GameDatabase database;
 
     public UserData userData;
+
+    [Header("Game Title/ID")]
+
+    public TMP_Text gameTitle;
+    public TMP_Text gameID;
 
     [Header("Score Text")]
 
@@ -121,6 +129,8 @@ public class ScoreDisplayUI : MonoBehaviour
 
         Icon.sprite = gamedatatemp.Icon;
         Logo.sprite = gamedatatemp.Logo;
+        gameTitle.text = gamedatatemp.title.ToString();
+        gameID.text = gamedatatemp.gameID.ToString();
     }
 
     public void NextGame()
@@ -145,6 +155,109 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public void OnGameClicked(GameData selectedGame)
     {
+        gamedatatemp = selectedGame;
+
         ShowGameByClicked(selectedGame);
+    }
+
+    public void OpenWebsite()
+    {
+        if (gamedatatemp == null)
+            return;
+
+        if (string.IsNullOrEmpty(gamedatatemp.websiteURL))
+            return;
+
+        Application.OpenURL(gamedatatemp.websiteURL);
+    }
+
+    public void AddToWishlist()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.wishlist.Contains(gamedatatemp))
+            userData.wishlist.Add(gamedatatemp);
+    }
+
+    public void RemoveFromWishlist()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (userData.wishlist.Contains(gamedatatemp))
+        {
+            userData.wishlist.Remove(gamedatatemp);
+        }
+    }
+
+    /*public void AddToCompleted()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.completedGames.Contains(gamedatatemp))
+            userData.completedGames.Add(gamedatatemp);
+    }*/
+
+    public void RateGame(int rating)
+    {
+        if (gamedatatemp == null)
+            return;
+
+        if (rating >= 8)
+        {
+            if (!userData.favouriteDevelopers.Contains(gamedatatemp.developer))
+                userData.favouriteDevelopers.Add(gamedatatemp.developer);
+        }
+        else
+        {
+            if (userData.favouriteDevelopers.Contains(gamedatatemp.developer))
+                userData.favouriteDevelopers.Remove(gamedatatemp.developer);
+        }
+
+        gamedatatemp.UpdateNewUserRating(rating);
+
+        for (int j = 0; j < gamesDatabase.Count; j++)
+        {
+            bool isSimilar = false;
+
+            // Genre match
+            if (gamesDatabase[j].primaryGenre == gamedatatemp.primaryGenre)
+            {
+                isSimilar = true;
+            }
+            else
+            {
+                // Tag match
+                foreach (string tag in gamedatatemp.tags)
+                {
+                    if (gamesDatabase[j].tags.Contains(tag))
+                    {
+                        isSimilar = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isSimilar)
+            {
+                gamesDatabase[j].UpdateNewUserRating(rating);
+            }
+        }
+
+        /*for (int j = 0; j < gamesDatabase.Count; j++)
+        {
+            if (gamesDatabase[j].primaryGenre.Contains(gamedatatemp.primaryGenre))
+            {
+                gamesDatabase[j].UpdateNewUserRating(rating);
+                continue; // Found at least one matching tag
+            }
+            foreach (string tag in gamedatatemp.tags)
+            {
+                if (gamesDatabase[j].tags.Contains(tag))
+                {
+                    gamesDatabase[j].UpdateNewUserRating(rating);
+                    continue;    // Found at least one matching tag
+                }
+            }
+        }*/
     }
 }
