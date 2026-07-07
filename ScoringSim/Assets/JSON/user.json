@@ -62,6 +62,50 @@
                 "maxAgeRating": "R16",
                 "maxPrice": 66.0
             }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "RPG",
+                    "Platformer"
+                ],
+                "likedTags": [
+                    "Fantasy",
+                    "Competitive",
+                    "Story Rich",
+                    "Story Rich",
+                    "Open World"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Capcom"
+                ],
+                "maxAgeRating": "G",
+                "maxPrice": 41.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "RPG",
+                    "Platformer"
+                ],
+                "likedTags": [
+                    "Fantasy",
+                    "Competitive",
+                    "Story Rich",
+                    "Story Rich",
+                    "Open World"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Capcom"
+                ],
+                "maxAgeRating": "G",
+                "maxPrice": 41.0
+            }
         }
     ]
 }
