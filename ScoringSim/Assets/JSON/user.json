@@ -1,0 +1,67 @@
+{
+    "users": [
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Sports",
+                    "OpenWorld"
+                ],
+                "likedTags": [
+                    "Action",
+                    "Exploration",
+                    "Co-op",
+                    "Story Rich"
+                ],
+                "favouriteCreators": [
+                    "FromSoftware",
+                    "Mojang Studios"
+                ],
+                "maxAgeRating": "PG13",
+                "maxPrice": 64.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Multiplayer",
+                    "SIngle Player",
+                    "Co-op"
+                ],
+                "favouriteCreators": [
+                    "Extremely OK Games",
+                    "FromSoftware"
+                ],
+                "maxAgeRating": "",
+                "maxPrice": 39.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Competitive",
+                    "Fantasy",
+                    "Competitive",
+                    "SIngle Player"
+                ],
+                "favouriteCreators": [
+                    "Square Enix",
+                    "Extremely OK Games"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 66.0
+            }
+        }
+    ]
+}
