@@ -264,7 +264,7 @@ public class ScoreDisplayUI : MonoBehaviour
                 userData.favouriteDevelopers.Remove(gamedatatemp.developer);
         }
 
-        gamedatatemp.UpdateNewUserRating(rating);
+        //gamedatatemp.UpdateNewUserRating(rating);
 
         for (int j = 0; j < gamesDatabase.Count; j++)
         {
