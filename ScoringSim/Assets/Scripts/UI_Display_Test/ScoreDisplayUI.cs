@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,11 +34,25 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public Image Logo;
 
-    [Header("Breakdown")]
+    [Header("General Score Breakdown")]
+
+    public TMP_Text CriticScoreText;
+
+    public TMP_Text CommunityAvgText;
+
+    public TMP_Text VolBonusText;
+
+    public TMP_Text NostalgaFactorText;
+
+    public TMP_Text GeneralScoreFinalText;
+
+    [Header("User Score Breakdown")]
 
     public TMP_Text genreModifierText;
 
     public TMP_Text tagModifierText;
+
+    public TMP_Text AgeRatingText;
 
     public TMP_Text priceModifierText;
 
@@ -115,11 +130,22 @@ public class ScoreDisplayUI : MonoBehaviour
 
         generalScoreText.text = breakdown.generalScore.ToString("F0");
 
+        GeneralScoreFinalText.text = breakdown.generalScore.ToString("F0");
+
         userScoreText.text = breakdown.finalScore.ToString("F0");
 
         genreModifierText.text = breakdown.genreModifier.ToString("+0;-0");
 
         tagModifierText.text = breakdown.tagModifier.ToString("+0;-0");
+
+        if (breakdown.ageRestricted)
+        {
+            AgeRatingText.text = "NotOK!";
+        }
+        else
+        {
+            AgeRatingText.text = "OK!";
+        }
 
         priceModifierText.text = breakdown.priceModifier.ToString("+0;-0");
 
@@ -131,6 +157,18 @@ public class ScoreDisplayUI : MonoBehaviour
         Logo.sprite = gamedatatemp.Logo;
         gameTitle.text = gamedatatemp.title.ToString();
         gameID.text = gamedatatemp.gameID.ToString();
+
+        //GeneralBreakdownScore();
+        float volumeBonus = Mathf.Clamp01(Mathf.Log10(gamedatatemp.reviewCount + 1) / 5f) * 100f;
+        int age = System.DateTime.Now.Year - gamedatatemp.releaseYear;
+        float nostalgia = Mathf.Clamp(age * 2f, 0, 100);
+        float CommunityAvgPercentile = (gamedatatemp.communityAverage / 10) * 100;
+        gamedatatemp.GenerateUserRating();
+
+        CriticScoreText.text = gamedatatemp.criticScore.ToString("F0");
+        CommunityAvgText.text = CommunityAvgPercentile.ToString("F0");
+        VolBonusText.text = volumeBonus.ToString("F0");
+        NostalgaFactorText.text = nostalgia.ToString("F0");
     }
 
     public void NextGame()
@@ -195,6 +233,19 @@ public class ScoreDisplayUI : MonoBehaviour
             return;
         if (!userData.completedGames.Contains(gamedatatemp))
             userData.completedGames.Add(gamedatatemp);
+    }*/
+
+    /*public void GeneralBreakdownScore()
+    {
+        float volumeBonus = Mathf.Clamp01(Mathf.Log10(gamedatatemp.reviewCount + 1) / 5f) * 100f;
+        int age = System.DateTime.Now.Year - gamedatatemp.releaseYear;
+        float nostalgia = Mathf.Clamp(age * 2f, 0, 100);
+        gamedatatemp.GenerateUserRating();
+
+        CriticScoreText.text = gamedatatemp.criticScore.ToString("F0");
+        CommunityAvgText.text = gamedatatemp.communityAverage.ToString("F0");
+        VolBonusText.text = volumeBonus.ToString("F0");
+        NostalgaFactorText.text = nostalgia.ToString("F0");
     }*/
 
     public void RateGame(int rating)
