@@ -10,6 +10,8 @@ public class GameButtonData : MonoBehaviour
     public TMP_Text priceText;
     public Image Logo;
     public TMP_Text tagsText;
+    public TMP_Text generalscoreText;
+    public TMP_Text userscoreText;
 
     public ScoreDisplayUI displayUI;
 
@@ -26,6 +28,9 @@ public class GameButtonData : MonoBehaviour
         Logo.sprite = game.Logo;
 
         tagsText.text = string.Join(", ", game.tags);
+
+        generalscoreText.text = displayUI.GetGeneralScores(game);
+        userscoreText.text = displayUI.GetUserScores(game);
     }
 
     public void OnClickGame()

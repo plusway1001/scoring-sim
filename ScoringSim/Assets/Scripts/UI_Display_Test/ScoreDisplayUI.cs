@@ -73,7 +73,7 @@ public class ScoreDisplayUI : MonoBehaviour
 
     /*void Start()
     {
-        UpdateUI();
+        
     }
 
     public void UpdateUI()
@@ -120,10 +120,38 @@ public class ScoreDisplayUI : MonoBehaviour
         UpdateUI();
     }
 
+    public string GetGeneralScores(GameData data)
+    {
+        if (data == null || userData == null)
+            return "Invalid";
+
+        data.GenerateUserRating();
+
+        ScoreBreakdown breakdown =
+            ScoreManager.GetScoreBreakdown(data, userData);
+
+        return breakdown.generalScore.ToString("F0");
+    }
+
+    public string GetUserScores(GameData data)
+    {
+        if (data == null || userData == null)
+            return "Invalid";
+
+        data.GenerateUserRating();
+
+        ScoreBreakdown breakdown =
+            ScoreManager.GetScoreBreakdown(data, userData);
+
+        return breakdown.finalScore.ToString("F0");
+    }
+
     public void UpdateUI()
     {
         if (gamedatatemp == null || userData == null)
             return;
+
+        gamedatatemp.GenerateUserRating();
 
         ScoreBreakdown breakdown =
             ScoreManager.GetScoreBreakdown(gamedatatemp, userData);
