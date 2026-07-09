@@ -106,6 +106,26 @@
                 "maxAgeRating": "G",
                 "maxPrice": 41.0
             }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports"
+                ],
+                "likedTags": [
+                    "Co-op",
+                    "SIngle Player"
+                ],
+                "favouriteCreators": [
+                    "FromSoftware",
+                    "Mojang Studios",
+                    "Extremely OK Games"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 53.0
+            }
         }
     ]
 }
