@@ -15,7 +15,15 @@ public class GameButtonData : MonoBehaviour
 
     public ScoreDisplayUI displayUI;
 
-    private GameData game;
+    public GameData game;
+
+    void Update()
+    {
+        if (game != null) {
+            generalscoreText.text = displayUI.GetGeneralScores(game);
+            userscoreText.text = displayUI.GetUserScores(game);
+        }
+    }
 
     public void Setup(GameData data)
     {
