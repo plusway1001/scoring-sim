@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ScoreDisplayUI : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class ScoreDisplayUI : MonoBehaviour
     public GameDatabase database;
 
     public UserData userData;
+
+    public GameDatabase databasePanel;
 
     [Header("Game Title/ID")]
 
@@ -275,6 +278,43 @@ public class ScoreDisplayUI : MonoBehaviour
         VolBonusText.text = volumeBonus.ToString("F0");
         NostalgaFactorText.text = nostalgia.ToString("F0");
     }*/
+
+    public void SortWishlistGames()
+    {
+        if (databasePanel.gamesPanelObj == null || userData.wishlist == null)
+            return;
+
+        HideAllGamesPanelObj();
+
+        for (int i = 0; i < databasePanel.gamesPanelObj.Count; i++)
+        {
+            for(int j = 0; j < userData.wishlist.Count; j++)
+            {
+                if (databasePanel.gamesPanelObj[i].GetComponent<GameButtonData>() == null) return;
+                if (databasePanel.gamesPanelObj[i].GetComponent<GameButtonData>().game.gameID 
+                    == userData.wishlist[j].gameID)
+                {
+                    databasePanel.gamesPanelObj[i].SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void HideAllGamesPanelObj()
+    {
+        for (int i = 0; i < databasePanel.gamesPanelObj.Count; i++)
+        {
+             databasePanel.gamesPanelObj[i].SetActive(false);
+        }
+    }
+
+    public void ShowAllGamesPanelObj()
+    {
+        for (int i = 0; i < databasePanel.gamesPanelObj.Count; i++)
+        {
+            databasePanel.gamesPanelObj[i].SetActive(true);
+        }
+    }
 
     public void RateGame(int rating)
     {

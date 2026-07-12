@@ -14,6 +14,8 @@ public class GameListUI : MonoBehaviour
         {
             GameObject gamePanel = Instantiate(gameButtonPrefab, content);
 
+            gamedatabase.gamesPanelObj.Add(gamePanel);
+
             if(gamePanel.GetComponent<GameButtonData>() != null)
             gamePanel.GetComponent<GameButtonData>().Setup(game);
         }
