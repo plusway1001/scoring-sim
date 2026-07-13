@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -31,9 +32,12 @@ public class GenreTagDataLoader : MonoBehaviour
 
             bool isReadingGenre = false;
             bool isReadingTag = false;
+            int lineNumber = 0;
 
             while ((line = reader.ReadLine()) != null)
             {
+                lineNumber++;
+
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
 
@@ -63,6 +67,14 @@ public class GenreTagDataLoader : MonoBehaviour
                 if (headers == null)
                     continue;
 
+                if (fields.Length != headers.Length)
+                {
+                    Debug.LogWarning(
+                        $"[GenreTagDataLoader] Row length mismatch at line {lineNumber} " +
+                        $"('{firstColumn}'): expected {headers.Length} columns, got {fields.Length}."
+                    );
+                }
+
                 string categoryName = firstColumn;
 
                 for (int i = 1; i < fields.Length && i < headers.Length; i++)
@@ -76,21 +88,23 @@ public class GenreTagDataLoader : MonoBehaviour
                     GameGenreData game = GetGameByTitle(gameTitle);
 
                     if (game == null)
+                    {
+                        Debug.LogWarning(
+                            $"[GenreTagDataLoader] Line {lineNumber}: game '{gameTitle}' " +
+                            $"not found for {(isReadingGenre ? "genre" : "tag")} '{categoryName}'. Skipping."
+                        );
                         continue;
+                    }
 
                     if (isReadingGenre)
                     {
                         if (!game.genres.Contains(categoryName))
-                        {
                             game.genres.Add(categoryName);
-                        }
                     }
                     else if (isReadingTag)
                     {
                         if (!game.tags.Contains(categoryName))
-                        {
                             game.tags.Add(categoryName);
-                        }
                     }
                 }
             }
@@ -126,52 +140,42 @@ public class GenreTagDataLoader : MonoBehaviour
             || cleanedValue == "1";
     }
 
-    // Finds a game by title
+    // Finds a game by title (case-insensitive, whitespace-tolerant)
     public GameGenreData GetGameByTitle(string title)
     {
-        return games.Find(g => g.title == title);
+        return games.Find(g => string.Equals(
+            g.title?.Trim(),
+            title?.Trim(),
+            StringComparison.OrdinalIgnoreCase
+        ));
     }
 
     // Returns all genres for a selected game
     public List<string> GetGenresForGame(string title)
     {
         GameGenreData game = GetGameByTitle(title);
-
-        if (game == null)
-            return new List<string>();
-
-        return game.genres;
+        return game == null ? new List<string>() : game.genres;
     }
-    
+
     // Returns all tags for a selected game
     public List<string> GetTagsForGame(string title)
     {
         GameGenreData game = GetGameByTitle(title);
-
-        if (game == null)
-            return new List<string>();
-
-        return game.tags;
+        return game == null ? new List<string>() : game.tags;
     }
+
     // Checks if a selected game has a specific genre
     public bool HasGenre(string title, string genreName)
     {
         GameGenreData game = GetGameByTitle(title);
-
-        if (game == null)
-            return false;
-
-        return game.genres.Contains(genreName);
+        return game != null && game.genres.Contains(genreName);
     }
+
     // Checks if a selected game has a specific tag
     public bool HasTag(string title, string tagName)
     {
         GameGenreData game = GetGameByTitle(title);
-
-        if (game == null)
-            return false;
-
-        return game.tags.Contains(tagName);
+        return game != null && game.tags.Contains(tagName);
     }
 
     void PrintLoadedData()
