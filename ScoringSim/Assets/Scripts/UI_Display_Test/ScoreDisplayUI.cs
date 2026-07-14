@@ -69,6 +69,10 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public int StartGameID = 0;
 
+    [Header("Wishlist UI")]
+
+    public GameObject AddWishlistBtn, RemoveWishlistBtn;
+
     private void Start()
     {
         ShowGameByIndex(StartGameID);
@@ -245,7 +249,9 @@ public class ScoreDisplayUI : MonoBehaviour
         if (gamedatatemp == null)
             return;
         if (!userData.wishlist.Contains(gamedatatemp))
+        {
             userData.wishlist.Add(gamedatatemp);
+        }
     }
 
     public void RemoveFromWishlist()
@@ -255,6 +261,22 @@ public class ScoreDisplayUI : MonoBehaviour
         if (userData.wishlist.Contains(gamedatatemp))
         {
             userData.wishlist.Remove(gamedatatemp);
+        }
+    }
+
+    public void CheckWishlistBtnStatus()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.wishlist.Contains(gamedatatemp))
+        {
+            AddWishlistBtn.SetActive(true);
+            RemoveWishlistBtn.SetActive(false);
+        }
+        else
+        {
+            AddWishlistBtn.SetActive(false);
+            RemoveWishlistBtn.SetActive(true);
         }
     }
 
