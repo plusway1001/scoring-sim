@@ -21,7 +21,7 @@ public class GenreTagDataLoader : MonoBehaviour
     {
         if (genreTagCSV == null)
         {
-            Debug.LogWarning("Genre/Tag CSV is missing.");
+            //Debug.LogWarning("Genre/Tag CSV is missing.");
             return;
         }
 
@@ -69,10 +69,10 @@ public class GenreTagDataLoader : MonoBehaviour
 
                 if (fields.Length != headers.Length)
                 {
-                    Debug.LogWarning(
-                        $"[GenreTagDataLoader] Row length mismatch at line {lineNumber} " +
-                        $"('{firstColumn}'): expected {headers.Length} columns, got {fields.Length}."
-                    );
+                    //Debug.LogWarning(
+                    //    $"[GenreTagDataLoader] Row length mismatch at line {lineNumber} " +
+                    //    $"('{firstColumn}'): expected {headers.Length} columns, got {fields.Length}."
+                    //);
                 }
 
                 string categoryName = firstColumn;
@@ -89,10 +89,10 @@ public class GenreTagDataLoader : MonoBehaviour
 
                     if (game == null)
                     {
-                        Debug.LogWarning(
-                            $"[GenreTagDataLoader] Line {lineNumber}: game '{gameTitle}' " +
-                            $"not found for {(isReadingGenre ? "genre" : "tag")} '{categoryName}'. Skipping."
-                        );
+                        //Debug.LogWarning(
+                        //    $"[GenreTagDataLoader] Line {lineNumber}: game '{gameTitle}' " +
+                        //    $"not found for {(isReadingGenre ? "genre" : "tag")} '{categoryName}'. Skipping."
+                        //);
                         continue;
                     }
 
@@ -182,11 +182,11 @@ public class GenreTagDataLoader : MonoBehaviour
     {
         foreach (GameGenreData game in games)
         {
-            Debug.Log(
-                game.title +
-                "\nGenres: " + string.Join(", ", game.genres) +
-                "\nTags: " + string.Join(", ", game.tags)
-            );
+            //Debug.Log(
+            //    game.title +
+            //    "\nGenres: " + string.Join(", ", game.genres) +
+            //    "\nTags: " + string.Join(", ", game.tags)
+            //);
         }
     }
 }
