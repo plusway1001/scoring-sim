@@ -33,6 +33,8 @@ public class GameData : MonoBehaviour
 
     public string developer;
 
+    public int yourRatings;
+
     private void Start()
     {
         GenerateUserRating();

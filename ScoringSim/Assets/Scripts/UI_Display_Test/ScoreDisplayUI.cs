@@ -71,7 +71,13 @@ public class ScoreDisplayUI : MonoBehaviour
 
     [Header("Wishlist UI")]
 
-    public GameObject AddWishlistBtn, RemoveWishlistBtn;
+    public GameObject AddWishlistBtn, RemoveWishlistBtn, OpenWebsiteBtn;
+
+    [Header("Game Rating UI")]
+
+    public GameObject CompletedGamesBtn, GameRatingBtn, GameRatedDisplay;
+    public List<GameObject> ratingsObj = new();
+    private int tempRating;
 
     private void Start()
     {
@@ -233,6 +239,44 @@ public class ScoreDisplayUI : MonoBehaviour
         ShowGameByClicked(selectedGame);
     }
 
+    public void CompletedGames()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.completedGames.Contains(gamedatatemp))
+        {
+            userData.completedGames.Add(gamedatatemp);
+        }
+        CheckGameRatingStatus();
+    }
+
+    public void CheckGameRatingStatus()
+    {
+        if (gamedatatemp == null)
+            return;
+        if (!userData.completedGames.Contains(gamedatatemp))
+        {
+            CompletedGamesBtn.SetActive(true);
+            GameRatingBtn.SetActive(false);
+            GameRatedDisplay.SetActive(false);
+        }
+        else
+        {
+            if (!userData.gamesrating.Contains(gamedatatemp))
+            {
+                CompletedGamesBtn.SetActive(false);
+                GameRatingBtn.SetActive(true);
+                GameRatedDisplay.SetActive(false);
+            }
+            else
+            {
+                CompletedGamesBtn.SetActive(false);
+                GameRatingBtn.SetActive(false);
+                GameRatedDisplay.SetActive(true);
+            }
+        }
+    }
+
     public void OpenWebsite()
     {
         if (gamedatatemp == null)
@@ -272,11 +316,13 @@ public class ScoreDisplayUI : MonoBehaviour
         {
             AddWishlistBtn.SetActive(true);
             RemoveWishlistBtn.SetActive(false);
+            OpenWebsiteBtn.SetActive(false);
         }
         else
         {
             AddWishlistBtn.SetActive(false);
             RemoveWishlistBtn.SetActive(true);
+            OpenWebsiteBtn.SetActive(true);
         }
     }
 
@@ -384,6 +430,16 @@ public class ScoreDisplayUI : MonoBehaviour
             }
         }
 
+        hideAllGamesRatingStars();
+        showNumberOfGamesRatingStars(rating);
+        if (!userData.gamesrating.Contains(gamedatatemp))
+        {
+            userData.gamesrating.Add(gamedatatemp);
+        }
+        CheckGameRatingStatus();
+
+        gamedatatemp.yourRatings = rating;
+
         /*for (int j = 0; j < gamesDatabase.Count; j++)
         {
             if (gamesDatabase[j].primaryGenre.Contains(gamedatatemp.primaryGenre))
@@ -400,5 +456,29 @@ public class ScoreDisplayUI : MonoBehaviour
                 }
             }
         }*/
+    }
+
+    public void hideAllGamesRatingStars()
+    {
+        foreach (GameObject obj in ratingsObj)
+        {
+            obj.SetActive(false);
+        }
+    }
+
+    public void showNumberOfGamesRatingStars(int rating)
+    {
+        for(int a = 0; a < rating; a++)
+        {
+            ratingsObj[a].SetActive(true);
+        }
+    }
+
+    public void CheckGameRatingStarsStatus()
+    {
+        if (gamedatatemp == null)
+            return;
+        hideAllGamesRatingStars();
+        showNumberOfGamesRatingStars(gamedatatemp.yourRatings);
     }
 }

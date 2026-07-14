@@ -22,7 +22,9 @@ public class UserData : MonoBehaviour
 
     public List<GameData> wishlist = new();
 
-    //public List<GameData> completedGames = new();
+    public List<GameData> completedGames = new();
+
+    public List<GameData> gamesrating = new();
 
     public List<string> favouriteDevelopers = new();
 
