@@ -41,6 +41,14 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public TMP_Text wishlistNum;
 
+    public TMP_Text LikeGenreNum;
+
+    public TMP_Text GameCompletedNum;
+
+    public TMP_Text GameRatedNum;
+
+    public TMP_Text UserName;
+
     [Header("Score Text")]
 
     public TMP_Text generalScoreText;
@@ -103,7 +111,16 @@ public class ScoreDisplayUI : MonoBehaviour
 
     private void Update()
     {
+        DashboardStatus();
+    }
+
+    public void DashboardStatus()
+    {
         wishlistNum.text = userData.wishlist.Count.ToString();
+        LikeGenreNum.text = userData.likedGenres.Count.ToString();
+        GameCompletedNum.text = userData.completedGames.Count.ToString();
+        GameRatedNum.text = userData.gamesrating.Count.ToString();
+        UserName.text = "Welcome back, " + userData.username;
     }
 
     /*void Start()
