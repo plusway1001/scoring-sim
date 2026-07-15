@@ -26,6 +26,8 @@ public class UserData : MonoBehaviour
 
     public List<GameData> gamesrating = new();
 
+    public List<GameData> greatmatches = new();
+
     public List<string> favouriteDevelopers = new();
 
     // Developers the user has rated 8+ before

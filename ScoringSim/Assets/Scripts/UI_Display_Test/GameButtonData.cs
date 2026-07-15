@@ -22,6 +22,7 @@ public class GameButtonData : MonoBehaviour
         if (game != null) {
             generalscoreText.text = displayUI.GetGeneralScores(game);
             userscoreText.text = displayUI.GetUserScores(game);
+            displayUI.DiffScores(game);
         }
     }
 

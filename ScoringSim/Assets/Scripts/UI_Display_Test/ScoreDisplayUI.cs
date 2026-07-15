@@ -47,6 +47,8 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public TMP_Text GameRatedNum;
 
+    public TMP_Text GameMatchesNum;
+
     public TMP_Text UserName;
 
     [Header("Score Text")]
@@ -103,6 +105,10 @@ public class ScoreDisplayUI : MonoBehaviour
     public List<GameObject> ratingsObj = new();
     private int tempRating;
 
+    [Header("Game Great Matches")]
+
+    public float matchingscoreLimit;
+
     private void Start()
     {
         ShowGameByIndex(StartGameID);
@@ -117,6 +123,7 @@ public class ScoreDisplayUI : MonoBehaviour
     public void DashboardStatus()
     {
         wishlistNum.text = userData.wishlist.Count.ToString();
+        GameMatchesNum.text = userData.greatmatches.Count.ToString();
         LikeGenreNum.text = userData.likedGenres.Count.ToString();
         GameCompletedNum.text = userData.completedGames.Count.ToString();
         GameRatedNum.text = userData.gamesrating.Count.ToString();
@@ -170,6 +177,39 @@ public class ScoreDisplayUI : MonoBehaviour
         gamedatatemp = database.games[index];
 
         UpdateUI();
+    }
+
+    public void DiffScores(GameData data)
+    {
+        if (data == null || userData == null)
+            return;
+
+        float diffscores;
+
+        data.GenerateUserRating();
+
+        ScoreBreakdown breakdown =
+            ScoreManager.GetScoreBreakdown(data, userData);
+
+        if (breakdown.generalScore > breakdown.finalScore)
+        {
+            diffscores = breakdown.generalScore - breakdown.finalScore;
+        }
+        else
+        {
+            diffscores = breakdown.finalScore - breakdown.generalScore;
+        }
+
+        if(diffscores < matchingscoreLimit)
+        {
+            if(!userData.greatmatches.Contains(data))
+            userData.greatmatches.Add(data);
+        }
+        else
+        {
+            if (userData.greatmatches.Contains(data))
+                userData.greatmatches.Remove(data);
+        }
     }
 
     public string GetGeneralScores(GameData data)
