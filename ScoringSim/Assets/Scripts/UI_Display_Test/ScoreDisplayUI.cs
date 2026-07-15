@@ -6,6 +6,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
+public enum PageState
+{
+    Home,
+    Wishlist
+}
+
 public class ScoreDisplayUI : MonoBehaviour
 {
     [Header("References")]
@@ -20,10 +26,20 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public GameDatabase databasePanel;
 
-    [Header("Game Title/ID")]
+    private PageState pagestatus;
+
+    [Header("Game Info/Details")]
 
     public TMP_Text gameTitle;
     public TMP_Text gameID;
+    public TMP_Text yearText;
+    public TMP_Text genreText;
+    public TMP_Text priceText;
+    public TMP_Text tagsText;
+
+    [Header("Dashboard Info")]
+
+    public TMP_Text wishlistNum;
 
     [Header("Score Text")]
 
@@ -82,6 +98,12 @@ public class ScoreDisplayUI : MonoBehaviour
     private void Start()
     {
         ShowGameByIndex(StartGameID);
+        EnterHomePage();
+    }
+
+    private void Update()
+    {
+        wishlistNum.text = userData.wishlist.Count.ToString();
     }
 
     /*void Start()
@@ -198,6 +220,12 @@ public class ScoreDisplayUI : MonoBehaviour
         Logo.sprite = gamedatatemp.Logo;
         gameTitle.text = gamedatatemp.title.ToString();
         gameID.text = gamedatatemp.gameID.ToString();
+
+        yearText.text = gamedatatemp.releaseYear.ToString("F0");
+        genreText.text = gamedatatemp.primaryGenre;
+        priceText.text = "S$" + gamedatatemp.price.ToString("F0");
+
+        tagsText.text = string.Join(", ", gamedatatemp.tags);
 
         //GeneralBreakdownScore();
         float volumeBonus = Mathf.Clamp01(Mathf.Log10(gamedatatemp.reviewCount + 1) / 5f) * 100f;
@@ -347,6 +375,14 @@ public class ScoreDisplayUI : MonoBehaviour
         NostalgaFactorText.text = nostalgia.ToString("F0");
     }*/
 
+    public void CheckForWishlistPage()
+    {
+        if(pagestatus == PageState.Wishlist)
+        {
+            SortWishlistGames();
+        }
+    }
+
     public void SortWishlistGames()
     {
         if (databasePanel.gamesPanelObj == null || userData.wishlist == null)
@@ -382,6 +418,15 @@ public class ScoreDisplayUI : MonoBehaviour
         {
             databasePanel.gamesPanelObj[i].SetActive(true);
         }
+    }
+
+    public void EnterHomePage()
+    {
+        pagestatus = PageState.Home;
+    }
+    public void EnterWishlistPage()
+    {
+        pagestatus = PageState.Wishlist;
     }
 
     public void RateGame(int rating)
