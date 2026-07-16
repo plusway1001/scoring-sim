@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -133,6 +134,51 @@ public class ScoreDisplayUI : MonoBehaviour
         GameCompletedNum.text = userData.completedGames.Count.ToString();
         GameRatedNum.text = userData.gamesrating.Count.ToString();
         UserName.text = "Welcome back, " + userData.username;
+
+        if(userData.wishlist.Count > 0)
+        {
+            wishlistNum.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else
+        {
+            wishlistNum.color = Color.white; // White
+        }
+
+        if (userData.greatmatches.Count > 0)
+        {
+            GameMatchesNum.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else
+        {
+            GameMatchesNum.color = Color.white; // White
+        }
+
+        if (userData.likedGenres.Count > 0)
+        {
+            LikeGenreNum.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else
+        {
+            LikeGenreNum.color = Color.white; // White
+        }
+
+        if (userData.completedGames.Count > 0)
+        {
+            GameCompletedNum.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else
+        {
+            GameCompletedNum.color = Color.white; // White
+        }
+
+        if (userData.gamesrating.Count > 0)
+        {
+            GameRatedNum.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else
+        {
+            GameRatedNum.color = Color.white; // White
+        }
     }
 
     /*void Start()
@@ -295,6 +341,48 @@ public class ScoreDisplayUI : MonoBehaviour
         else
         {
             developerModifierText.color = Color.white; // Neutral
+        }
+
+        if (breakdown.generalScore >= 80)
+        {
+            generalScoreText.color = new Color32(144, 238, 144, 255); // Light Green
+            GeneralScoreFinalText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.generalScore >= 60)
+        {
+            generalScoreText.color = Color.white; // White
+            GeneralScoreFinalText.color = Color.white; // White
+        }
+        else if (breakdown.generalScore >= 40)
+        {
+            generalScoreText.color = new Color32(255, 255, 153, 255); // Light Yellow
+            GeneralScoreFinalText.color = new Color32(255, 255, 153, 255); // Light Yellow
+        }
+        else
+        {
+            generalScoreText.color = new Color32(255, 182, 193, 255); // Light Red
+            GeneralScoreFinalText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+
+        if (breakdown.finalScore >= 80)
+        {
+            userScoreText.color = new Color32(144, 238, 144, 255); // Light Green
+            finalScoreText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.finalScore >= 60)
+        {
+            userScoreText.color = Color.white; // White
+            finalScoreText.color = Color.white; // White
+        }
+        else if (breakdown.finalScore >= 40)
+        {
+            userScoreText.color = new Color32(255, 255, 153, 255); // Light Yellow
+            finalScoreText.color = new Color32(255, 255, 153, 255); // Light Yellow
+        }
+        else
+        {
+            userScoreText.color = new Color32(255, 182, 193, 255); // Light Red
+            finalScoreText.color = new Color32(255, 182, 193, 255); // Light Red
         }
     }
 
