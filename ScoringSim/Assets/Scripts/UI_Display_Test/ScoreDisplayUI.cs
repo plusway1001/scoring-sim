@@ -75,6 +75,11 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public TMP_Text GeneralScoreFinalText;
 
+    public Slider CriticScore;
+    public Slider CommunityAvg;
+    public Slider VolBonus;
+    public Slider NostalgaFactor;
+
     [Header("User Score Breakdown")]
 
     public TMP_Text genreModifierText;
@@ -238,6 +243,61 @@ public class ScoreDisplayUI : MonoBehaviour
         return breakdown.finalScore.ToString("F0");
     }
 
+    public void ChangeValueColour(ScoreBreakdown breakdown)
+    {
+        if (breakdown.genreModifier > 0)
+        {
+            genreModifierText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.genreModifier < 0)
+        {
+            genreModifierText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+        else
+        {
+            genreModifierText.color = Color.white; // Neutral
+        }
+
+        if (breakdown.tagModifier > 0)
+        {
+            tagModifierText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.tagModifier < 0)
+        {
+            tagModifierText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+        else
+        {
+            tagModifierText.color = Color.white; // Neutral
+        }
+
+        if (breakdown.priceModifier > 0)
+        {
+            priceModifierText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.priceModifier < 0)
+        {
+            priceModifierText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+        else
+        {
+            priceModifierText.color = Color.white; // Neutral
+        }
+
+        if (breakdown.developerModifier > 0)
+        {
+            developerModifierText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.developerModifier < 0)
+        {
+            developerModifierText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+        else
+        {
+            developerModifierText.color = Color.white; // Neutral
+        }
+    }
+
     public void UpdateUI()
     {
         if (gamedatatemp == null || userData == null)
@@ -261,10 +321,12 @@ public class ScoreDisplayUI : MonoBehaviour
         if (breakdown.ageRestricted)
         {
             AgeRatingText.text = "NotOK!";
+            AgeRatingText.color = new Color32(255, 182, 193, 255); // Light Red
         }
         else
         {
             AgeRatingText.text = "OK!";
+            AgeRatingText.color = new Color32(144, 238, 144, 255); // Light Green
         }
 
         priceModifierText.text = breakdown.priceModifier.ToString("+0;-0");
@@ -272,6 +334,8 @@ public class ScoreDisplayUI : MonoBehaviour
         developerModifierText.text = breakdown.developerModifier.ToString("+0;-0");
 
         finalScoreText.text = breakdown.finalScore.ToString("F0");
+
+        ChangeValueColour(breakdown);
 
         Icon.sprite = gamedatatemp.Icon;
         Logo.sprite = gamedatatemp.Logo;
@@ -295,6 +359,24 @@ public class ScoreDisplayUI : MonoBehaviour
         CommunityAvgText.text = CommunityAvgPercentile.ToString("F0");
         VolBonusText.text = volumeBonus.ToString("F0");
         NostalgaFactorText.text = nostalgia.ToString("F0");
+
+        CriticScore.maxValue = 40f;
+        CommunityAvg.maxValue = 35f;
+        VolBonus.maxValue = 15f;
+        NostalgaFactor.maxValue = 10f;
+
+        CriticScore.minValue = 0f;
+        CommunityAvg.minValue = 0f;
+        VolBonus.minValue = 0f;
+        NostalgaFactor.minValue = 0f;
+
+        CriticScore.value = gamedatatemp.criticScore * 0.40f;
+
+        //Debug.Log("critics"+ CriticScore.value);
+
+        CommunityAvg.value = CommunityAvgPercentile * 0.35f;
+        VolBonus.value = volumeBonus * 0.15f;
+        NostalgaFactor.value = nostalgia * 0.10f;
     }
 
     public void NextGame()
