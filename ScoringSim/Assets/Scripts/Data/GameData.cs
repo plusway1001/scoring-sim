@@ -14,6 +14,7 @@ public class GameData : MonoBehaviour
 
     public string primaryGenre;
     public List<string> tags = new();
+    private List<string> genres = new();
 
     public string ageRating;
 
@@ -33,9 +34,28 @@ public class GameData : MonoBehaviour
 
     public string developer;
 
+    public int yourRatings;
+
+    GenreTagDataLoader tagDataLoader;
+
     private void Start()
     {
         GenerateUserRating();
+        tagDataLoader = FindAnyObjectByType<GenreTagDataLoader>();
+
+        LoadGenreCSV();
+    }
+
+    public void LoadGenreCSV()
+    {
+        // assign the genres from the data loader
+        foreach ( var game in tagDataLoader.games)
+        {
+            if(title == game.title)
+            {
+                game.genres = genres;
+            }
+        }
     }
 
     public float CalculateAverage(List<int> values)

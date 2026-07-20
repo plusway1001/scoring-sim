@@ -126,6 +126,151 @@
                 "maxAgeRating": "R16",
                 "maxPrice": 53.0
             }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports",
+                    "Platformer",
+                    "OpenWorld",
+                    "Horror",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Competitive",
+                    "Action",
+                    "Exploration",
+                    "Story Rich",
+                    "Competitive",
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Square Enix",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 48.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports",
+                    "Platformer",
+                    "OpenWorld",
+                    "Horror",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Competitive",
+                    "Action",
+                    "Exploration",
+                    "Story Rich",
+                    "Competitive",
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Square Enix",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 48.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports",
+                    "Platformer",
+                    "OpenWorld",
+                    "Horror",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Competitive",
+                    "Action",
+                    "Exploration",
+                    "Story Rich",
+                    "Competitive",
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Square Enix",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 48.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports",
+                    "Platformer",
+                    "OpenWorld",
+                    "Horror",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Competitive",
+                    "Action",
+                    "Exploration",
+                    "Story Rich",
+                    "Competitive",
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Square Enix",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 48.0
+            }
+        },
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fighting",
+                    "Sports",
+                    "Platformer",
+                    "OpenWorld",
+                    "Horror",
+                    "RPG"
+                ],
+                "likedTags": [
+                    "Open World",
+                    "Competitive",
+                    "Action",
+                    "Exploration",
+                    "Story Rich",
+                    "Competitive",
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Mojang Studios",
+                    "Square Enix",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 48.0
+            }
         }
     ]
 }

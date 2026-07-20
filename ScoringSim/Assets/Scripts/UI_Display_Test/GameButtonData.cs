@@ -16,12 +16,15 @@ public class GameButtonData : MonoBehaviour
     public ScoreDisplayUI displayUI;
 
     public GameData game;
+    public UserData user;
 
     void Update()
     {
         if (game != null) {
             generalscoreText.text = displayUI.GetGeneralScores(game);
             userscoreText.text = displayUI.GetUserScores(game);
+            displayUI.DiffScores(game);
+            ChangeColourValueText(game);
         }
     }
 
@@ -39,10 +42,56 @@ public class GameButtonData : MonoBehaviour
 
         generalscoreText.text = displayUI.GetGeneralScores(game);
         userscoreText.text = displayUI.GetUserScores(game);
+        ChangeColourValueText(game);
     }
 
     public void OnClickGame()
     {
         displayUI.ShowGameByClicked(game);
+    }
+
+    public void ChangeColourValueText(GameData game)
+    {
+        if (game == null || user == null)
+            return;
+
+        game.GenerateUserRating();
+
+        ScoreBreakdown breakdown =
+            ScoreManager.GetScoreBreakdown(game, user);
+
+        if (breakdown.generalScore >= 80)
+        {
+            generalscoreText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.generalScore >= 60)
+        {
+            generalscoreText.color = Color.white; // White
+        }
+        else if (breakdown.generalScore >= 40)
+        {
+            generalscoreText.color = new Color32(255, 255, 153, 255); // Light Yellow
+        }
+        else
+        {
+            generalscoreText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
+
+        if (breakdown.finalScore >= 80)
+        {
+            userscoreText.color = new Color32(144, 238, 144, 255); // Light Green
+        }
+        else if (breakdown.finalScore >= 60)
+        {
+            userscoreText.color = Color.white; // White
+        }
+        else if (breakdown.finalScore >= 40)
+        {
+            userscoreText.color = new Color32(255, 255, 153, 255); // Light Yellow
+        }
+        else
+        {
+            userscoreText.color = new Color32(255, 182, 193, 255); // Light Red
+        }
     }
 }
