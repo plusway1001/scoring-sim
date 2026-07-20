@@ -1,0 +1,27 @@
+{
+    "username": "Chris",
+
+    "likedGenres": [
+        
+    ],
+
+    "likedTags": [
+        
+    ],
+
+    "maxAgeRating": "G",
+
+    "preferredMaxPrice": 10,
+
+    "wishlist": [],
+
+    "completedGames": [],
+
+    "gamesrating": [],
+
+    "greatmatches": [],
+
+    "favouriteDevelopers": [
+        "Capcom"
+    ]
+}

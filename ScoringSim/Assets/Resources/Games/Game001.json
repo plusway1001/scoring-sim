@@ -1,0 +1,38 @@
+{
+    "gameID":"Game001",
+
+    "title":"Final Fantasy VII Rebirth",
+
+    "iconPath": "Sprites/Icons/FF15_icon",
+    "logoPath": "Sprites/Logos/FF15_logo",
+
+    "websiteURL":"https://ffvii.square-enix-games.com/",
+
+    "primaryGenre":"RPG",
+
+    "tags":[
+        "Story Rich",
+        "Fantasy",
+        "Singleplayer"
+    ],
+
+    "ageRating":"R16",
+
+    "price":79.90,
+
+    "releaseYear":2024,
+
+    "criticScore":92,
+
+    "userRatings":[
+        10,
+        9,
+        9,
+        8,
+        10
+    ],
+
+    "reviewCount":35680,
+
+    "developer":"Square Enix"
+}

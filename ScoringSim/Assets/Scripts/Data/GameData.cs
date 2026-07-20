@@ -37,7 +37,7 @@ public class GameData : MonoBehaviour
 
     private void Start()
     {
-        GenerateUserRating();
+        //GenerateUserRating();
     }
 
     public float CalculateAverage(List<int> values)

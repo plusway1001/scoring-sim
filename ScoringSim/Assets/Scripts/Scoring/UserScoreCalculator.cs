@@ -103,8 +103,16 @@ public static class UserScoreCalculator
     {
         string[] ratings = { "G", "PG13", "R16", "R18" };
 
-        return System.Array.IndexOf(ratings, game)
-             > System.Array.IndexOf(ratings, user);
+        int gameIndex = System.Array.IndexOf(ratings, game);
+        int userIndex = System.Array.IndexOf(ratings, user);
+
+        Debug.Log($"Game Rating = {game} ({gameIndex})");
+        Debug.Log($"User Rating = {user} ({userIndex})");
+
+        return gameIndex > userIndex;
+
+        //return System.Array.IndexOf(ratings, game)
+        //> System.Array.IndexOf(ratings, user);
     }
 
     private static bool HasDeveloperHistory(GameData game, UserData user)

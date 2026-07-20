@@ -115,11 +115,30 @@ public class ScoreDisplayUI : MonoBehaviour
 
     public float matchingscoreLimit;
 
-    private void Start()
+    public void RefreshAllGames()
+    {
+        foreach (GameData game in database.games)
+        {
+            game.GenerateUserRating();
+
+            DiffScores(game);
+        }
+    }
+
+    public void Initialize()
+    {
+        EnterHomePage();
+
+        RefreshAllGames();
+
+        ShowGameByIndex(StartGameID);
+    }
+
+    /*private void Start()
     {
         ShowGameByIndex(StartGameID);
         EnterHomePage();
-    }
+    }*/
 
     private void Update()
     {

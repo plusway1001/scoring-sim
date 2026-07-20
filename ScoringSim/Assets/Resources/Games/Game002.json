@@ -1,0 +1,38 @@
+{
+    "gameID":"Game002",
+
+    "title":"Minecraft",
+
+    "iconPath": "Sprites/Icons/minecraft_icon",
+    "logoPath": "Sprites/Logos/minecraft_logo",
+
+    "websiteURL":"https://www.minecraft.net",
+
+    "primaryGenre":"Sandbox",
+
+    "tags":[
+        "Crafting",
+        "Open World",
+        "Survival"
+    ],
+
+    "ageRating":"PG",
+
+    "price":39.90,
+
+    "releaseYear":2011,
+
+    "criticScore":93,
+
+    "userRatings":[
+        10,
+        10,
+        9,
+        9,
+        10
+    ],
+
+    "reviewCount":58000,
+
+    "developer":"Mojang"
+}

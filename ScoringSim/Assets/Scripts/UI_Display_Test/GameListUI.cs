@@ -8,7 +8,7 @@ public class GameListUI : MonoBehaviour
 
     public GameDatabase gamedatabase;
 
-    private void Start()
+    public void GenerateButtons()
     {
         foreach (GameData game in gamedatabase.games)
         {

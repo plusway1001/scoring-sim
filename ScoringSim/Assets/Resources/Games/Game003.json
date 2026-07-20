@@ -1,0 +1,31 @@
+{
+    "gameID": "Game007",
+    "title": "Hollow Knight",
+
+    "iconPath": "Sprites/Icons/hollow_icon",
+    "logoPath": "Sprites/Logos/hollow_logo",
+
+    "websiteURL": "https://www.hollowknight.com",
+
+    "primaryGenre": "Metroidvania",
+
+    "tags": [
+        "Adventure",
+        "2D",
+        "Singleplayer"
+    ],
+
+    "ageRating": "PG",
+
+    "price": 24.90,
+
+    "releaseYear": 2017,
+
+    "criticScore": 90,
+
+    "userRatings": [10,9,10,8,9],
+
+    "reviewCount": 25000,
+
+    "developer": "Team Cherry"
+}
