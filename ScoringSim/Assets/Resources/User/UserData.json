@@ -1,17 +1,17 @@
 {
-    "username": "Chris",
+    "username": "Marco",
 
     "likedGenres": [
-        
+        "Horror"
     ],
 
     "likedTags": [
-        
+        "Action"
     ],
 
-    "maxAgeRating": "G",
+    "maxAgeRating": "PG",
 
-    "preferredMaxPrice": 10,
+    "preferredMaxPrice": 60,
 
     "wishlist": [],
 

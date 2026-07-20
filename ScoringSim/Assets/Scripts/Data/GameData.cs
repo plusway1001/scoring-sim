@@ -62,10 +62,11 @@ public class GameData : MonoBehaviour
         Debug.Log(communityAverage);
     }
 
-    public void GenerateUserRating()
+    public float GenerateUserRating()
     {
         communityAverage = CalculateAverage(userRatings);
         Debug.Log(communityAverage);
+        return communityAverage;
     }
 
 #if UNITY_EDITOR

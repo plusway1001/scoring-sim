@@ -19,7 +19,7 @@ public class ScoreDisplayUI : MonoBehaviour
 
     private GameData gamedatatemp;
 
-    public List<GameData> gamesDatabase = new();
+    //public List<GameData> gamesDatabase = new();
 
     public GameDatabase database;
 
@@ -142,6 +142,8 @@ public class ScoreDisplayUI : MonoBehaviour
 
     private void Update()
     {
+        UpdateUI();
+
         DashboardStatus();
     }
 
@@ -261,16 +263,18 @@ public class ScoreDisplayUI : MonoBehaviour
         ScoreBreakdown breakdown =
             ScoreManager.GetScoreBreakdown(data, userData);
 
-        if (breakdown.generalScore > breakdown.finalScore)
+        /*if (breakdown.generalScore > breakdown.finalScore)
         {
             diffscores = breakdown.generalScore - breakdown.finalScore;
         }
         else
         {
             diffscores = breakdown.finalScore - breakdown.generalScore;
-        }
+        }*/
 
-        if(diffscores < matchingscoreLimit)
+        diffscores = 100 - breakdown.finalScore;
+
+        if (diffscores < matchingscoreLimit)
         {
             if(!userData.greatmatches.Contains(data))
             userData.greatmatches.Add(data);
@@ -459,10 +463,13 @@ public class ScoreDisplayUI : MonoBehaviour
         float volumeBonus = Mathf.Clamp01(Mathf.Log10(gamedatatemp.reviewCount + 1) / 5f) * 100f;
         int age = System.DateTime.Now.Year - gamedatatemp.releaseYear;
         float nostalgia = Mathf.Clamp(age * 2f, 0, 100);
-        float CommunityAvgPercentile = (gamedatatemp.communityAverage / 10) * 100;
-        gamedatatemp.GenerateUserRating();
+
+        float CommunityAvgPercentile = (gamedatatemp.GenerateUserRating() / 10) * 100;
+
+        Debug.Log(CommunityAvgPercentile);
 
         CriticScoreText.text = gamedatatemp.criticScore.ToString("F0");
+
         CommunityAvgText.text = CommunityAvgPercentile.ToString("F0");
         VolBonusText.text = volumeBonus.ToString("F0");
         NostalgaFactorText.text = nostalgia.ToString("F0");
@@ -693,12 +700,12 @@ public class ScoreDisplayUI : MonoBehaviour
 
         //gamedatatemp.UpdateNewUserRating(rating);
 
-        for (int j = 0; j < gamesDatabase.Count; j++)
+        for (int j = 0; j < databasePanel.games.Count; j++)
         {
             bool isSimilar = false;
 
             // Genre match
-            if (gamesDatabase[j].primaryGenre == gamedatatemp.primaryGenre)
+            if (databasePanel.games[j].primaryGenre == gamedatatemp.primaryGenre)
             {
                 isSimilar = true;
             }
@@ -707,7 +714,7 @@ public class ScoreDisplayUI : MonoBehaviour
                 // Tag match
                 foreach (string tag in gamedatatemp.tags)
                 {
-                    if (gamesDatabase[j].tags.Contains(tag))
+                    if (databasePanel.games[j].tags.Contains(tag))
                     {
                         isSimilar = true;
                         break;
@@ -717,7 +724,7 @@ public class ScoreDisplayUI : MonoBehaviour
 
             if (isSimilar)
             {
-                gamesDatabase[j].UpdateNewUserRating(rating);
+                databasePanel.games[j].UpdateNewUserRating(rating);
             }
         }
 
