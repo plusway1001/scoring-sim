@@ -6,6 +6,7 @@ public class Bootstrap : MonoBehaviour
     public GameLoader gameLoader;
     public ScoreDisplayUI scoreUI;
     public GameListUI gameListUI;
+    public GameSorter gameSorter;
 
     private void Awake()
     {
@@ -16,5 +17,7 @@ public class Bootstrap : MonoBehaviour
         scoreUI.Initialize();
 
         gameListUI.GenerateButtons();
+
+        gameSorter.SortAll();
     }
 }

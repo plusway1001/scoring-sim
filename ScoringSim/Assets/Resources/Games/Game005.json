@@ -1,0 +1,31 @@
+{
+    "gameID": "FIFA 24",
+    "title": "FIFA 24",
+
+    "iconPath": "Sprites/Icons/fifa24_icon",
+    "logoPath": "Sprites/Logos/fifa24_logo",
+
+    "websiteURL": "https://www.ea.com/games/ea-sports-fc/fc-24",
+
+    "primaryGenre": "Sports",
+
+    "tags": [
+        "3D",
+        "Multiplayer",
+        "Simulation"
+    ],
+
+    "ageRating": "PG",
+
+    "price": 69.90,
+
+    "releaseYear": 2023,
+
+    "criticScore": 76,
+
+    "userRatings": [8, 7, 8, 6, 7],
+
+    "reviewCount": 120000,
+
+    "developer": "EA Vancouver"
+}

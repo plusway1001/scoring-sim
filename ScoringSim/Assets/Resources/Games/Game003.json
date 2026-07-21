@@ -1,5 +1,5 @@
 {
-    "gameID": "Game007",
+    "gameID": "Hollow Knight",
     "title": "Hollow Knight",
 
     "iconPath": "Sprites/Icons/hollow_icon",
@@ -7,12 +7,12 @@
 
     "websiteURL": "https://www.hollowknight.com",
 
-    "primaryGenre": "Metroidvania",
+    "primaryGenre": "Adventure",
 
     "tags": [
-        "Adventure",
+        "Platformer",
         "2D",
-        "Singleplayer"
+        "Action"
     ],
 
     "ageRating": "PG",

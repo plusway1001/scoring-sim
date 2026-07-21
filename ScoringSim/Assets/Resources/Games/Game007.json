@@ -1,0 +1,31 @@
+{
+    "gameID": "Street Fighter 6",
+    "title": "Street Fighter 6",
+
+    "iconPath": "Sprites/Icons/sf6_icon",
+    "logoPath": "Sprites/Logos/sf6_logo",
+
+    "websiteURL": "https://www.streetfighter.com/6/",
+
+    "primaryGenre": "PVP",
+
+    "tags": [
+        "Action",
+        "3D",
+        "Multiplayer"
+    ],
+
+    "ageRating": "PG",
+
+    "price": 59.90,
+
+    "releaseYear": 2023,
+
+    "criticScore": 92,
+
+    "userRatings": [10, 9, 9, 10, 8],
+
+    "reviewCount": 100000,
+
+    "developer": "Capcom"
+}

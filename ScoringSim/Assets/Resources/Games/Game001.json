@@ -1,19 +1,18 @@
 {
-    "gameID":"Game001",
+    "gameID":"Final Fantasy VII: Rebirth",
 
-    "title":"Final Fantasy VII Rebirth",
+    "title":"Final Fantasy VII: Rebirth",
 
     "iconPath": "Sprites/Icons/FF15_icon",
     "logoPath": "Sprites/Logos/FF15_logo",
 
     "websiteURL":"https://ffvii.square-enix-games.com/",
 
-    "primaryGenre":"RPG",
+    "primaryGenre":"Role-playing",
 
     "tags":[
-        "Story Rich",
-        "Fantasy",
-        "Singleplayer"
+        "Action",
+        "3D"
     ],
 
     "ageRating":"R16",

@@ -1,5 +1,5 @@
 {
-    "gameID":"Game002",
+    "gameID":"Minecraft",
 
     "title":"Minecraft",
 
@@ -8,12 +8,14 @@
 
     "websiteURL":"https://www.minecraft.net",
 
-    "primaryGenre":"Sandbox",
+    "primaryGenre":"Survival",
 
     "tags":[
-        "Crafting",
-        "Open World",
-        "Survival"
+        "Action",
+        "Simulation",
+        "First-Person",
+        "Multiplayer",
+        "3D"
     ],
 
     "ageRating":"PG",

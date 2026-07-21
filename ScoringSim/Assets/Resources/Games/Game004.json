@@ -1,0 +1,31 @@
+{
+    "gameID": "Celeste",
+    "title": "Celeste",
+
+    "iconPath": "Sprites/Icons/celeste_icon",
+    "logoPath": "Sprites/Logos/celeste_logo",
+
+    "websiteURL": "https://www.celestegame.com",
+
+    "primaryGenre": "Adventure",
+
+    "tags": [
+        "Platformer",
+        "2D",
+        "Action"
+    ],
+
+    "ageRating": "PG",
+
+    "price": 24.90,
+
+    "releaseYear": 2018,
+
+    "criticScore": 92,
+
+    "userRatings": [10, 10, 9, 10, 9],
+
+    "reviewCount": 85000,
+
+    "developer": "Extremely OK Games"
+}
