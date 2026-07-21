@@ -6,9 +6,10 @@ public class GameSorter : MonoBehaviour
 {
     [SerializeField] private GameDatabase gameDatabase;
 
-    /// <summary>
-    /// Sorts the UI so that the selected genre appears first.
-    /// </summary>
+    //==================================================
+    // Sort by Genre
+    //==================================================
+
     public void SortByGenre(string genre)
     {
         List<GameObject> sorted = gameDatabase.gamesPanelObj
@@ -26,22 +27,97 @@ public class GameSorter : MonoBehaviour
             .ThenBy(panel =>
             {
                 GameButtonData button = panel.GetComponent<GameButtonData>();
-
                 return button.game.title;
             })
             .ToList();
 
-        // Move the UI objects
+        ApplySorting(sorted);
+    }
+
+    //==================================================
+    // Sort by Tag
+    //==================================================
+
+    public void SortByTag(string tag)
+    {
+        List<GameObject> sorted = gameDatabase.gamesPanelObj
+            .OrderByDescending(panel =>
+            {
+                GameButtonData button = panel.GetComponent<GameButtonData>();
+
+                if (button == null || button.game == null)
+                    return false;
+
+                return button.game.tags.Any(t =>
+                    t.Equals(tag,
+                    System.StringComparison.OrdinalIgnoreCase));
+            })
+            .ThenBy(panel =>
+            {
+                GameButtonData button = panel.GetComponent<GameButtonData>();
+                return button.game.title;
+            })
+            .ToList();
+
+        ApplySorting(sorted);
+    }
+
+    public void SortByMultipleTags(List<string> selectedTags)
+    {
+        List<GameObject> sorted = gameDatabase.gamesPanelObj
+            .OrderByDescending(panel =>
+            {
+                GameButtonData button = panel.GetComponent<GameButtonData>();
+
+                if (button == null || button.game == null)
+                    return -1;
+
+                return button.game.tags.Count(tag =>
+                    selectedTags.Contains(tag));
+            })
+            .ThenBy(panel =>
+            {
+                return panel.GetComponent<GameButtonData>().game.title;
+            })
+            .ToList();
+
+        ApplySorting(sorted);
+    }
+
+    //==================================================
+    // Restore Original (Alphabetical)
+    //==================================================
+
+    public void SortAll()
+    {
+        List<GameObject> sorted = gameDatabase.gamesPanelObj
+            .OrderBy(panel =>
+            {
+                GameButtonData button = panel.GetComponent<GameButtonData>();
+                return button.game.title;
+            })
+            .ToList();
+
+        ApplySorting(sorted);
+    }
+
+    //==================================================
+    // Apply Sorting
+    //==================================================
+
+    private void ApplySorting(List<GameObject> sorted)
+    {
         for (int i = 0; i < sorted.Count; i++)
         {
             sorted[i].transform.SetSiblingIndex(i);
         }
 
-        // Keep the database list in the same order
         gameDatabase.gamesPanelObj = sorted;
     }
 
-    // Optional shortcut methods for UI buttons
+    //==================================================
+    // Genre Buttons
+    //==================================================
 
     public void SortHorror()
     {
@@ -68,26 +144,62 @@ public class GameSorter : MonoBehaviour
         SortByGenre("Fighting");
     }
 
-    public void SortOpenWorld()
+    public void SortOpenWorldGenre()
     {
         SortByGenre("Open World");
     }
 
-    public void SortAll()
+    //==================================================
+    // Tag Buttons
+    //==================================================
+
+    public void SortMultiplayer()
     {
-        List<GameObject> sorted = gameDatabase.gamesPanelObj
-            .OrderBy(panel =>
-            {
-                GameButtonData button = panel.GetComponent<GameButtonData>();
-                return button.game.title;
-            })
-            .ToList();
+        SortByTag("Multiplayer");
+    }
 
-        for (int i = 0; i < sorted.Count; i++)
-        {
-            sorted[i].transform.SetSiblingIndex(i);
-        }
+    public void SortSinglePlayer()
+    {
+        SortByTag("Single Player");
+    }
 
-        gameDatabase.gamesPanelObj = sorted;
+    public void SortAction()
+    {
+        SortByTag("Action");
+    }
+
+    public void SortAdventure()
+    {
+        SortByTag("Adventure");
+    }
+
+    public void SortStoryRich()
+    {
+        SortByTag("Story Rich");
+    }
+
+    public void SortFantasy()
+    {
+        SortByTag("Fantasy");
+    }
+
+    public void SortPixelArt()
+    {
+        SortByTag("Pixel Art");
+    }
+
+    public void SortPuzzle()
+    {
+        SortByTag("Puzzle");
+    }
+
+    public void SortCoop()
+    {
+        SortByTag("Co-op");
+    }
+
+    public void SortOpenWorldTag()
+    {
+        SortByTag("Open World");
     }
 }
