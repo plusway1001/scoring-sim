@@ -1,16 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GenreButton : MonoBehaviour
 {
-    public string genreName;
-
     private Button button;
     private Image image;
+    private TMP_Text text;
 
     private bool isSelected = false;
 
-    // Change these to any colours you like
     public Color normalColor = Color.white;
     public Color selectedColor = new Color(1f, 0.45f, 0.6f);
 
@@ -18,6 +17,7 @@ public class GenreButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         image = GetComponent<Image>();
+        text = GetComponentInChildren<TMP_Text>();
 
         button.onClick.AddListener(ToggleGenre);
 
@@ -26,12 +26,13 @@ public class GenreButton : MonoBehaviour
 
     private void ToggleGenre()
     {
+        string genreName = text.text;
+
         if (!isSelected)
         {
             UserProfileManager.Instance.currentUser.preferences.likedGenres.Add(genreName);
 
             image.color = selectedColor;
-
             isSelected = true;
 
             Debug.Log(genreName + " selected");
@@ -41,7 +42,6 @@ public class GenreButton : MonoBehaviour
             UserProfileManager.Instance.currentUser.preferences.likedGenres.Remove(genreName);
 
             image.color = normalColor;
-
             isSelected = false;
 
             Debug.Log(genreName + " removed");

@@ -27,6 +27,34 @@ public class UserProfileManager : MonoBehaviour
         currentUser.username = "Player";
     }
 
+    // =========================
+    // Genre Management
+    // =========================
+
+    public void AddLikedGenre(string genre)
+    {
+        if (!currentUser.preferences.likedGenres.Contains(genre))
+        {
+            currentUser.preferences.likedGenres.Add(genre);
+
+            Debug.Log($"Genre Added: {genre}");
+        }
+    }
+
+    public void RemoveLikedGenre(string genre)
+    {
+        if (currentUser.preferences.likedGenres.Contains(genre))
+        {
+            currentUser.preferences.likedGenres.Remove(genre);
+
+            Debug.Log($"Genre Removed: {genre}");
+        }
+    }
+
+    // =========================
+    // Save User
+    // =========================
+
     public void SaveUser()
     {
         // Path to Assets/JSON/user.json
