@@ -154,10 +154,10 @@ RectTransform:
   - {fileID: 1897105806}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1040, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17203646
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &17203647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &23060561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &56320628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &90549594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -888,10 +888,10 @@ RectTransform:
   - {fileID: 2101169665}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111198726
 MonoBehaviour:
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &111198727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,10 +1839,10 @@ RectTransform:
   - {fileID: 1466477994}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1040, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367383116
 MonoBehaviour:
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &367383118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &521642250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,10 +2775,10 @@ RectTransform:
   - {fileID: 368758279}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549762662
 MonoBehaviour:
@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &549762663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3978,10 +3978,10 @@ RectTransform:
   - {fileID: 1666844627}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 620, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916363830
 MonoBehaviour:
@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &916363832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4674,10 +4674,10 @@ RectTransform:
   - {fileID: 104861979}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1040, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036568024
 MonoBehaviour:
@@ -4692,7 +4692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1036568025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4843,7 +4843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1055262107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5844,10 +5844,10 @@ RectTransform:
   - {fileID: 1062092135}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -215}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216347558
 MonoBehaviour:
@@ -5862,7 +5862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1216347559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6365,6 +6365,7 @@ GameObject:
   - component: {fileID: 1381858464}
   - component: {fileID: 1381858463}
   - component: {fileID: 1381858461}
+  - component: {fileID: 1381858466}
   m_Layer: 5
   m_Name: CapcomButton
   m_TagString: Untagged
@@ -6387,10 +6388,10 @@ RectTransform:
   - {fileID: 1771144290}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381858461
 MonoBehaviour:
@@ -6487,6 +6488,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381858459}
   m_CullTransparentMesh: 1
+--- !u!114 &1381858466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381858459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TagButton
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!1 &1409019726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7999,10 +8014,10 @@ RectTransform:
   - {fileID: 277454087}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1040, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644031472
 MonoBehaviour:
@@ -8030,7 +8045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1644031474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8286,10 +8301,10 @@ RectTransform:
   - {fileID: 1789087821}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681871469
 MonoBehaviour:
@@ -8317,7 +8332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1681871471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10016,10 +10031,10 @@ RectTransform:
   - {fileID: 1332554232}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 620, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018017125
 MonoBehaviour:
@@ -10034,7 +10049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &2018017126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10228,10 +10243,10 @@ RectTransform:
   - {fileID: 1706348939}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 620, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072406879
 MonoBehaviour:
@@ -10259,7 +10274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &2072406881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10516,10 +10531,10 @@ RectTransform:
   - {fileID: 2114041496}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 620, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079545511
 MonoBehaviour:
@@ -10534,7 +10549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &2079545512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10685,7 +10700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.4, g: 0.7, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &2080374322
 MonoBehaviour:
   m_ObjectHideFlags: 0
