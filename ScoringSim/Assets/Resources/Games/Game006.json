@@ -1,0 +1,31 @@
+{
+    "gameID": "Resident Evil 7: Biohazard",
+    "title": "Resident Evil 7: Biohazard",
+
+    "iconPath": "Sprites/Icons/re7_icon",
+    "logoPath": "Sprites/Logos/re7_logo",
+
+    "websiteURL": "https://www.residentevil.com/7/",
+
+    "primaryGenre": "Horror",
+
+    "tags": [
+        "3D",
+        "First-Person",
+        "Action"
+    ],
+
+    "ageRating": "M18",
+
+    "price": 39.90,
+
+    "releaseYear": 2017,
+
+    "criticScore": 86,
+
+    "userRatings": [9, 10, 9, 8, 9],
+
+    "reviewCount": 150000,
+
+    "developer": "Capcom"
+}

@@ -9851,7 +9851,6 @@ GameObject:
   - component: {fileID: 1144045468}
   - component: {fileID: 1144045467}
   - component: {fileID: 1144045469}
-  - component: {fileID: 1144045470}
   m_Layer: 0
   m_Name: GameDataBase
   m_TagString: Untagged
@@ -9905,31 +9904,6 @@ MonoBehaviour:
   content: {fileID: 1246794602}
   gameButtonPrefab: {fileID: 2127189482}
   gamedatabase: {fileID: 1144045467}
---- !u!114 &1144045470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144045466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b716a5625614b648af8653f454541cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenreTagDataLoader
-  genreTagCSV: {fileID: 4900000, guid: 88a4ac0f69ee4c645884d84120250f8a, type: 3}
-  games:
-  - gameID: 
-    title: 
-    genres: []
-    tags: []
-    ageRating: 
-    price: 0
-    releaseYear: 0
-    developer: 
-    criticScore: 0
-    communityRatingAverage: 0
-    generalScore: 0
 --- !u!1 &1174778145
 GameObject:
   m_ObjectHideFlags: 0
