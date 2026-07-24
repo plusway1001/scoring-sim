@@ -1,22 +1,22 @@
 {
     "users": [
         {
-            "username": "Player",
+            "username": "Marco Ng",
             "preferences": {
                 "likedGenres": [
-                    "Fantasy"
+                    "Role-playing"
                 ],
                 "likedTags": [
-                    "Multiplayer",
-                    "Capcom",
+                    "2D",
+                    "FromSoftware",
                     "R18"
                 ],
                 "favouriteCreators": [
-                    "Capcom",
+                    "FromSoftware",
                     "EA Sports"
                 ],
-                "maxAgeRating": "G",
-                "maxPrice": 100.0
+                "maxAgeRating": "R18",
+                "maxPrice": 26.0
             }
         }
     ]
