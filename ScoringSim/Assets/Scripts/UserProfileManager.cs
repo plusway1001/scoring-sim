@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class UserProfileManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class UserProfileManager : MonoBehaviour
 
     // Stores the current user's data
     public User currentUser = new User();
+
+    public int sceneIndex = 1;
+    public string userName;
 
     private void Awake()
     {
@@ -24,7 +28,9 @@ public class UserProfileManager : MonoBehaviour
     private void Start()
     {
         // Temporary username
-        currentUser.username = "Player";
+        currentUser.username = userName;
+
+        ClearUserDatabase();
     }
 
     // =========================
@@ -89,5 +95,20 @@ public class UserProfileManager : MonoBehaviour
 
         Debug.Log("User saved successfully!");
         Debug.Log(output);
+
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    private void ClearUserDatabase()
+    {
+        string path = Path.Combine(Application.dataPath, "JSON/user.json");
+
+        UserDatabase database = new UserDatabase();
+        database.users.Clear();
+
+        string json = JsonUtility.ToJson(database, true);
+        File.WriteAllText(path, json);
+
+        Debug.Log("User database cleared.");
     }
 }

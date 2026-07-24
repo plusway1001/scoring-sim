@@ -1,27 +1,3 @@
 {
-  "users": [
-    {
-      "username": "Player",
-      "preferences": {
-        "likedGenres": [
-          "Horror",
-          "Sports",
-          "Fantasy"
-        ],
-        "likedTags": [
-          "Action",
-          "Platformer",
-          "Multiplayer",
-          "3D"
-        ],
-        "favouriteCreators": [
-          "Mojang Studios",
-          "Square Enix",
-          "EA Sports"
-        ],
-        "maxAgeRating": "R16",
-        "maxPrice": 48.0
-      }
-    }
-  ]
+    "users": []
 }
