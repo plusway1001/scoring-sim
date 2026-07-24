@@ -1,27 +1,23 @@
 {
-  "users": [
-    {
-      "username": "Player",
-      "preferences": {
-        "likedGenres": [
-          "Horror",
-          "Sports",
-          "Fantasy"
-        ],
-        "likedTags": [
-          "Action",
-          "Platformer",
-          "Multiplayer",
-          "3D"
-        ],
-        "favouriteCreators": [
-          "Mojang Studios",
-          "Square Enix",
-          "EA Sports"
-        ],
-        "maxAgeRating": "R16",
-        "maxPrice": 48.0
-      }
-    }
-  ]
+    "users": [
+        {
+            "username": "Player",
+            "preferences": {
+                "likedGenres": [
+                    "Fantasy"
+                ],
+                "likedTags": [
+                    "Multiplayer",
+                    "Capcom",
+                    "R18"
+                ],
+                "favouriteCreators": [
+                    "Capcom",
+                    "EA Sports"
+                ],
+                "maxAgeRating": "G",
+                "maxPrice": 100.0
+            }
+        }
+    ]
 }

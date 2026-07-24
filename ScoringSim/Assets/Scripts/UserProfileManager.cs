@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class UserProfileManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class UserProfileManager : MonoBehaviour
 
     // Stores the current user's data
     public User currentUser = new User();
+
+    public int sceneIndex = 1;
 
     private void Awake()
     {
@@ -89,5 +92,7 @@ public class UserProfileManager : MonoBehaviour
 
         Debug.Log("User saved successfully!");
         Debug.Log(output);
+
+        SceneManager.LoadScene(sceneIndex);
     }
 }

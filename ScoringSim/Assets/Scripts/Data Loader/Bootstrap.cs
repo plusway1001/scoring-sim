@@ -10,7 +10,7 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
-        userLoader.LoadUser();
+        userLoader.LoadUserUpdated();
 
         gameLoader.LoadGames();
 
