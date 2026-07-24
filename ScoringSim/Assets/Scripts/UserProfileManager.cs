@@ -30,7 +30,7 @@ public class UserProfileManager : MonoBehaviour
         // Temporary username
         currentUser.username = userName;
 
-        ClearUserDatabase();
+        
     }
 
     // =========================
@@ -99,16 +99,5 @@ public class UserProfileManager : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    private void ClearUserDatabase()
-    {
-        string path = Path.Combine(Application.dataPath, "JSON/user.json");
-
-        UserDatabase database = new UserDatabase();
-        database.users.Clear();
-
-        string json = JsonUtility.ToJson(database, true);
-        File.WriteAllText(path, json);
-
-        Debug.Log("User database cleared.");
-    }
+    
 }

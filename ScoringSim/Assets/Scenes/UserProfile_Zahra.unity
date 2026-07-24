@@ -154,10 +154,10 @@ RectTransform:
   - {fileID: 1897105806}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1040, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17203646
 MonoBehaviour:
@@ -267,8 +267,6 @@ GameObject:
   - component: {fileID: 23060563}
   - component: {fileID: 23060562}
   - component: {fileID: 23060561}
-  - component: {fileID: 23060560}
-  - component: {fileID: 23060559}
   - component: {fileID: 23060564}
   m_Layer: 5
   m_Name: PG13Button
@@ -297,33 +295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 620, y: -35}
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &23060559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23060557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0e09b27b637574a9994f587d6c6db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
-  creatorName: Mojang Studios
---- !u!114 &23060560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23060557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &23060561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgeRatingButton
   rating: PG13
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
+  resetbtncolor: {fileID: 1816522176}
 --- !u!1 &56320627
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &56320628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -654,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &90549594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,10 +863,10 @@ RectTransform:
   - {fileID: 2101169665}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111198726
 MonoBehaviour:
@@ -1816,7 +1790,6 @@ GameObject:
   - component: {fileID: 367383120}
   - component: {fileID: 367383119}
   - component: {fileID: 367383118}
-  - component: {fileID: 367383117}
   - component: {fileID: 367383116}
   m_Layer: 5
   m_Name: ExtremelyOKGamesButton
@@ -1840,10 +1813,10 @@ RectTransform:
   - {fileID: 1466477994}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1040, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367383116
 MonoBehaviour:
@@ -1858,20 +1831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: Extremely OK Games
---- !u!114 &367383117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367383114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &367383118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2452,8 +2413,6 @@ GameObject:
   - component: {fileID: 521642252}
   - component: {fileID: 521642251}
   - component: {fileID: 521642250}
-  - component: {fileID: 521642249}
-  - component: {fileID: 521642248}
   - component: {fileID: 521642253}
   m_Layer: 5
   m_Name: R18Button
@@ -2482,33 +2441,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1460, y: -35}
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &521642248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521642246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0e09b27b637574a9994f587d6c6db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
-  creatorName: EA Sports
---- !u!114 &521642249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521642246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &521642250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2604,6 +2536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgeRatingButton
   rating: R18
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
+  resetbtncolor: {fileID: 1816522176}
 --- !u!1 &547875560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,10 +2711,10 @@ RectTransform:
   - {fileID: 368758279}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549762662
 MonoBehaviour:
@@ -4147,7 +4082,6 @@ GameObject:
   - component: {fileID: 916363834}
   - component: {fileID: 916363833}
   - component: {fileID: 916363832}
-  - component: {fileID: 916363831}
   - component: {fileID: 916363830}
   m_Layer: 5
   m_Name: SquareEnixButton
@@ -4171,10 +4105,10 @@ RectTransform:
   - {fileID: 1666844627}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 620, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916363830
 MonoBehaviour:
@@ -4189,20 +4123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: Square Enix
---- !u!114 &916363831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916363828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &916363832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4867,10 +4789,10 @@ RectTransform:
   - {fileID: 104861979}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1040, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036568024
 MonoBehaviour:
@@ -4980,8 +4902,6 @@ GameObject:
   - component: {fileID: 1055262109}
   - component: {fileID: 1055262108}
   - component: {fileID: 1055262107}
-  - component: {fileID: 1055262106}
-  - component: {fileID: 1055262105}
   - component: {fileID: 1055262110}
   m_Layer: 5
   m_Name: GButton
@@ -5010,33 +4930,6 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -35}
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1055262105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055262103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0e09b27b637574a9994f587d6c6db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
-  creatorName: Capcom
---- !u!114 &1055262106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055262103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &1055262107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5132,6 +5025,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgeRatingButton
   rating: G
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
+  resetbtncolor: {fileID: 1816522176}
 --- !u!1 &1058787076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,10 +5933,10 @@ RectTransform:
   - {fileID: 1062092135}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -215}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216347558
 MonoBehaviour:
@@ -6558,7 +6454,6 @@ GameObject:
   - component: {fileID: 1381858464}
   - component: {fileID: 1381858463}
   - component: {fileID: 1381858461}
-  - component: {fileID: 1381858466}
   m_Layer: 5
   m_Name: CapcomButton
   m_TagString: Untagged
@@ -6581,10 +6476,10 @@ RectTransform:
   - {fileID: 1771144290}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381858461
 MonoBehaviour:
@@ -6599,6 +6494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: Capcom
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &1381858463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6681,20 +6578,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381858459}
   m_CullTransparentMesh: 1
---- !u!114 &1381858466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381858459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!1 &1409019726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8194,7 +8077,6 @@ GameObject:
   - component: {fileID: 1644031476}
   - component: {fileID: 1644031475}
   - component: {fileID: 1644031474}
-  - component: {fileID: 1644031473}
   - component: {fileID: 1644031472}
   m_Layer: 5
   m_Name: FromSoftwareButton
@@ -8218,10 +8100,10 @@ RectTransform:
   - {fileID: 277454087}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1040, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644031472
 MonoBehaviour:
@@ -8236,20 +8118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: FromSoftware
---- !u!114 &1644031473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644031470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &1644031474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8481,7 +8351,6 @@ GameObject:
   - component: {fileID: 1681871473}
   - component: {fileID: 1681871472}
   - component: {fileID: 1681871471}
-  - component: {fileID: 1681871470}
   - component: {fileID: 1681871469}
   m_Layer: 5
   m_Name: EASportsButton
@@ -8505,10 +8374,10 @@ RectTransform:
   - {fileID: 1789087821}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -125}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681871469
 MonoBehaviour:
@@ -8523,20 +8392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: EA Sports
---- !u!114 &1681871470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681871467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &1681871471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8619,6 +8476,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681871467}
   m_CullTransparentMesh: 1
+--- !u!1 &1705918298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705918300}
+  - component: {fileID: 1705918299}
+  m_Layer: 0
+  m_Name: ResetDataOnStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1705918299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705918298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a0a146f0bcd047bf4232209c7f829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetData
+--- !u!4 &1705918300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705918298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 841.4434, y: 502.05704, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1706348938
 GameObject:
   m_ObjectHideFlags: 0
@@ -9179,6 +9080,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789087820}
   m_CullTransparentMesh: 1
+--- !u!1 &1816522175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816522177}
+  - component: {fileID: 1816522176}
+  m_Layer: 0
+  m_Name: ResetAgeRatingButtonColour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1816522176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816522175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becdd6423db6dcc4e8d616544d3ee93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetButtonColor
+  button:
+  - {fileID: 1055262107}
+  - {fileID: 23060561}
+  - {fileID: 2080374322}
+  - {fileID: 521642250}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1816522177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816522175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 801.8008, y: 544.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1846541838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10326,10 +10277,10 @@ RectTransform:
   - {fileID: 1332554232}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 620, y: -125}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018017125
 MonoBehaviour:
@@ -10514,7 +10465,6 @@ GameObject:
   - component: {fileID: 2072406883}
   - component: {fileID: 2072406882}
   - component: {fileID: 2072406881}
-  - component: {fileID: 2072406880}
   - component: {fileID: 2072406879}
   m_Layer: 5
   m_Name: MojangStudiosButton
@@ -10538,10 +10488,10 @@ RectTransform:
   - {fileID: 1706348939}
   m_Father: {fileID: 287760348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 620, y: -35}
-  m_SizeDelta: {x: 400, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072406879
 MonoBehaviour:
@@ -10556,20 +10506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
   creatorName: Mojang Studios
---- !u!114 &2072406880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072406877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
 --- !u!114 &2072406881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10826,10 +10764,10 @@ RectTransform:
   - {fileID: 2114041496}
   m_Father: {fileID: 1969645898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 620, y: -35}
+  m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079545511
 MonoBehaviour:
@@ -10939,8 +10877,6 @@ GameObject:
   - component: {fileID: 2080374324}
   - component: {fileID: 2080374323}
   - component: {fileID: 2080374322}
-  - component: {fileID: 2080374321}
-  - component: {fileID: 2080374320}
   - component: {fileID: 2080374325}
   m_Layer: 5
   m_Name: R16Button
@@ -10969,33 +10905,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1040, y: -35}
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2080374320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080374318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0e09b27b637574a9994f587d6c6db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatorButton
-  creatorName: Extremely OK Games
---- !u!114 &2080374321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080374318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306e8667914122448ca6375a62cd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TagButton
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.4509804, b: 0.6, a: 1}
 --- !u!114 &2080374322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11091,6 +11000,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgeRatingButton
   rating: R16
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.45, b: 0.6, a: 1}
+  resetbtncolor: {fileID: 1816522176}
 --- !u!1 &2084557648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12055,3 +11967,5 @@ SceneRoots:
   - {fileID: 1886960984}
   - {fileID: 753250375}
   - {fileID: 1846541838}
+  - {fileID: 1816522177}
+  - {fileID: 1705918300}

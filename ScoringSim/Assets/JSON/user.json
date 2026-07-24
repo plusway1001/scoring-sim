@@ -1,3 +1,20 @@
 {
-    "users": []
+    "users": [
+        {
+            "username": "Marco Ng",
+            "preferences": {
+                "likedGenres": [
+                    "Fantasy"
+                ],
+                "likedTags": [
+                    "Multiplayer"
+                ],
+                "favouriteCreators": [
+                    "Square Enix"
+                ],
+                "maxAgeRating": "R16",
+                "maxPrice": 89.0
+            }
+        }
+    ]
 }
