@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3"/>
+    <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
     <ui:VisualElement name="profile-page" class="page" style="min-width: 1920px; min-height: 1080px;">
         <ui:VisualElement class="navbar">
             <ui:Label name="nav-brand" text="GAMESCOPE" class="navbar__brand"/>
@@ -69,12 +69,12 @@
                 </ui:VisualElement>
                 <ui:VisualElement class="list-section">
                     <ui:Label name="wishlist-title" text="Wishlist Cart (0)" class="list-section__title list-section__title--wishlist"/>
-                    <ui:Label name="wishlist-empty" text="Nothing here yet." class="summary-empty" style="color: rgb(210, 222, 232);"/>
+                    <ui:Label name="wishlist-empty" text="Nothing here yet." class="summary-empty" style="color: rgb(210, 222, 232); font-size: 14px;"/>
                     <ui:VisualElement name="wishlist-chips" class="list-chips-row"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="list-section">
                     <ui:Label name="completed-title" text="Completed (0)" class="list-section__title list-section__title--completed"/>
-                    <ui:Label name="completed-empty" text="Nothing here yet." class="summary-empty"/>
+                    <ui:Label name="completed-empty" text="Nothing here yet." class="summary-empty" style="color: rgb(210, 222, 232); font-size: 14px;"/>
                     <ui:VisualElement name="completed-chips" class="list-chips-row"/>
                 </ui:VisualElement>
             </ui:VisualElement>
