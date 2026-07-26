@@ -334,7 +334,6 @@
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     color: var(--color-text);
-    -unity-cursor-color: var(--color-text);
 }
 
 .field__input:focus {
@@ -523,7 +522,6 @@
 
 .tag-submit-row .unity-text-field__input {
     color: var(--color-text);
-    -unity-cursor-color: var(--color-text);
     font-size: 13px;
 }
 
@@ -677,7 +675,6 @@
 .search-field .unity-text-field__input,
 .search-field .unity-base-field__input > TextInput {
     color: var(--color-text);
-    -unity-cursor-color: var(--color-text);
     font-size: 13px;
     -unity-text-align: middle-left;
 }
