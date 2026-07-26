@@ -13756,7 +13756,7 @@ GameObject:
   - component: {fileID: 1596019694}
   - component: {fileID: 1596019693}
   m_Layer: 5
-  m_Name: Sort Horror
+  m_Name: Sort Simulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13779,8 +13779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 829, y: 357}
-  m_SizeDelta: {x: 86.1088, y: 30}
+  m_AnchoredPosition: {x: 795.4883, y: 357}
+  m_SizeDelta: {x: 119.6206, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596019693
 MonoBehaviour:
@@ -14207,7 +14207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Horror
+  m_text: Simulation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

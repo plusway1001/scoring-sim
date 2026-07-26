@@ -62,6 +62,10 @@ public class GameSorter : MonoBehaviour
         ApplySorting(sorted);
     }
 
+    //==================================================
+    // Sort by Multiple Tags
+    //==================================================
+
     public void SortByMultipleTags(List<string> selectedTags)
     {
         List<GameObject> sorted = gameDatabase.gamesPanelObj
@@ -78,6 +82,22 @@ public class GameSorter : MonoBehaviour
             .ThenBy(panel =>
             {
                 return panel.GetComponent<GameButtonData>().game.title;
+            })
+            .ToList();
+
+        ApplySorting(sorted);
+    }
+
+    //==================================================
+    // Sort by Year
+    //==================================================
+    public void SortByYear()
+    {
+        List<GameObject> sorted = gameDatabase.gamesPanelObj
+            .OrderBy(panel =>
+            {
+                GameButtonData button = panel.GetComponent<GameButtonData>();
+                return button.game.releaseYear;
             })
             .ToList();
 
