@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 1188306258}
   - component: {fileID: 1188306257}
   - component: {fileID: 1188306256}
+  - component: {fileID: 1188306259}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -193,6 +194,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188306259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188306255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac194d08d9acb4b8d1bee9fb5e33fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameScope.ThemeSettings
+  targetStyleSheet: {fileID: 7433441132597879392, guid: 0ac598c2f2b6d7e478f7119a7176b2be, type: 3}
+  background: {r: 0.039215688, g: 0.039215688, b: 0.07058824, a: 1}
+  panelBackground: {r: 0.07058824, g: 0.07058824, b: 0.11764706, a: 1}
+  border: {r: 0.16470589, g: 0.16470589, b: 0.24313726, a: 1}
+  accent: {r: 0.9137255, g: 0.27058825, b: 0.3764706, a: 1}
+  accentDark: {r: 0.77254903, g: 0.1764706, b: 0.27450982, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  textMuted: {r: 0.53333336, g: 0.53333336, b: 0.53333336, a: 1}
+  textFaint: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
+  good: {r: 0, g: 0.8980392, b: 0.627451, a: 1}
+  goodDark: {r: 0, g: 0.78039217, b: 0.54901963, a: 1}
+  mid: {r: 0.9607843, g: 0.77254903, b: 0.09411765, a: 1}
+  bad: {r: 0.8784314, g: 0.36078432, b: 0.36078432, a: 1}
 --- !u!1 &1494260795
 GameObject:
   m_ObjectHideFlags: 0
