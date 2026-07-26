@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using VideoScope.Pages;
+using GameScope.Pages;
 
-namespace VideoScope
+namespace GameScope
 {
     /// <summary>
     /// Attach to a GameObject that has a UIDocument component. Assign the six
@@ -35,7 +35,7 @@ namespace VideoScope
             _root = _document.rootVisualElement;
 
             // The root panel can be any actual window size; every page is authored
-            // at a fixed 1920x1080 canvas (see .page in VideoScope.uss), so center
+            // at a fixed 1920x1080 canvas (see .page in GameScope.uss), so center
             // that canvas within whatever space the panel gives us.
             _root.style.flexGrow = 1;
             _root.style.alignItems = Align.Center;

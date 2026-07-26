@@ -1,3 +1,8 @@
+// === CODE FROM main2/Assets/Scripts/Scoring/GeneralScoreCalculator.cs === LINE 1-30 ===
+// Verbatim from the team's main2 branch — no logic changes. Operates on the
+// `GameData` type; see Scripts/Scoring/ScoringBridge.cs for how GameScope's
+// own GameEntry catalogue objects get converted into GameData so this code
+// runs completely untouched.
 using UnityEngine;
 
 public static class GeneralScoreCalculator

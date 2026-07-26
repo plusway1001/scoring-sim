@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="VideoScope.uss" />
+    <Style src="GameScope.uss" />
     <ui:VisualElement name="profile-page" class="page">
 
         <ui:VisualElement class="navbar">
-            <ui:Label name="nav-brand" class="navbar__brand" text="VIDEOSCOPE" />
+            <ui:Label name="nav-brand" class="navbar__brand" text="GAMESCOPE" />
             <ui:VisualElement class="navbar__links">
                 <ui:Label name="nav-catalogue-link" text="CATALOGUE" class="navbar__link" />
                 <ui:Label text="PROFILE" class="navbar__link navbar__link--active" />
@@ -11,12 +11,13 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <ui:ScrollView class="page-content" style="max-width: 900px;">
+        <ui:ScrollView class="page-content">
+            <ui:VisualElement class="page-content-inner">
 
             <ui:VisualElement class="profile-header">
                 <ui:VisualElement>
                     <ui:Label name="profile-username" text="Player" class="profile-username" />
-                    <ui:Label name="profile-substats" text="0 games rated · 0 completed · 0 in wishlist" class="profile-substats" />
+                    <ui:Label name="profile-substats" text="0 games rated · 0 completed · 0 in wishlist cart" class="profile-substats" />
                 </ui:VisualElement>
                 <ui:Button name="btn-edit" text="Edit Profile" class="btn-primary" style="padding: 10px 24px; font-size: 14px;" />
             </ui:VisualElement>
@@ -78,7 +79,7 @@
             </ui:VisualElement>
 
             <ui:VisualElement class="list-section">
-                <ui:Label name="wishlist-title" text="Wishlist (0)" class="list-section__title list-section__title--wishlist" />
+                <ui:Label name="wishlist-title" text="Wishlist Cart (0)" class="list-section__title list-section__title--wishlist" />
                 <ui:Label name="wishlist-empty" text="Nothing here yet." class="summary-empty" />
                 <ui:VisualElement name="wishlist-chips" class="list-chips-row" />
             </ui:VisualElement>
@@ -89,6 +90,7 @@
                 <ui:VisualElement name="completed-chips" class="list-chips-row" />
             </ui:VisualElement>
 
+            </ui:VisualElement>
         </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

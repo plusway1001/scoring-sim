@@ -1,3 +1,8 @@
+// === CODE FROM main2/Assets/Scripts/Scoring/UserScoreCalculator.cs === LINE 1-130 ===
+// Verbatim from the team's main2 branch — no logic changes (including the two
+// commented-out lines: disliked-genre penalty and the price-minimum check are
+// exactly as disabled in main2, not something removed during this merge).
+// Operates on `GameData`/`UserData`; see Scripts/Scoring/ScoringBridge.cs.
 using UnityEngine;
 
 public static class UserScoreCalculator

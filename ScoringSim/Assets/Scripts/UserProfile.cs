@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace VideoScope
+namespace GameScope
 {
     /// <summary>Mirrors the `user` object shape used throughout the React app.</summary>
     public class UserProfile

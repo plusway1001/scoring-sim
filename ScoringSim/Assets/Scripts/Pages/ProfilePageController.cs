@@ -1,7 +1,8 @@
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace VideoScope.Pages
+namespace GameScope.Pages
 {
     public class ProfilePageController
     {
@@ -28,7 +29,7 @@ namespace VideoScope.Pages
 
             _root.Q<Label>("profile-username").text = User.Username;
             _root.Q<Label>("profile-substats").text =
-                $"{User.Ratings.Count} games rated · {User.Completed.Count} completed · {User.Wishlist.Count} in wishlist";
+                $"{User.Ratings.Count} games rated · {User.Completed.Count} completed · {User.Wishlist.Count} in wishlist cart";
 
             _summaryView = _root.Q<VisualElement>("summary-view");
             _editView = _root.Q<VisualElement>("edit-view");
@@ -161,6 +162,7 @@ namespace VideoScope.Pages
 
             priceLabel.text = $"Max Price: ${_draft.PriceMax:0}";
             priceSlider.SetValueWithoutNotify(_draft.PriceMax);
+            UIHelpers.StyleFilledSlider(priceSlider);
             priceSlider.RegisterValueChangedCallback(evt =>
             {
                 _draft.PriceMax = evt.newValue;
@@ -232,14 +234,17 @@ namespace VideoScope.Pages
 
         private void BuildLists()
         {
-            _root.Q<Label>("wishlist-title").text = $"Wishlist ({User.Wishlist.Count})";
+            _root.Q<Label>("wishlist-title").text = $"Wishlist Cart ({User.Wishlist.Count})";
             _root.Q<Label>("completed-title").text = $"Completed ({User.Completed.Count})";
 
-            FillGameChips(_root.Q<VisualElement>("wishlist-chips"), _root.Q<Label>("wishlist-empty"), User.Wishlist, "#e94560");
-            FillGameChips(_root.Q<VisualElement>("completed-chips"), _root.Q<Label>("completed-empty"), User.Completed, "#00e5a0");
+            // Wishlist Cart entries get a "Go to Store" button (adapted from main2's
+            // ScoreDisplayUI.OpenWebsite()/OpenWebsiteBtn) since these are the games the
+            // user has said they want to buy. Completed games don't need one.
+            FillGameChips(_root.Q<VisualElement>("wishlist-chips"), _root.Q<Label>("wishlist-empty"), User.Wishlist, "#e94560", showStoreButton: true);
+            FillGameChips(_root.Q<VisualElement>("completed-chips"), _root.Q<Label>("completed-empty"), User.Completed, "#00e5a0", showStoreButton: false);
         }
 
-        private void FillGameChips(VisualElement container, Label emptyLabel, System.Collections.Generic.List<int> ids, string colorHex)
+        private void FillGameChips(VisualElement container, Label emptyLabel, System.Collections.Generic.List<int> ids, string colorHex, bool showStoreButton = false)
         {
             container.Clear();
             emptyLabel.EnableInClassList("hidden", ids.Count != 0);
@@ -274,6 +279,19 @@ namespace VideoScope.Pages
                 chip.Add(textCol);
 
                 chip.RegisterCallback<ClickEvent>(_ => _manager.ShowGameDetail(game));
+
+                // === ADAPTED FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === LINE 561-570 (OpenWebsite) ===
+                if (showStoreButton && !string.IsNullOrEmpty(game.StoreUrl))
+                {
+                    var storeBtn = new Button { text = "🛒 Go to Store" };
+                    storeBtn.AddToClassList("list-chip__store-btn");
+                    storeBtn.clicked += () => Application.OpenURL(game.StoreUrl);
+                    // Stop the click from also bubbling up to the chip's own
+                    // ClickEvent handler above (which would navigate to the detail page).
+                    storeBtn.RegisterCallback<ClickEvent>(evt => evt.StopPropagation());
+                    chip.Add(storeBtn);
+                }
+
                 container.Add(chip);
             }
         }

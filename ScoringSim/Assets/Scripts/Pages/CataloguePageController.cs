@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UIElements;
 
-namespace VideoScope.Pages
+namespace GameScope.Pages
 {
     public class CataloguePageController
     {
@@ -11,7 +11,7 @@ namespace VideoScope.Pages
         private UserProfile User => _manager.CurrentUser;
 
         private TextField _search;
-        private DropdownField _genreDropdown, _ratingDropdown, _sortDropdown;
+        private ThemedDropdown _genreDropdown, _ratingDropdown, _sortDropdown;
         private Label _resultsCount, _emptyLabel, _navUsernameLink, _navProfileLink, _navSignInLink;
         private VisualElement _heroPanel, _legendRow, _grid;
         private Label _heroUsername, _heroSub, _heroMatches, _heroWishlistCount;
@@ -50,9 +50,11 @@ namespace VideoScope.Pages
             if (loggedIn) _navUsernameLink.text = User.Username;
 
             _search = _root.Q<TextField>("search-field");
-            _genreDropdown = _root.Q<DropdownField>("genre-dropdown");
-            _ratingDropdown = _root.Q<DropdownField>("rating-dropdown");
-            _sortDropdown = _root.Q<DropdownField>("sort-dropdown");
+            UIHelpers.AddPlaceholder(_search, "Search games...");
+            UIHelpers.ForceWhiteText(_search);
+            _genreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("genre-dropdown"));
+            _ratingDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("rating-dropdown"));
+            _sortDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sort-dropdown"));
             _resultsCount = _root.Q<Label>("results-count");
             _emptyLabel = _root.Q<Label>("empty-label");
             _heroPanel = _root.Q<VisualElement>("hero-panel");
@@ -120,7 +122,7 @@ namespace VideoScope.Pages
             if (User != null)
             {
                 _heroUsername.text = User.Username;
-                _heroSub.text = $"{User.LikedGenres.Count} liked genres · {User.Wishlist.Count} in wishlist · {User.Ratings.Count} games rated";
+                _heroSub.text = $"{User.LikedGenres.Count} liked genres · {User.Wishlist.Count} in wishlist cart · {User.Ratings.Count} games rated";
                 _heroMatches.text = list.Count(g => ScoreCalculator.CalcUserScore(g, User) >= 85).ToString();
                 _heroWishlistCount.text = User.Wishlist.Count.ToString();
             }
@@ -178,6 +180,20 @@ namespace VideoScope.Pages
             return card;
         }
 
+        /// <summary>Swaps a plain placeholder VisualElement (declared in UXML with a
+        /// name/class so layout CSS still applies) for a real ThemedDropdown at the
+        /// same position in the tree.</summary>
+        private static ThemedDropdown ReplaceWithThemedDropdown(VisualElement placeholder)
+        {
+            var dropdown = new ThemedDropdown { name = placeholder.name };
+            foreach (var cls in placeholder.GetClasses()) dropdown.AddToClassList(cls);
+            var parent = placeholder.parent;
+            int idx = parent.IndexOf(placeholder);
+            parent.RemoveAt(idx);
+            parent.Insert(idx, dropdown);
+            return dropdown;
+        }
+
         /// <summary>Labels default to pickingMode = Ignore in UI Toolkit, so text used as a
         /// nav link needs picking explicitly enabled before it will receive ClickEvents.</summary>
         private static void MakeClickable(VisualElement el, System.Action onClick)
@@ -190,7 +206,10 @@ namespace VideoScope.Pages
         {
             row.EnableInClassList("game-card__wishlist--active", inWishlist);
             row.Q<Label>("card-heart").text = inWishlist ? "♥" : "♡";
-            row.Q<Label>("card-wishlist-text").text = inWishlist ? "In Wishlist" : "Add to Wishlist";
+            // "Wishlist Cart": games you've added are the ones you intend to buy — see the
+            // Wishlist Cart section on the Profile page and the "Go to Store" button there
+            // and on the Game Detail page (adapted from main2's ScoreDisplayUI.OpenWebsite()).
+            row.Q<Label>("card-wishlist-text").text = inWishlist ? "In Wishlist Cart" : "Add to Wishlist Cart";
         }
     }
 }

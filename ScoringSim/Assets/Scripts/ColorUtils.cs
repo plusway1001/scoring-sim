@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace VideoScope
+namespace GameScope
 {
     public static class ColorUtils
     {

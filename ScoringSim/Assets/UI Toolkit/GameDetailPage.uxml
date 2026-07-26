@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="VideoScope.uss" />
+    <Style src="GameScope.uss" />
     <ui:VisualElement name="detail-page" class="page">
 
         <ui:VisualElement class="navbar">
             <ui:Button name="btn-back" text="← Back" class="back-btn" />
-            <ui:Label class="navbar__brand" text="VIDEOSCOPE" />
+            <ui:Label class="navbar__brand" text="GAMESCOPE" />
         </ui:VisualElement>
 
         <ui:ScrollView>
@@ -44,8 +44,13 @@
                 </ui:VisualElement>
 
                 <ui:VisualElement name="action-row" class="action-row hidden">
-                    <ui:Button name="btn-wishlist" text="♡ Add to Wishlist" class="btn-toggle" />
+                    <ui:Button name="btn-wishlist" text="♡ Add to Wishlist Cart" class="btn-toggle" />
                     <ui:Button name="btn-completed" text="Mark as Completed" class="btn-toggle" />
+                    <!-- === ADAPTED FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === LINE 106, 561-570, 592-608 ===
+                         main2's OpenWebsiteBtn only appears once a game is in the wishlist
+                         (CheckWishlistBtnStatus). Same rule here: this button is hidden until
+                         the game is added to the Wishlist Cart, then opens GameEntry.StoreUrl. -->
+                    <ui:Button name="btn-store" text="🛒 Go to Store" class="btn-toggle hidden" />
                 </ui:VisualElement>
 
                 <ui:VisualElement name="rate-panel" class="panel hidden">
@@ -53,6 +58,22 @@
                     <ui:Label name="rate-sub" text="Your rating directly sets your User Score and may add this developer to your favourite creators." class="step-sub" style="margin-bottom: 16px;" />
                     <ui:VisualElement name="rating-row" class="rating-row" />
                     <ui:Label name="rating-confirm" text="" class="rating-confirm hidden" />
+                </ui:VisualElement>
+
+                <!-- === ADAPTED FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs ===
+                     Community-driven tagging (SDD "Dynamic Tag Expansion", Priority 5 stretch goal).
+                     Wired up by Scripts/Pages/CommunityTagBoardController.cs. -->
+                <ui:VisualElement name="community-tags-panel" class="panel">
+                    <ui:Label text="Community Tags" class="panel__title" style="color: white; margin-bottom: 4px;" />
+                    <ui:Label text="Propose a tag. A tag becomes official once 5 players vote for it." class="step-sub" style="margin-bottom: 16px;" />
+                    <ui:VisualElement class="tag-submit-row">
+                        <ui:TextField name="tag-input" />
+                        <ui:Button name="btn-submit-tag" text="Submit" class="btn-secondary" />
+                    </ui:VisualElement>
+                    <ui:Label text="Official" class="section-label" />
+                    <ui:VisualElement name="official-tag-row" class="tag-row" style="margin-bottom: 12px;" />
+                    <ui:Label text="Community-submitted" class="section-label" />
+                    <ui:VisualElement name="community-tag-row" class="tag-row" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:ScrollView>

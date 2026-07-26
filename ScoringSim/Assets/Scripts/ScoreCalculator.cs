@@ -1,45 +1,48 @@
-using System;
-using System.Linq;
+using GameScope.Scoring;
 
-namespace VideoScope
+namespace GameScope
 {
+    /// <summary>
+    /// This used to hold its own placeholder scoring formula. It has been rewired to
+    /// call the team's real main2 scoring code (Scripts/Scoring/GeneralScoreCalculator.cs
+    /// and Scripts/Scoring/UserScoreCalculator.cs, dropped in unmodified) via the
+    /// ScoringBridge adapter (Scripts/Scoring/ScoringBridge.cs). Every page controller
+    /// that already calls ScoreCalculator.CalcGeneralScore/CalcUserScore keeps working
+    /// unchanged — only what happens *inside* these two methods changed.
+    /// === CODE FROM main2/Assets/Scripts/Scoring/ScoreManager.cs === LINE 1-18 ===
+    /// (GetGeneralScore/GetUserScore below mirror ScoreManager's two methods 1:1.)
+    /// </summary>
     public static class ScoreCalculator
     {
-        /// <summary>General (non-personalized) score, 0-100ish.</summary>
+        /// <summary>General (non-personalized) score, 0-100. Now backed by main2's
+        /// GeneralScoreCalculator.Calculate(GameData).</summary>
         public static int CalcGeneralScore(GameEntry game)
         {
-            double vol = Math.Min(Math.Log(game.TotalRatings) / Math.Log(70000) * 15, 15);
-            double nostalgia = Math.Max(0, (2024 - game.Year) / 30.0) * 10;
-            double score = game.CriticScore * 0.4 + game.CommunityAvg * 10 * 0.35 + vol + nostalgia;
-            return (int)Math.Round(score);
+            var bridgedGame = ScoringBridge.ToGameData(game);
+            float score = GeneralScoreCalculator.Calculate(bridgedGame);
+            return (int)System.Math.Round(score);
         }
 
-        /// <summary>Personalized score for a given user, or the general score if user is null/guest.</summary>
+        /// <summary>Personalized score for a given user, or the general score if user is
+        /// null/guest. Now backed by main2's UserScoreCalculator.Calculate(GameData, UserData).</summary>
         public static int CalcUserScore(GameEntry game, UserProfile user)
         {
             if (user == null) return CalcGeneralScore(game);
 
-            if (user.Ratings.TryGetValue(game.Id, out int explicitRating))
-                return explicitRating * 10;
+            var bridgedGame = ScoringBridge.ToGameData(game);
+            var bridgedUser = ScoringBridge.ToUserData(user);
+            ScoreBreakdown breakdown = UserScoreCalculator.Calculate(bridgedGame, bridgedUser);
+            return (int)System.Math.Round(breakdown.finalScore);
+        }
 
-            double score = CalcGeneralScore(game);
-
-            string[] ratingOrder = { "G", "PG13", "R16", "R18" };
-            int gameRatingIdx = Array.IndexOf(ratingOrder, game.Rating);
-            int userMaxIdx = Array.IndexOf(ratingOrder, user.MaxRating);
-            if (gameRatingIdx > userMaxIdx) return 0;
-
-            if (user.LikedGenres.Contains(game.Genre)) score += 20;
-            if (user.DislikedGenres.Contains(game.Genre)) score -= 20;
-
-            int tagMatches = game.Tags.Count(t => user.LikedTags.Contains(t));
-            score += Math.Min(tagMatches * 2, 10);
-
-            if (game.Price >= user.PriceMin && game.Price <= user.PriceMax) score += 5;
-
-            if (user.FavCreators.Contains(game.Dev)) score += 10;
-
-            return (int)Math.Max(0, Math.Min(100, Math.Round(score)));
+        /// <summary>Full modifier-by-modifier breakdown for the Game Detail page,
+        /// straight from main2's UserScoreCalculator so the "Your Score Modifiers"
+        /// panel reflects exactly what main2's formula computed (no re-derivation).</summary>
+        public static ScoreBreakdown CalcUserScoreBreakdown(GameEntry game, UserProfile user)
+        {
+            var bridgedGame = ScoringBridge.ToGameData(game);
+            var bridgedUser = ScoringBridge.ToUserData(user);
+            return UserScoreCalculator.Calculate(bridgedGame, bridgedUser);
         }
     }
 }

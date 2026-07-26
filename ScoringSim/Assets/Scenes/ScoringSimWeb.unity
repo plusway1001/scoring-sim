@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b8c8d49acbd75a45b897b766fcb6c2c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VideoScope.UIManager
+  m_EditorClassIdentifier: Assembly-CSharp::GameScope.UIManager
   loginPage: {fileID: 9197481963319205126, guid: a70f6b6d7fdfd974a8682e18dda5820f, type: 3}
   onboardingPage: {fileID: 9197481963319205126, guid: dcce9a9f32ef2bb41ad482009cfb02ae, type: 3}
   cataloguePage: {fileID: 9197481963319205126, guid: de4cebdb90f23bd4990ae65f3d83a0cb, type: 3}

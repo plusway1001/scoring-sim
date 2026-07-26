@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="VideoScope.uss" />
+    <Style src="GameScope.uss" />
     <ui:VisualElement name="login-page" class="page center-page">
         <ui:VisualElement class="auth-wrap">
 
             <ui:VisualElement class="logo-block">
-                <ui:Label text="VIDEOSCOPE" class="logo" name="logo-label" />
+                <ui:Label text="GAMESCOPE" class="logo" name="logo-label" />
                 <ui:Label text="Personalized Game Discovery" class="tagline" />
             </ui:VisualElement>
 

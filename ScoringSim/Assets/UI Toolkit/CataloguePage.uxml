@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="VideoScope.uss" />
+    <Style src="GameScope.uss" />
     <ui:VisualElement name="catalogue-page" class="page">
 
         <ui:VisualElement name="navbar" class="navbar">
-            <ui:Label name="nav-brand" class="navbar__brand" text="VIDEOSCOPE" />
+            <ui:Label name="nav-brand" class="navbar__brand" text="GAMESCOPE" />
             <ui:VisualElement class="navbar__links">
                 <ui:Label text="CATALOGUE" class="navbar__link navbar__link--active" />
                 <ui:Label name="nav-profile-link" text="PROFILE" class="navbar__link" />
@@ -18,7 +18,7 @@
                 <ui:VisualElement>
                     <ui:Label text="Welcome back" class="hero-panel__eyebrow" />
                     <ui:Label name="hero-username" text="Player" class="hero-panel__name" />
-                    <ui:Label name="hero-sub" text="0 liked genres · 0 in wishlist · 0 games rated" class="hero-panel__sub" />
+                    <ui:Label name="hero-sub" text="0 liked genres · 0 in wishlist cart · 0 games rated" class="hero-panel__sub" />
                 </ui:VisualElement>
                 <ui:VisualElement class="hero-stats-row">
                     <ui:VisualElement class="hero-stat">
@@ -27,16 +27,16 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="hero-stat">
                         <ui:Label name="hero-wishlist-count" text="0" class="hero-stat__value hero-stat__value--accent" />
-                        <ui:Label text="Wishlist" class="hero-stat__label" />
+                        <ui:Label text="Wishlist Cart" class="hero-stat__label" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
 
             <ui:VisualElement class="filters-row">
                 <ui:TextField name="search-field" class="search-field" />
-                <ui:DropdownField name="genre-dropdown" class="filter-dropdown" />
-                <ui:DropdownField name="rating-dropdown" class="filter-dropdown" />
-                <ui:DropdownField name="sort-dropdown" class="filter-dropdown" />
+                <ui:VisualElement name="genre-dropdown" class="filter-dropdown" />
+                <ui:VisualElement name="rating-dropdown" class="filter-dropdown" />
+                <ui:VisualElement name="sort-dropdown" class="filter-dropdown" />
                 <ui:Label name="results-count" text="0 games" class="results-count" />
             </ui:VisualElement>
 

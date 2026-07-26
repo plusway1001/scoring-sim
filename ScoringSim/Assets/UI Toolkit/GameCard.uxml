@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="VideoScope.uss" />
+    <Style src="GameScope.uss" />
     <ui:VisualElement name="card-root" class="game-card">
         <ui:VisualElement name="card-body" class="game-card__body">
             <ui:VisualElement class="game-card__top-row">
@@ -21,7 +21,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="card-wishlist-row" class="game-card__wishlist hidden">
             <ui:Label name="card-heart" text="♡" class="game-card__heart" />
-            <ui:Label name="card-wishlist-text" text="Add to Wishlist" />
+            <ui:Label name="card-wishlist-text" text="Add to Wishlist Cart" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine.UIElements;
 
-namespace VideoScope.Pages
+namespace GameScope.Pages
 {
     public class OnboardingPageController
     {
@@ -11,7 +11,7 @@ namespace VideoScope.Pages
 
         private Label _welcomeLabel, _stepTitle, _stepSub;
         private VisualElement _stepContent, _progressRow;
-        private Button _btnBack, _btnNext, _btnFinish;
+        private Button _btnBack, _btnNext, _btnSkip, _btnFinish;
 
         private int _step = 0;
         private const int StepCount = 4;
@@ -32,6 +32,7 @@ namespace VideoScope.Pages
             _progressRow = _root.Q<VisualElement>("progress-row");
             _btnBack = _root.Q<Button>("btn-back");
             _btnNext = _root.Q<Button>("btn-next");
+            _btnSkip = _root.Q<Button>("btn-skip");
             _btnFinish = _root.Q<Button>("btn-finish");
 
             _welcomeLabel.text = $"Welcome, {_draft.Username}";
@@ -39,6 +40,11 @@ namespace VideoScope.Pages
             _btnBack.clicked += () => { _step = System.Math.Max(0, _step - 1); RenderStep(); };
             _btnNext.clicked += () => { _step = System.Math.Min(StepCount - 1, _step + 1); RenderStep(); };
             _btnFinish.clicked += () => _manager.OnOnboardingComplete(_draft);
+            // "Skip": lets the user bypass preference setup entirely instead of
+            // stepping through it — completes onboarding with a blank profile
+            // (any taps made so far on this step are discarded), keeping only
+            // the username.
+            _btnSkip.clicked += () => _manager.OnOnboardingComplete(new UserProfile { Username = _draft.Username });
 
             RenderStep();
         }
@@ -54,6 +60,7 @@ namespace VideoScope.Pages
 
             _btnBack.EnableInClassList("hidden", _step == 0);
             _btnNext.EnableInClassList("hidden", _step == StepCount - 1);
+            _btnSkip.EnableInClassList("hidden", _step == StepCount - 1);
             _btnFinish.EnableInClassList("hidden", _step != StepCount - 1);
 
             _stepContent.Clear();
@@ -130,6 +137,7 @@ namespace VideoScope.Pages
                     _stepContent.Add(priceLabel);
 
                     var slider = new Slider(0, 100) { value = _draft.PriceMax };
+                    UIHelpers.StyleFilledSlider(slider);
                     slider.RegisterValueChangedCallback(evt =>
                     {
                         _draft.PriceMax = evt.newValue;

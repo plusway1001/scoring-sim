@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace VideoScope.Pages
+namespace GameScope.Pages
 {
     public class GameDetailPageController
     {
@@ -13,7 +14,7 @@ namespace VideoScope.Pages
 
         private static readonly string[] RatingOrder = { "G", "PG13", "R16", "R18" };
 
-        private Button _btnWishlist, _btnCompleted;
+        private Button _btnWishlist, _btnCompleted, _btnStore;
         private VisualElement _ratingRow;
         private Label _ratingConfirm;
         private int _currentRating;
@@ -57,14 +58,22 @@ namespace VideoScope.Pages
                 userScoreCol.style.display = DisplayStyle.None;
 
             // ---- General score breakdown ----
+            // === CODE FROM main2/Assets/Scripts/Scoring/GeneralScoreCalculator.cs === LINE 8-11 ===
+            // Volume Bonus and Nostalgia Factor are recomputed here the same way main2's
+            // GeneralScoreCalculator.Calculate() does it, purely so this breakdown panel
+            // shows numbers consistent with what CalcGeneralScore (now backed by that same
+            // main2 code, see ScoreCalculator.cs) actually produced. Previously this panel
+            // used the old placeholder's own volume/nostalgia formula, which no longer
+            // matched the score being displayed above it.
             var breakdown = _root.Q<VisualElement>("general-breakdown");
-            double vol = Math.Min(Math.Log(_game.TotalRatings) / Math.Log(70000) * 15, 15);
-            double nostalgia = Math.Max(0, (2024 - _game.Year) / 30.0) * 10;
+            double vol = Math.Min(Math.Log10(_game.TotalRatings + 1) / 5.0, 1.0) * 100.0 * 0.15;
+            int age = System.DateTime.Now.Year - _game.Year;
+            double nostalgia = Math.Clamp(age * 2.0, 0, 100) * 0.10;
 
             AddStatRow(breakdown, "Critic Score", "40%", _game.CriticScore);
             AddStatRow(breakdown, "Community Average", "35%", (int)Math.Round(_game.CommunityAvg * 10));
-            AddStatRow(breakdown, "Volume Bonus", "15%", (int)Math.Round(vol));
-            AddStatRow(breakdown, "Nostalgia Factor", "10%", (int)Math.Round(nostalgia));
+            AddStatRow(breakdown, "Volume Bonus", "15%", (int)Math.Round(vol / 0.15));
+            AddStatRow(breakdown, "Nostalgia Factor", "10%", (int)Math.Round(nostalgia / 0.10));
             _root.Q<Label>("general-total").text = generalScore.ToString();
 
             // ---- User score modifiers ----
@@ -84,6 +93,7 @@ namespace VideoScope.Pages
                 actionRow.RemoveFromClassList("hidden");
                 _btnWishlist = _root.Q<Button>("btn-wishlist");
                 _btnCompleted = _root.Q<Button>("btn-completed");
+                _btnStore = _root.Q<Button>("btn-store");
                 RefreshActionButtons();
 
                 _btnWishlist.clicked += () =>
@@ -97,6 +107,12 @@ namespace VideoScope.Pages
                     if (User.Completed.Contains(_game.Id)) User.Completed.Remove(_game.Id);
                     else User.Completed.Add(_game.Id);
                     RefreshActionButtons();
+                };
+                // === ADAPTED FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === LINE 561-570 (OpenWebsite) ===
+                _btnStore.clicked += () =>
+                {
+                    if (!string.IsNullOrEmpty(_game.StoreUrl))
+                        Application.OpenURL(_game.StoreUrl);
                 };
             }
 
@@ -112,6 +128,9 @@ namespace VideoScope.Pages
                 User.Ratings.TryGetValue(_game.Id, out _currentRating);
                 BuildRatingButtons();
             }
+
+            // ---- Community tags ----
+            new CommunityTagBoardController(_root, _game).Bind();
         }
 
         private void AddStatRow(VisualElement container, string label, string weight, int value)
@@ -148,27 +167,28 @@ namespace VideoScope.Pages
             container.Add(row);
         }
 
+        // === CODE FROM main2/Assets/Scripts/Scoring/UserScoreCalculator.cs === LINE 330-410 ===
+        // Rebuilt to read main2's actual ScoreBreakdown (via ScoreCalculator.CalcUserScoreBreakdown,
+        // see ScoreCalculator.cs) instead of re-deriving its own modifier logic. This keeps the
+        // panel truthful to what main2's code really computed — including that main2 currently
+        // has no disliked-genre penalty and no price-minimum check (both are commented out in
+        // their UserScoreCalculator.cs), so those no longer show here either.
         private void BuildModifiers(VisualElement container)
         {
+            var b = ScoreCalculator.CalcUserScoreBreakdown(_game, User);
             bool likedGenre = User.LikedGenres.Contains(_game.Genre);
-            bool dislikedGenre = User.DislikedGenres.Contains(_game.Genre);
-            int tagMatches = _game.Tags.Count(t => User.LikedTags.Contains(t));
-            bool priceFit = _game.Price >= User.PriceMin && _game.Price <= User.PriceMax;
-            bool favCreator = User.FavCreators.Contains(_game.Dev);
-            bool blocked = Array.IndexOf(RatingOrder, _game.Rating) > Array.IndexOf(RatingOrder, User.MaxRating);
 
             AddModifierRow(container, "Genre Match",
-                likedGenre ? "+20" : dislikedGenre ? "\u221220" : "0",
-                likedGenre || dislikedGenre, likedGenre ? "good" : dislikedGenre ? "bad" : "muted");
+                b.genreModifier > 0 ? $"+{b.genreModifier:0}" : "0",
+                likedGenre, likedGenre ? "good" : "muted");
 
-            AddModifierRow(container, "Tag Affinity", $"+{Math.Min(tagMatches * 2, 10)}",
-                tagMatches > 0, "good");
+            AddModifierRow(container, "Tag Affinity", $"+{b.tagModifier:0}", b.tagModifier > 0, "good");
 
-            AddModifierRow(container, "Age Rating", blocked ? "BLOCKED" : "OK", true, blocked ? "bad" : "good");
+            AddModifierRow(container, "Age Rating", b.ageRestricted ? "BLOCKED" : "OK", true, b.ageRestricted ? "bad" : "good");
 
-            AddModifierRow(container, "Price Fit", priceFit ? "+5" : "0", priceFit, "good");
+            AddModifierRow(container, "Price Fit", b.priceModifier > 0 ? $"+{b.priceModifier:0}" : "0", b.priceModifier > 0, "good");
 
-            AddModifierRow(container, "Fav Creator", favCreator ? "+10" : "0", favCreator, "good");
+            AddModifierRow(container, "Fav Creator", b.developerModifier > 0 ? $"+{b.developerModifier:0}" : "0", b.developerModifier > 0, "good");
         }
 
         private void AddModifierRow(VisualElement container, string label, string value, bool active, string tone)
@@ -191,12 +211,18 @@ namespace VideoScope.Pages
         private void RefreshActionButtons()
         {
             bool inWishlist = User.Wishlist.Contains(_game.Id);
-            _btnWishlist.text = inWishlist ? "♥ In Wishlist" : "♡ Add to Wishlist";
+            _btnWishlist.text = inWishlist ? "♥ In Wishlist Cart" : "♡ Add to Wishlist Cart";
             _btnWishlist.EnableInClassList("btn-toggle--active", inWishlist);
 
             bool inCompleted = User.Completed.Contains(_game.Id);
             _btnCompleted.text = inCompleted ? "✓ Completed" : "Mark as Completed";
             _btnCompleted.EnableInClassList("btn-toggle--active-green", inCompleted);
+
+            // === ADAPTED FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === LINE 592-608 (CheckWishlistBtnStatus) ===
+            // main2: OpenWebsiteBtn.SetActive(true) only once the game is in the wishlist.
+            bool canBuy = inWishlist && !string.IsNullOrEmpty(_game.StoreUrl);
+            _btnStore.EnableInClassList("hidden", !canBuy);
+            _btnStore.SetEnabled(canBuy);
         }
 
         private void BuildRatingButtons()

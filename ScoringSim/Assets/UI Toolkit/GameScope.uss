@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VideoScope — shared USS
+   GameScope — shared USS
    Color reference:
    bg            #0a0a12
    panel bg      #12121e
@@ -15,6 +15,43 @@
    text muted    #888888
    text faint    #555555
    ========================================================================== */
+
+/* ---------- Scrollbars: thin and unobtrusive everywhere (Catalogue, Profile,
+   Game Detail, dropdown menus) instead of Unity's default chunky scroller with
+   visible up/down arrow buttons. ---------- */
+.unity-scroller--vertical,
+.unity-scroll-view__vertical-scroller {
+    width: 10px;
+}
+
+.unity-scroller--vertical .unity-scroller__low-button,
+.unity-scroller--vertical .unity-scroller__high-button,
+.unity-scroll-view__vertical-scroller .unity-scroller__low-button,
+.unity-scroll-view__vertical-scroller .unity-scroller__high-button {
+    display: none;
+}
+
+.unity-scroller--vertical .unity-base-slider__tracker,
+.unity-scroll-view__vertical-scroller .unity-base-slider__tracker {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-width: 0;
+    border-radius: 999px;
+    width: 4px;
+    margin-left: 3px;
+}
+
+.unity-scroller--vertical .unity-base-slider__dragger,
+.unity-scroll-view__vertical-scroller .unity-base-slider__dragger {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-width: 0;
+    border-radius: 999px;
+    width: 4px;
+}
+
+.unity-scroller--vertical .unity-base-slider__dragger:hover,
+.unity-scroll-view__vertical-scroller .unity-base-slider__dragger:hover {
+    background-color: rgba(233, 69, 96, 0.6);
+}
 
 .page {
     width: 1920px;
@@ -103,6 +140,21 @@
 
 .btn-primary:hover {
     background-color: rgb(197, 45, 70);
+}
+
+.btn-secondary:hover,
+.btn-guest:hover,
+.btn-toggle:hover,
+.back-btn:hover,
+.auth-tab:hover,
+.tag:hover {
+    border-color: rgb(233, 69, 96);
+    background-color: rgba(233, 69, 96, 0.08);
+    color: rgb(233, 69, 96);
+}
+
+.btn-success:hover {
+    background-color: rgb(0, 199, 140);
 }
 
 .btn-secondary {
@@ -257,10 +309,16 @@
     padding: 10px 12px;
 }
 
-.field__input > TextInput {
+.field__input > TextInput,
+.field__input .unity-text-field__input {
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     color: rgb(255, 255, 255);
+    -unity-cursor-color: rgb(255, 255, 255);
+}
+
+.field__input:focus {
+    border-color: rgb(233, 69, 96);
 }
 
 .error-box {
@@ -356,6 +414,33 @@
     margin-bottom: 8px;
 }
 
+/* ---------- Themed slider (price range) ---------- */
+.themed-slider .unity-base-slider__tracker {
+    background-color: rgb(42, 42, 62);
+    border-width: 0;
+    border-radius: 999px;
+    height: 6px;
+}
+
+.themed-slider__fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(233, 69, 96);
+    border-radius: 999px;
+}
+
+.themed-slider .unity-base-slider__dragger {
+    background-color: rgb(255, 255, 255);
+    border-width: 2px;
+    border-color: rgb(233, 69, 96);
+    border-radius: 999px;
+    width: 16px;
+    height: 16px;
+    margin-top: -5px;
+}
+
 .section-label {
     font-size: 13px;
     color: rgb(136, 136, 136);
@@ -406,6 +491,21 @@
     margin-right: 8px;
 }
 
+.tag-submit-row .unity-base-field__input {
+    background-color: rgb(18, 18, 30);
+    border-width: 1px;
+    border-color: rgb(42, 42, 62);
+    border-radius: 8px;
+    padding: 2px 10px;
+    min-height: 34px;
+}
+
+.tag-submit-row .unity-text-field__input {
+    color: rgb(255, 255, 255);
+    -unity-cursor-color: rgb(255, 255, 255);
+    font-size: 13px;
+}
+
 /* ---------- Score badges ---------- */
 .score-badge-col {
     align-items: center;
@@ -439,6 +539,15 @@
 /* ---------- Catalogue ---------- */
 .page-content {
     padding: 32px;
+}
+
+/* Used on pages (like Profile) that want a narrower, centered content column
+   while keeping the ScrollView itself full-width — so the scrollbar docks at
+   the actual right edge of the page instead of the edge of the narrowed column. */
+.page-content-inner {
+    max-width: 900px;
+    width: 100%;
+    align-self: center;
 }
 
 .hero-panel {
@@ -510,12 +619,137 @@
     min-width: 200px;
 }
 
-.search-field, .filter-dropdown {
+/* Overlay placeholder text inside any TextField that calls
+   UIHelpers.AddPlaceholder — hidden as soon as there's real text. */
+.field-placeholder {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    color: rgb(102, 102, 102);
+    font-size: 13px;
+    -unity-text-align: middle-left;
+}
+
+/* The outer .search-field / .filter-dropdown element is just a layout box —
+   the actual visible box (background, border, text) lives on UI Toolkit's
+   internal `unity-base-field__input` element, which Unity's default theme
+   otherwise renders as a plain grey/white control. Styling that inner element
+   directly is what actually themes these controls. */
+.search-field .unity-base-field__input {
     background-color: rgb(18, 18, 30);
     border-width: 1px;
     border-color: rgb(42, 42, 62);
     border-radius: 8px;
+    padding: 2px 10px;
+    min-height: 34px;
+}
+
+/* Text colour AND cursor colour both come from this element — UI Toolkit's
+   text-input caret renders in the same colour as the input's own text colour,
+   so without this rule (targeted at the *actual* editable sub-element, not the
+   outer field) both the typed text and the blinking caret default to Unity's
+   built-in near-invisible-on-dark-backgrounds colour. Both selector forms are
+   included since the exact internal class name has changed across Unity
+   versions — harmless if one doesn't match. */
+.search-field .unity-text-field__input,
+.search-field .unity-base-field__input > TextInput {
     color: rgb(255, 255, 255);
+    -unity-cursor-color: rgb(255, 255, 255);
+    font-size: 13px;
+    -unity-text-align: middle-left;
+}
+
+/* Clear "you're typing here" affordance: highlight the border in the accent
+   colour while a text field is focused. */
+.search-field .unity-base-field__input:focus,
+.tag-submit-row .unity-base-field__input:focus {
+    border-color: rgb(233, 69, 96);
+}
+
+/* ---------- Themed dropdown (replaces the native DropdownField popup, which
+   can't be restyled with USS — see Scripts/ThemedDropdown.cs) ---------- */
+.themed-dropdown {
+    position: relative;
+    min-width: 160px;
+}
+
+.themed-dropdown__trigger {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(18, 18, 30);
+    border-width: 1px;
+    border-color: rgb(42, 42, 62);
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-height: 34px;
+}
+
+.themed-dropdown--open > .themed-dropdown__trigger {
+    border-color: rgb(233, 69, 96);
+}
+
+.themed-dropdown__trigger:hover {
+    border-color: rgb(233, 69, 96);
+}
+
+.themed-dropdown__label {
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    flex-grow: 1;
+}
+
+.themed-dropdown__arrow {
+    width: 0;
+    height: 0;
+    margin-left: 8px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 5px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgb(136, 136, 136);
+}
+
+.themed-dropdown--open .themed-dropdown__arrow {
+    border-top-color: rgb(233, 69, 96);
+}
+
+.themed-dropdown__menu {
+    background-color: rgb(18, 18, 30);
+    border-width: 1px;
+    border-color: rgb(42, 42, 62);
+    border-radius: 8px;
+    max-height: 260px;
+    padding: 4px;
+}
+
+.themed-dropdown__menu .unity-scroll-view__content-container {
+    flex-grow: 1;
+}
+
+.themed-dropdown__option {
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.themed-dropdown__option:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.themed-dropdown__option--selected {
+    background-color: rgba(233, 69, 96, 0.13);
+}
+
+.themed-dropdown__option-text {
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+}
+
+.themed-dropdown__option--selected .themed-dropdown__option-text {
+    color: rgb(233, 69, 96);
 }
 
 .results-count {
@@ -558,7 +792,7 @@
 }
 
 /* Card grid: UI Toolkit has no CSS grid, so we wrap cards in a row container
-   (VideoScopeGrid.cs) that flex-wraps fixed-width cards. */
+   (GameScopeGrid.cs) that flex-wraps fixed-width cards. */
 .grid {
     flex-direction: row;
     flex-wrap: wrap;
@@ -854,6 +1088,11 @@
     -unity-text-align: middle-center;
 }
 
+.rating-btn:hover {
+    border-color: rgb(245, 197, 24);
+    color: rgb(245, 197, 24);
+}
+
 .rating-btn--active {
     border-color: rgb(245, 197, 24);
     background-color: rgba(245, 197, 24, 0.13);
@@ -1040,6 +1279,10 @@
     padding: 6px 12px;
     margin-left: 12px;
     -unity-text-align: middle-center;
+}
+
+.list-chip__store-btn:hover {
+    background-color: rgb(0, 199, 140);
 }
 
 /* Edit-profile panel */

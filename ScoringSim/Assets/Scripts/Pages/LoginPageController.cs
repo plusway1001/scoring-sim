@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace VideoScope.Pages
+namespace GameScope.Pages
 {
     public class LoginPageController
     {
@@ -9,7 +9,7 @@ namespace VideoScope.Pages
 
         private Button _tabLogin, _tabSignup, _btnSubmit, _btnGuest;
         private TextField _username, _password;
-        private Label _error, _usernameHint;
+        private Label _error, _usernameHint, _usernamePlaceholder;
 
         private string _mode = "login"; // "login" | "signup"
 
@@ -30,6 +30,11 @@ namespace VideoScope.Pages
             _error = _root.Q<Label>("error-label");
             _usernameHint = _root.Q<Label>("username-hint");
 
+            UIHelpers.ForceWhiteText(_username);
+            UIHelpers.ForceWhiteText(_password);
+            _usernamePlaceholder = UIHelpers.AddPlaceholder(_username, "Try: GamerSG");
+            UIHelpers.AddPlaceholder(_password, "••••••••");
+
             _tabLogin.clicked += () => SetMode("login");
             _tabSignup.clicked += () => SetMode("signup");
             _btnSubmit.clicked += Submit;
@@ -45,6 +50,7 @@ namespace VideoScope.Pages
             _tabSignup.EnableInClassList("auth-tab--active", mode == "signup");
             _btnSubmit.text = mode == "login" ? "Sign In" : "Create Account & Setup Profile";
             _usernameHint.text = mode == "login" ? "Try: GamerSG" : "Choose a username";
+            _usernamePlaceholder.text = mode == "login" ? "Try: GamerSG" : "Choose a username";
             ClearError();
         }
 

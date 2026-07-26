@@ -1,3 +1,5 @@
+// === CODE FROM main2/Assets/Scripts/Scoring/ScoreManager.cs === LINE 1-18 ===
+// Verbatim from the team's main2 branch — no logic changes.
 public class ScoreManager
 {
     public static float GetGeneralScore(GameData game)
