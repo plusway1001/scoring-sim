@@ -34,6 +34,10 @@
 
             <ui:VisualElement class="filters-row">
                 <ui:TextField name="search-field" class="search-field" />
+                <!-- NEW: these three are plain placeholders — CataloguePageController.cs
+                     swaps each for a real ThemedDropdown (Scripts/ThemedDropdown.cs) at
+                     runtime, replacing Unity's native DropdownField (its open list
+                     can't be restyled with USS). -->
                 <ui:VisualElement name="genre-dropdown" class="filter-dropdown" />
                 <ui:VisualElement name="rating-dropdown" class="filter-dropdown" />
                 <ui:VisualElement name="sort-dropdown" class="filter-dropdown" />

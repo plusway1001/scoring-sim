@@ -1,17 +1,6 @@
-// === NEW GLUE CODE — NOT FROM main2, NOT FROM the original GameScope placeholder ===
-// main2/Assets/Scripts/Scoring/GeneralScoreCalculator.cs and UserScoreCalculator.cs
-// (dropped in above, verbatim) expect a `GameData` and a `UserData` object with
-// specific field names. main2's own GameData/UserData are MonoBehaviours living on
-// scene GameObjects and wired up through GenreTagDataLoader / ScoreDisplayUI, which
-// doesn't fit GameScope's plain-C#, code-driven catalogue (Assets/Scripts/GameData.cs
-// -> `GameEntry`, Assets/Scripts/UserProfile.cs -> `UserProfile`).
-//
-// Rather than editing main2's calculator code to accept GameEntry/UserProfile
-// directly (which the team asked us to avoid), this file defines minimal, plain
-// (non-MonoBehaviour) `GameData`/`UserData` stand-ins that carry only the fields the
-// calculators actually read, plus converters that build one from a GameEntry/
-// UserProfile pair. The calculators above are none the wiser — they still consume
-// exactly the type they were written against.
+// NEW: converts VideoScope's GameEntry/UserProfile catalogue objects into the
+// plain GameData/UserData shape main2's GeneralScoreCalculator/UserScoreCalculator
+// expect, so those files run completely unmodified against the real catalogue.
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

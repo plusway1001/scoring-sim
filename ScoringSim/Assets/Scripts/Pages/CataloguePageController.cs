@@ -50,8 +50,13 @@ namespace GameScope.Pages
             if (loggedIn) _navUsernameLink.text = User.Username;
 
             _search = _root.Q<TextField>("search-field");
+            // NEW: real in-field placeholder + guaranteed-visible white cursor.
+            // See UIHelpers.cs (AddPlaceholder / ForceWhiteText) for what/why.
             UIHelpers.AddPlaceholder(_search, "Search games...");
             UIHelpers.ForceWhiteText(_search);
+            // NEW: swap the plain UXML placeholders for real ThemedDropdown controls
+            // (see Scripts/ThemedDropdown.cs) — replaces Unity's native DropdownField,
+            // whose open list can't be restyled with USS.
             _genreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("genre-dropdown"));
             _ratingDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("rating-dropdown"));
             _sortDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sort-dropdown"));
@@ -180,9 +185,9 @@ namespace GameScope.Pages
             return card;
         }
 
-        /// <summary>Swaps a plain placeholder VisualElement (declared in UXML with a
-        /// name/class so layout CSS still applies) for a real ThemedDropdown at the
-        /// same position in the tree.</summary>
+        /// <summary>NEW: swaps a plain placeholder VisualElement (declared
+        /// in UXML with a name/class so layout CSS still applies) for a real
+        /// ThemedDropdown at the same position in the tree.</summary>
         private static ThemedDropdown ReplaceWithThemedDropdown(VisualElement placeholder)
         {
             var dropdown = new ThemedDropdown { name = placeholder.name };

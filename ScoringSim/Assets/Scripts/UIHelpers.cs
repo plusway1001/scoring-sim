@@ -43,6 +43,10 @@ namespace GameScope
             return "score-badge--bad";
         }
 
+        // NEW: everything below — a coloured price-range slider (StyleFilledSlider),
+        // a reliably-visible white text cursor (ForceWhiteText), and real in-field
+        // placeholder text (AddPlaceholder). See each method for details.
+
         /// <summary>Gives a plain UI Toolkit Slider a coloured "fill" from the low end up
         /// to the current value (Slider has no built-in progress-fill element, just a
         /// flat tracker line + a dragger thumb), matching the reference design where the

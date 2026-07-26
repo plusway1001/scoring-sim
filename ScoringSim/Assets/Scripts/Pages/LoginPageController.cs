@@ -30,6 +30,8 @@ namespace GameScope.Pages
             _error = _root.Q<Label>("error-label");
             _usernameHint = _root.Q<Label>("username-hint");
 
+            // NEW: real in-field placeholders + guaranteed-visible white cursor for
+            // both login fields. See UIHelpers.cs (AddPlaceholder / ForceWhiteText).
             UIHelpers.ForceWhiteText(_username);
             UIHelpers.ForceWhiteText(_password);
             _usernamePlaceholder = UIHelpers.AddPlaceholder(_username, "Try: GamerSG");

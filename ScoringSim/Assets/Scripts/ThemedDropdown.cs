@@ -1,14 +1,8 @@
-// === NEW — replaces Unity's built-in DropdownField ===
-// DropdownField's open list renders as a native OS/IMGUI popup menu, which can't be
-// restyled with USS — that's why the old dropdowns looked like plain unthemed system
-// menus. This is a small self-built dropdown (trigger + an absolutely-positioned
-// VisualElement list) so the open state can be themed to match the rest of the app,
-// matching the simple native-<select>-style reference: a clean trigger box, an open
-// list with a highlighted selected row (no checkmark glyph), and only one dropdown
-// open at a time (opening one closes whichever other one was open).
-// It implements INotifyValueChanged<string> so it's a drop-in replacement for
-// DropdownField at every call site that already does
-// `dropdown.RegisterValueChangedCallback(...)`, `.choices = ...`, `.index = ...`.
+// NEW: custom themed dropdown control. Unity's built-in DropdownField opens its
+// list as a native OS/IMGUI popup menu that can't be restyled with USS — this is a
+// self-built replacement (trigger + a themed floating list, one open at a time)
+// with the same API (.choices, .index, .value, RegisterValueChangedCallback) so
+// it drops straight into every place DropdownField was used before.
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 

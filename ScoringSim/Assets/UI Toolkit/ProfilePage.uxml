@@ -12,6 +12,10 @@
         </ui:VisualElement>
 
         <ui:ScrollView class="page-content">
+            <!-- NEW: this wrapper keeps the ScrollView itself full-width (so its
+                 scrollbar docks at the real page edge) while only this inner column is
+                 capped to a narrower, centered width. See .page-content-inner in
+                 GameScope.uss. -->
             <ui:VisualElement class="page-content-inner">
 
             <ui:VisualElement class="profile-header">

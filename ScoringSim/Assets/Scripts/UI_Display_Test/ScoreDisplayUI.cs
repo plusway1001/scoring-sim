@@ -1,3 +1,11 @@
+// === CODE FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === (partial, as found already dropped into this project) ===
+// Verbatim from the team's main2 branch — no logic changes. This is main2's own
+// UGUI/TextMeshPro test-harness script for eyeballing score calculations against a
+// GameDatabase; it's not wired into the live VideoScope/GameScope UI Toolkit app
+// (that app's actual score display is Scripts/Pages/GameDetailPageController.cs).
+// Kept here as-is since it was already present in the project before this merge —
+// see Scripts/Scoring/ScoringBridge.cs's header for why this needed the GameData
+// type to gain title/Icon/Logo/websiteURL fields (this file is why).
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

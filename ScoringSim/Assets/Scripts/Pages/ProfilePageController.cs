@@ -162,6 +162,7 @@ namespace GameScope.Pages
 
             priceLabel.text = $"Max Price: ${_draft.PriceMax:0}";
             priceSlider.SetValueWithoutNotify(_draft.PriceMax);
+            // NEW: coloured fill on the price slider — see UIHelpers.StyleFilledSlider.
             UIHelpers.StyleFilledSlider(priceSlider);
             priceSlider.RegisterValueChangedCallback(evt =>
             {

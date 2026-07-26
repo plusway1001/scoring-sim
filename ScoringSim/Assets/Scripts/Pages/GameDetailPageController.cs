@@ -130,6 +130,9 @@ namespace GameScope.Pages
             }
 
             // ---- Community tags ----
+            // NEW wiring: CommunityTagBoardController itself is ADAPTED FROM main2
+            // (see that file's header) — this line is just the new call that hooks it
+            // up to the Game Detail page.
             new CommunityTagBoardController(_root, _game).Bind();
         }
 
