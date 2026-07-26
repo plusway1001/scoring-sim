@@ -1,4 +1,4 @@
-// =====JANE SECTION=====
+// =====JANE/MARCO SECTION=====
 using System;
 using System.Linq;
 using UnityEngine;
@@ -266,4 +266,4 @@ namespace GameScope.Pages
     }
 }
 
-// =====END OF JANE SECTION=====
+// =====END OF JANE/MARCO SECTION=====
