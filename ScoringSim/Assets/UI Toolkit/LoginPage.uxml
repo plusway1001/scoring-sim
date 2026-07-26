@@ -1,37 +1,30 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="GameScope.uss" />
-    <ui:VisualElement name="login-page" class="page center-page">
-        <ui:VisualElement class="auth-wrap">
-
+    <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3"/>
+    <ui:VisualElement name="login-page" class="page center-page" style="aspect-ratio: auto; min-width: 1920px; min-height: 1080px;">
+        <ui:VisualElement class="auth-wrap" style="align-items: center;">
             <ui:VisualElement class="logo-block">
-                <ui:Label text="GAMESCOPE" class="logo" name="logo-label" />
-                <ui:Label text="Personalized Game Discovery" class="tagline" />
+                <ui:Label text="GAMESCOPE" name="logo-label" class="logo" style="align-items: center;"/>
+                <ui:Label text="Personalized Game Discovery" class="tagline" style="-unity-font-style: bold-and-italic; align-items: center;"/>
             </ui:VisualElement>
-
-            <ui:VisualElement class="auth-card">
+            <ui:VisualElement class="auth-card" style="border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; height: 589px; width: 504px; justify-content: center; align-self: center; align-items: stretch;">
                 <ui:VisualElement class="auth-tabs">
-                    <ui:Button name="tab-login" text="Sign In" class="auth-tab auth-tab--active" />
-                    <ui:Button name="tab-signup" text="Create Account" class="auth-tab" />
+                    <ui:Button name="tab-login" text="Sign In" class="auth-tab auth-tab--active" style="font-size: 16px;"/>
+                    <ui:Button name="tab-signup" text="Create Account" class="auth-tab" style="font-size: 16px;"/>
                 </ui:VisualElement>
-
                 <ui:VisualElement class="field">
-                    <ui:Label text="Username" class="field__label" />
-                    <ui:TextField name="input-username" class="field__input" />
-                    <ui:Label name="username-hint" text="" class="hint-text" style="margin-top: 6px; -unity-text-align: middle-left;" />
+                    <ui:Label text="Username" class="field__label" style="font-size: 14px;"/>
+                    <ui:TextField name="input-username" class="field__input"/>
+                    <ui:Label name="username-hint" text="" class="hint-text" style="margin-top: 6px; -unity-text-align: middle-left; color: rgb(140, 162, 180);"/>
                 </ui:VisualElement>
-
                 <ui:VisualElement class="field">
-                    <ui:Label text="Password" class="field__label" />
-                    <ui:TextField name="input-password" password="true" class="field__input" />
+                    <ui:Label text="Password" class="field__label" style="font-size: 14px;"/>
+                    <ui:TextField name="input-password" password="true" class="field__input"/>
                 </ui:VisualElement>
-
-                <ui:Label name="error-label" text="" class="error-box hidden" />
-
-                <ui:Button name="btn-submit" text="Sign In" class="btn-primary" style="margin-bottom: 12px;" />
-                <ui:Button name="btn-guest" text="Browse as Guest" class="btn-guest" />
+                <ui:Label name="error-label" text="" class="error-box hidden"/>
+                <ui:Button name="btn-submit" text="Sign In" class="btn-primary" style="margin-bottom: 12px;"/>
+                <ui:Button name="btn-guest" text="Browse as Guest" class="btn-guest" style="font-size: 16px; color: rgb(210, 222, 232);"/>
             </ui:VisualElement>
-
-            <ui:Label text="Demo accounts: GamerSG · CasualPlayer" class="hint-text" />
+            <ui:Label text="Demo accounts: GamerSG · CasualPlayer" class="hint-text" style="font-size: 14px; color: rgb(136, 136, 136); -unity-font-style: bold;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

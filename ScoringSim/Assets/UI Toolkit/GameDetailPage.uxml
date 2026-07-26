@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
-    <ui:VisualElement name="detail-page" class="page">
+    <ui:VisualElement name="detail-page" class="page" style="min-width: 1920px; min-height: 1080px;">
         <ui:VisualElement class="navbar">
             <ui:Button name="btn-back" text="← Back" class="back-btn"/>
             <ui:Label text="GAMESCOPE" class="navbar__brand"/>
@@ -10,19 +10,19 @@
                 <ui:VisualElement name="hero-background" text="🎮" class="detail-hero__background" style="background-color: rgb(117, 109, 109); top: -20px;"/>
                 <ui:Label name="hero-icon" text="🎮" class="detail-hero__icon"/>
                 <ui:VisualElement class="detail-hero__info">
-                    <ui:Label name="hero-eyebrow" text="Genre · Year" class="detail-hero__eyebrow"/>
+                    <ui:Label name="hero-eyebrow" text="Genre · Year" class="detail-hero__eyebrow" style="font-size: 14px;"/>
                     <ui:Label name="hero-title" text="Game Title" class="detail-hero__title"/>
                     <ui:Label name="hero-byline" text="by Developer · Rating · $0.00" class="detail-hero__byline"/>
                     <ui:VisualElement name="hero-tags" class="detail-hero__tags"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="hero-scores" class="detail-hero__scores">
+                <ui:VisualElement name="hero-scores" class="detail-hero__scores" style="display: flex;">
                     <ui:VisualElement name="hero-general-score" class="score-badge-col"/>
                     <ui:VisualElement name="hero-user-score" class="score-badge-col"/>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="detail-body">
-                <ui:VisualElement class="stats-columns">
-                    <ui:VisualElement class="panel" style="margin-right: 24px;">
+                <ui:VisualElement class="stats-columns" style="align-items: center;">
+                    <ui:VisualElement class="panel" style="margin-right: 16px; align-items: stretch; align-self: center; align-content: stretch; justify-content: space-between;">
                         <ui:Label text="General Score Breakdown" class="panel__title"/>
                         <ui:VisualElement name="general-breakdown"/>
                         <ui:VisualElement class="panel-total-row">

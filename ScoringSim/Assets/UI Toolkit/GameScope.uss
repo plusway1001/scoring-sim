@@ -1,24 +1,3 @@
-/* ==========================================================================
-   GameScope — shared USS
-   Color reference:
-   bg            #0a0a12
-   panel bg      #12121e
-   panel bg alt  #141420
-   border        #2a2a3e
-   border alt    #1a1a2e
-   accent (red)  #e94560
-   accent dark   #c0313d
-   good (green)  #00e5a0
-   mid (yellow)  #f5c518
-   bad           #e05c5c
-   text          #ffffff
-   text muted    #888888
-   text faint    #555555
-   ========================================================================== */
-
-/* NEW: thin, unobtrusive scrollbars everywhere (Catalogue, Profile, Game Detail,
-   dropdown menus) instead of Unity's default chunky scroller with visible
-   up/down arrow buttons. */
 .unity-scroller--vertical,
 .unity-scroll-view__vertical-scroller {
     width: 10px;
@@ -54,23 +33,18 @@
 }
 
 .page {
-    /* NEW: theme colours as USS custom properties, defined once here so every
-       rule below that uses var(--color-xxx) picks up whatever these are set to.
-       Adjustable at edit-time via the ThemeSettings component — see
-       Scripts/ThemeSettings.cs and THEMING.md for how to actually change them. */
-    --color-bg: rgb(10, 10, 18);
-    --color-panel-bg: rgb(18, 18, 30);
-    --color-border: rgb(42, 42, 62);
-    --color-accent: rgb(233, 69, 96);
-    --color-accent-dark: rgb(197, 45, 70);
+    --color-bg: rgb(47, 74, 99);
+    --color-panel-bg: rgb(58, 83, 107);
+    --color-border: rgb(94, 122, 150);
+    --color-accent: rgb(93, 180, 221);
+    --color-accent-dark: rgb(79, 169, 216);
     --color-text: rgb(255, 255, 255);
-    --color-text-muted: rgb(136, 136, 136);
-    --color-text-faint: rgb(85, 85, 85);
-    --color-good: rgb(0, 229, 160);
-    --color-good-dark: rgb(0, 199, 140);
-    --color-mid: rgb(245, 197, 24);
-    --color-bad: rgb(224, 92, 92);
-
+    --color-text-muted: rgb(210, 222, 232);
+    --color-text-faint: rgb(147, 168, 186);
+    --color-good: rgb(154, 214, 107);
+    --color-good-dark: rgb(119, 184, 78);
+    --color-mid: rgb(255, 209, 102);
+    --color-bad: rgb(255, 122, 122);
     width: 1920px;
     height: 1080px;
     background-color: var(--color-bg);
@@ -82,7 +56,6 @@
     display: none;
 }
 
-/* ---------- Nav bar ---------- */
 .navbar {
     flex-direction: row;
     align-items: center;
@@ -142,16 +115,16 @@
     margin-right: 16px;
 }
 
-/* ---------- Generic buttons ---------- */
 .btn-primary {
     background-color: var(--color-accent);
     border-width: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--color-text);
     -unity-font-style: bold;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 1px;
-    padding: 14px;
+    padding: 18px;
+    min-height: 56px;
     -unity-text-align: middle-center;
 }
 
@@ -159,18 +132,15 @@
     background-color: var(--color-accent-dark);
 }
 
-/* NEW: hover state added to every remaining button-style control (previously
-   only .btn-primary had one), matching the game card's hover treatment so the
-   whole app has one consistent hover language. */
 .btn-secondary:hover,
 .btn-guest:hover,
 .btn-toggle:hover,
 .back-btn:hover,
 .auth-tab:hover,
 .tag:hover {
-    border-color: var(--color-accent);
-    background-color: rgba(233, 69, 96, 0.08);
-    color: var(--color-accent);
+    border-color: rgb(127, 214, 255);
+    background-color: rgba(127, 214, 255, 0.18);
+    color: rgb(255, 255, 255);
 }
 
 .btn-success:hover {
@@ -206,11 +176,12 @@
     background-color: rgba(0, 0, 0, 0);
     border-width: 1px;
     border-color: var(--color-border);
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--color-text-faint);
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 1px;
-    padding: 10px;
+    padding: 14px;
+    min-height: 46px;
     -unity-text-align: middle-center;
 }
 
@@ -239,16 +210,17 @@
     color: var(--color-good);
 }
 
-/* ---------- Auth (login/signup) ---------- */
 .center-page {
     flex-grow: 1;
     align-items: center;
-    justify-content: center;
-    padding: 24px;
+    justify-content: flex-start;
+    padding-top: 120px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .auth-wrap {
-    width: 440px;
+    width: 620px;
 }
 
 .logo-block {
@@ -257,10 +229,10 @@
 }
 
 .logo {
-    font-size: 44px;
+    font-size: 64px;
     -unity-font-style: bold;
     color: var(--color-text);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .logo__accent {
@@ -269,17 +241,17 @@
 
 .tagline {
     color: var(--color-text-muted);
-    font-size: 15px;
+    font-size: 18px;
     -unity-font-style: italic;
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 .auth-card {
     background-color: var(--color-panel-bg);
     border-width: 1px;
     border-color: var(--color-border);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 20px;
+    padding: 48px;
 }
 
 .auth-tabs {
@@ -323,10 +295,11 @@
     background-color: var(--color-panel-bg);
     border-width: 1px;
     border-color: var(--color-border);
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--color-text);
-    font-size: 15px;
-    padding: 10px 12px;
+    font-size: 18px;
+    padding: 14px 16px;
+    min-height: 54px;
 }
 
 .field__input > TextInput,
@@ -357,7 +330,6 @@
     margin-top: 16px;
 }
 
-/* ---------- Onboarding ---------- */
 .onboarding-wrap {
     width: 560px;
 }
@@ -433,12 +405,10 @@
     margin-bottom: 8px;
 }
 
-/* NEW: themed slider (price range) — see UIHelpers.StyleFilledSlider,
-   which builds the .themed-slider__fill element this styles. */
 .themed-slider .unity-base-slider__tracker {
     background-color: var(--color-border);
     border-width: 0;
-    border-radius: 999px;
+    border-radius: 10px;
     height: 6px;
 }
 
@@ -448,14 +418,14 @@
     bottom: 0;
     left: 0;
     background-color: var(--color-accent);
-    border-radius: 999px;
+    border-radius: 10px;
 }
 
 .themed-slider .unity-base-slider__dragger {
     background-color: var(--color-text);
     border-width: 2px;
     border-color: var(--color-accent);
-    border-radius: 999px;
+    border-radius: 10px;
     width: 16px;
     height: 16px;
     margin-top: -5px;
@@ -468,14 +438,13 @@
     letter-spacing: 1px;
 }
 
-/* ---------- Tags ---------- */
 .tag-row {
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .tag {
-    border-radius: 20px;
+    border-radius: 10px;
     border-width: 1px;
     border-color: rgb(51, 51, 51);
     background-color: rgba(0, 0, 0, 0);
@@ -488,13 +457,11 @@
 }
 
 .tag--active {
-    border-color: var(--color-accent);
-    background-color: rgba(233, 69, 96, 0.13);
-    color: var(--color-accent);
+    border-color: rgb(127, 214, 255);
+    background-color: rgb(127, 214, 255);
+    color: rgb(20, 35, 50);
 }
 
-/* Community-submitted (not yet official) tag chip — used by the Community Tags
-   board on the Game Detail page, adapted from main2's CommunityTagManager. */
 .tag--community {
     border-color: var(--color-mid);
     background-color: rgba(245, 197, 24, 0.1);
@@ -525,7 +492,6 @@
     font-size: 13px;
 }
 
-/* ---------- Score badges ---------- */
 .score-badge-col {
     align-items: center;
 }
@@ -546,23 +512,54 @@
     -unity-font-style: bold;
 }
 
-.score-badge--sm { width: 40px; height: 40px; font-size: 13px; }
-.score-badge--md { width: 52px; height: 52px; font-size: 18px; border-width: 2px; }
-.score-badge--lg { width: 72px; height: 72px; font-size: 30px; border-width: 3px; }
+.score-badge--sm {
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
+}
 
-.score-badge--good { border-color: var(--color-good); color: var(--color-good); background-color: rgba(0, 229, 160, 0.08); }
-.score-badge--mid  { border-color: var(--color-mid); color: var(--color-mid); background-color: rgba(245, 197, 24, 0.08); }
-.score-badge--bad  { border-color: var(--color-bad); color: var(--color-bad); background-color: rgba(224, 92, 92, 0.08); }
-.score-badge--na   { border-color: var(--color-text-faint); color: var(--color-text-faint); background-color: rgb(26, 26, 26); }
+.score-badge--md {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+    border-width: 2px;
+}
 
-/* ---------- Catalogue ---------- */
+.score-badge--lg {
+    width: 72px;
+    height: 72px;
+    font-size: 30px;
+    border-width: 3px;
+}
+
+.score-badge--good {
+    border-color: var(--color-good);
+    color: var(--color-good);
+    background-color: rgba(0, 229, 160, 0.08);
+}
+
+.score-badge--mid {
+    border-color: var(--color-mid);
+    color: var(--color-mid);
+    background-color: rgba(245, 197, 24, 0.08);
+}
+
+.score-badge--bad {
+    border-color: var(--color-bad);
+    color: var(--color-bad);
+    background-color: rgba(224, 92, 92, 0.08);
+}
+
+.score-badge--na {
+    border-color: var(--color-text-faint);
+    color: var(--color-text-faint);
+    background-color: rgb(26, 26, 26);
+}
+
 .page-content {
     padding: 32px;
 }
 
-/* Used on pages (like Profile) that want a narrower, centered content column
-   while keeping the ScrollView itself full-width — so the scrollbar docks at
-   the actual right edge of the page instead of the edge of the narrowed column. */
 .page-content-inner {
     max-width: 900px;
     width: 100%;
@@ -613,8 +610,13 @@
     -unity-font-style: bold;
 }
 
-.hero-stat__value--good { color: var(--color-good); }
-.hero-stat__value--accent { color: var(--color-accent); }
+.hero-stat__value--good {
+    color: var(--color-good);
+}
+
+.hero-stat__value--accent {
+    color: var(--color-accent);
+}
 
 .hero-stat__label {
     font-size: 11px;
@@ -638,8 +640,6 @@
     min-width: 200px;
 }
 
-/* NEW: overlay placeholder text inside any TextField that calls
-   UIHelpers.AddPlaceholder — hidden as soon as there's real text. */
 .field-placeholder {
     position: absolute;
     left: 10px;
@@ -651,11 +651,6 @@
     -unity-text-align: middle-left;
 }
 
-/* The outer .search-field / .filter-dropdown element is just a layout box —
-   the actual visible box (background, border, text) lives on UI Toolkit's
-   internal `unity-base-field__input` element, which Unity's default theme
-   otherwise renders as a plain grey/white control. Styling that inner element
-   directly is what actually themes these controls. */
 .search-field .unity-base-field__input {
     background-color: var(--color-panel-bg);
     border-width: 1px;
@@ -665,13 +660,6 @@
     min-height: 34px;
 }
 
-/* Text colour AND cursor colour both come from this element — UI Toolkit's
-   text-input caret renders in the same colour as the input's own text colour,
-   so without this rule (targeted at the *actual* editable sub-element, not the
-   outer field) both the typed text and the blinking caret default to Unity's
-   built-in near-invisible-on-dark-backgrounds colour. Both selector forms are
-   included since the exact internal class name has changed across Unity
-   versions — harmless if one doesn't match. */
 .search-field .unity-text-field__input,
 .search-field .unity-base-field__input > TextInput {
     color: var(--color-text);
@@ -679,15 +667,11 @@
     -unity-text-align: middle-left;
 }
 
-/* Clear "you're typing here" affordance: highlight the border in the accent
-   colour while a text field is focused. */
 .search-field .unity-base-field__input:focus,
 .tag-submit-row .unity-base-field__input:focus {
     border-color: var(--color-accent);
 }
 
-/* ---------- Themed dropdown (replaces the native DropdownField popup, which
-   can't be restyled with USS — see Scripts/ThemedDropdown.cs) ---------- */
 .themed-dropdown {
     position: relative;
     min-width: 160px;
@@ -796,11 +780,23 @@
     margin-right: 6px;
 }
 
-.legend-dot--general { border-color: var(--color-text-muted); }
-.legend-dot--user { border-color: var(--color-accent); background-color: rgba(233, 69, 96, 0.08); }
+.legend-dot--general {
+    border-color: var(--color-text-muted);
+}
 
-.legend-label { font-size: 12px; color: var(--color-text-muted); }
-.legend-label--accent { color: var(--color-accent); }
+.legend-dot--user {
+    border-color: var(--color-accent);
+    background-color: rgba(233, 69, 96, 0.08);
+}
+
+.legend-label {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.legend-label--accent {
+    color: var(--color-accent);
+}
 
 .empty-state {
     -unity-text-align: middle-center;
@@ -809,8 +805,6 @@
     padding: 60px 0;
 }
 
-/* Card grid: UI Toolkit has no CSS grid, so we wrap cards in a row container
-   (GameScopeGrid.cs) that flex-wraps fixed-width cards. */
 .grid {
     flex-direction: row;
     flex-wrap: wrap;
@@ -818,12 +812,16 @@
 
 .game-card {
     width: 220px;
-    background-color: rgb(20, 20, 32);
+    height: 285px;
+
+    background-color: var(--color-panel-bg);
     border-width: 1px;
-    border-color: rgb(34, 34, 34);
+    border-color: var(--color-border);
     border-radius: 12px;
+
     margin-right: 16px;
     margin-bottom: 16px;
+    flex-direction: column;
     overflow: hidden;
 }
 
@@ -833,10 +831,13 @@
 }
 
 .game-card__body {
-    padding: 20px 20px 12px 20px;
+    flex-grow: 1;
+    height: auto;
+    padding: 20px 20px 10px 20px;
 }
 
 .game-card__top-row {
+    height: 64px;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -859,6 +860,7 @@
 }
 
 .game-card__title {
+    height: 36px;
     font-size: 15px;
     -unity-font-style: bold;
     color: var(--color-text);
@@ -867,24 +869,28 @@
 }
 
 .game-card__meta {
+    height: 20px;
     font-size: 12px;
     color: var(--color-text-muted);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .game-card__tags {
+    height: 52px;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
 .game-card__chip {
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 4px;
     font-size: 11px;
-    color: var(--color-text-muted);
     padding: 2px 8px;
     margin-right: 4px;
     margin-bottom: 4px;
+    white-space: nowrap;
 }
 
 .game-card__chip--accent {
@@ -893,34 +899,37 @@
 }
 
 .game-card__wishlist {
+    height: 44px;
+    min-height: 44px;
     flex-direction: row;
     align-items: center;
     border-top-width: 1px;
-    border-top-color: rgb(34, 34, 34);
+    border-top-color: rgba(255, 255, 255, 0.08);
     padding: 8px 20px;
     font-size: 12px;
+    -unity-font-style: bold;
     color: var(--color-text-faint);
 }
 
+
 .game-card__wishlist--active {
-    background-color: rgba(233, 69, 96, 0.08);
-    color: var(--color-accent);
+    font-size: 12px;
+    -unity-font-style: bold;
+    background-color: rgb(251, 160, 129);
+    color: rgb(36, 52, 71);
+}
+
+.game-card__wishlist--active .game-card__heart {
+   color: rgb(36, 52, 71);
 }
 
 .game-card__heart {
     margin-right: 6px;
 }
 
-/* ---------- Game detail ---------- */
-/*.detail-hero {
-    padding: 48px 32px 32px 32px;
-    flex-direction: row;
-    flex-wrap: wrap;
-}*/
 .detail-hero {
     position: relative;
     overflow: hidden;
-
     padding: 48px 32px 32px 32px;
     flex-direction: row;
     flex-wrap: wrap;
@@ -928,14 +937,11 @@
 
 .detail-hero__background {
     position: absolute;
-
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-
     unity-background-scale-mode: scale-and-crop;
-
     opacity: 0.15;
 }
 
@@ -989,20 +995,30 @@
 }
 
 .detail-body {
-    max-width: 800px;
-    padding: 32px;
+    width: 760px;
+    max-width: 760px;
+    padding: 32px 0;
+    align-self: center;
 }
 
 .stats-columns {
     flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    margin-bottom: 16px;
 }
 
 .stats-columns > .panel {
     flex-grow: 1;
     flex-basis: 0;
+    height: 360px;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: stretch;
 }
 
 .panel {
+    width: 100%;
     background-color: var(--color-panel-bg);
     border-width: 1px;
     border-color: var(--color-border);
@@ -1093,10 +1109,21 @@
     -unity-font-style: bold;
 }
 
-.modifier-row__value--good { color: var(--color-good); }
-.modifier-row__value--warn { color: var(--color-mid); }
-.modifier-row__value--bad { color: var(--color-accent); }
-.modifier-row__value--muted { color: var(--color-text-faint); }
+.modifier-row__value--good {
+    color: var(--color-good);
+}
+
+.modifier-row__value--warn {
+    color: var(--color-mid);
+}
+
+.modifier-row__value--bad {
+    color: var(--color-accent);
+}
+
+.modifier-row__value--muted {
+    color: var(--color-text-faint);
+}
 
 .action-row {
     flex-direction: row;
@@ -1127,7 +1154,6 @@
     -unity-text-align: middle-center;
 }
 
-/* NEW: hover state on the star-rating buttons. */
 .rating-btn:hover {
     border-color: var(--color-mid);
     color: var(--color-mid);
@@ -1145,7 +1171,6 @@
     margin-top: 12px;
 }
 
-/* ---------- Profile ---------- */
 .profile-header {
     flex-direction: row;
     justify-content: space-between;
@@ -1272,8 +1297,13 @@
     margin-bottom: 12px;
 }
 
-.list-section__title--wishlist { color: var(--color-accent); }
-.list-section__title--completed { color: var(--color-good); }
+.list-section__title--wishlist {
+    color: var(--color-accent);
+}
+
+.list-section__title--completed {
+    color: var(--color-good);
+}
 
 .list-chips-row {
     flex-direction: row;
@@ -1307,8 +1337,6 @@
     color: var(--color-text-muted);
 }
 
-/* "Go to Store" button inside a Wishlist Cart chip on the Profile page —
-   adapted from main2's OpenWebsiteBtn (UI_Display_Test/ScoreDisplayUI.cs). */
 .list-chip__store-btn {
     background-color: var(--color-good);
     border-width: 0;
@@ -1325,7 +1353,6 @@
     background-color: var(--color-good-dark);
 }
 
-/* Edit-profile panel */
 .edit-panel {
     background-color: var(--color-panel-bg);
     border-width: 1px;

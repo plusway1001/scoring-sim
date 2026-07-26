@@ -1,69 +1,54 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="GameScope.uss" />
-    <ui:VisualElement name="catalogue-page" class="page">
-
+    <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
+    <ui:VisualElement name="catalogue-page" class="page" style="min-width: 1920px; min-height: 1080px;">
         <ui:VisualElement name="navbar" class="navbar">
-            <ui:Label name="nav-brand" class="navbar__brand" text="GAMESCOPE" />
+            <ui:Label name="nav-brand" text="GAMESCOPE" class="navbar__brand"/>
             <ui:VisualElement class="navbar__links">
-                <ui:Label text="CATALOGUE" class="navbar__link navbar__link--active" />
-                <ui:Label name="nav-profile-link" text="PROFILE" class="navbar__link" />
-                <ui:Label name="nav-username-link" text="" class="navbar__link" />
-                <ui:Label name="nav-signin-link" text="SIGN IN" class="navbar__link hidden" />
+                <ui:Label text="CATALOGUE" class="navbar__link navbar__link--active"/>
+                <ui:Label name="nav-profile-link" text="PROFILE" class="navbar__link"/>
+                <ui:Label name="nav-username-link" text="" class="navbar__link"/>
+                <ui:Label name="nav-signin-link" text="SIGN IN" class="navbar__link hidden"/>
             </ui:VisualElement>
         </ui:VisualElement>
-
         <ui:ScrollView class="page-content">
-
             <ui:VisualElement name="hero-panel" class="hero-panel hidden">
                 <ui:VisualElement>
-                    <ui:Label text="Welcome back" class="hero-panel__eyebrow" />
-                    <ui:Label name="hero-username" text="Player" class="hero-panel__name" />
-                    <ui:Label name="hero-sub" text="0 liked genres · 0 in wishlist cart · 0 games rated" class="hero-panel__sub" />
+                    <ui:Label text="Welcome back" class="hero-panel__eyebrow"/>
+                    <ui:Label name="hero-username" text="Player" class="hero-panel__name"/>
+                    <ui:Label name="hero-sub" text="0 liked genres · 0 in wishlist cart · 0 games rated" class="hero-panel__sub"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="hero-stats-row">
                     <ui:VisualElement class="hero-stat">
-                        <ui:Label name="hero-matches" text="0" class="hero-stat__value hero-stat__value--good" />
-                        <ui:Label text="Great Matches" class="hero-stat__label" />
+                        <ui:Label name="hero-matches" text="0" class="hero-stat__value hero-stat__value--good"/>
+                        <ui:Label text="Great Matches" class="hero-stat__label"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="hero-stat">
-                        <ui:Label name="hero-wishlist-count" text="0" class="hero-stat__value hero-stat__value--accent" />
-                        <ui:Label text="Wishlist Cart" class="hero-stat__label" />
+                        <ui:Label name="hero-wishlist-count" text="0" class="hero-stat__value hero-stat__value--accent"/>
+                        <ui:Label text="Wishlist Cart" class="hero-stat__label"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-
             <ui:VisualElement class="filters-row">
-                <ui:TextField name="search-field" class="search-field" />
-                <!-- NEW: all five of these are plain placeholders — CataloguePageController.cs
-                     swaps each for a real ThemedDropdown (Scripts/ThemedDropdown.cs) at
-                     runtime, replacing Unity's native DropdownField (its open list
-                     can't be restyled with USS). Main Genre / Sub Genre / Tags replace
-                     what used to be a single genre dropdown — see GameDatabase.MainGenreOptions
-                     / SubGenreOptions (from Resources/Data/GenreTagData.csv) and
-                     GameEntry.Tags (unchanged, the existing "story-rich"/"atmospheric"-style
-                     flavor tags). -->
-                <ui:VisualElement name="main-genre-dropdown" class="filter-dropdown" />
-                <ui:VisualElement name="sub-genre-dropdown" class="filter-dropdown" />
-                <ui:VisualElement name="tag-dropdown" class="filter-dropdown" />
-                <ui:VisualElement name="rating-dropdown" class="filter-dropdown" />
-                <ui:VisualElement name="sort-dropdown" class="filter-dropdown" />
-                <ui:Label name="results-count" text="0 games" class="results-count" />
+                <ui:TextField name="search-field" class="search-field"/>
+                <ui:VisualElement name="main-genre-dropdown" class="filter-dropdown"/>
+                <ui:VisualElement name="sub-genre-dropdown" class="filter-dropdown"/>
+                <ui:VisualElement name="tag-dropdown" class="filter-dropdown"/>
+                <ui:VisualElement name="rating-dropdown" class="filter-dropdown"/>
+                <ui:VisualElement name="sort-dropdown" class="filter-dropdown"/>
+                <ui:Label name="results-count" text="0 games" class="results-count"/>
             </ui:VisualElement>
-
             <ui:VisualElement name="legend-row" class="legend-row hidden">
                 <ui:VisualElement class="legend-item">
-                    <ui:VisualElement class="legend-dot legend-dot--general" />
-                    <ui:Label text="General Score" class="legend-label" />
+                    <ui:VisualElement class="legend-dot legend-dot--general"/>
+                    <ui:Label text="General Score" class="legend-label"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="legend-item">
-                    <ui:VisualElement class="legend-dot legend-dot--user" />
-                    <ui:Label text="Your Score" class="legend-label legend-label--accent" />
+                    <ui:VisualElement class="legend-dot legend-dot--user"/>
+                    <ui:Label text="Your Score" class="legend-label legend-label--accent"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-
-            <ui:VisualElement name="game-grid" class="grid" />
-            <ui:Label name="empty-label" text="No games match your filters." class="empty-state hidden" />
-
+            <ui:VisualElement name="game-grid" class="grid"/>
+            <ui:Label name="empty-label" text="No games match your filters." class="empty-state hidden"/>
         </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>
