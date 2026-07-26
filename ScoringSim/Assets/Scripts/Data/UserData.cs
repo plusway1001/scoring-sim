@@ -1,9 +1,5 @@
-// === CODE FROM main2/Assets/Scripts/Data/UserData.cs === (partial, as found already dropped into this project) ===
-// Same situation and same two fixes as Data/GameData.cs right next to this file —
-// see the header comment there for the full explanation. No data-field or logic
-// changes, only: wrapped in GameScope.Legacy to resolve the GameData/UserData name
-// collision with Scripts/Scoring/ScoringBridge.cs, and the OnValidate() call into
-// main2's separate (not-included-here) ScoreDisplayUI is commented out.
+// =====MARCO SECTION=====
+// === CODE FROM main2/Assets/Scripts/Data/UserData.cs ===
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,3 +44,5 @@ namespace GameScope.Legacy
 #endif
     }
 }
+
+// =====END OF MARCO SECTION=====

@@ -1,3 +1,4 @@
+// =====JANE SECTION=====
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -95,6 +96,7 @@ namespace GameScope.Pages
             }
         }
 
+        // =====ZAHRA SECTION===== (genre/tag/favourite-creator selection, age rating + budget preferences)
         private void BuildEditForm()
         {
             var likedGenres = _root.Q<VisualElement>("edit-liked-genres");
@@ -162,7 +164,6 @@ namespace GameScope.Pages
 
             priceLabel.text = $"Max Price: ${_draft.PriceMax:0}";
             priceSlider.SetValueWithoutNotify(_draft.PriceMax);
-            // NEW: coloured fill on the price slider — see UIHelpers.StyleFilledSlider.
             UIHelpers.StyleFilledSlider(priceSlider);
             priceSlider.RegisterValueChangedCallback(evt =>
             {
@@ -177,6 +178,7 @@ namespace GameScope.Pages
                 _manager.ShowProfile();
             });
         }
+        // =====END OF ZAHRA SECTION=====
 
         private static void ToggleValue(System.Collections.Generic.List<string> list, string value)
         {
@@ -184,14 +186,13 @@ namespace GameScope.Pages
             else list.Add(value);
         }
 
-        /// <summary>Label defaults to pickingMode = Ignore in UI Toolkit, so text used as a
-        /// nav link needs picking explicitly enabled before it will receive ClickEvents.</summary>
         private static void MakeClickable(VisualElement el, System.Action onClick)
         {
             el.pickingMode = PickingMode.Position;
             el.RegisterCallback<ClickEvent>(_ => onClick());
         }
 
+        // =====ZAHRA SECTION===== (user preference integration with the recommendation system)
         private void BuildRecommendations()
         {
             var recos = GameDatabase.Games
@@ -232,6 +233,7 @@ namespace GameScope.Pages
                 grid.Add(card);
             }
         }
+        // =====END OF ZAHRA SECTION=====
 
         private void BuildLists()
         {
@@ -298,3 +300,4 @@ namespace GameScope.Pages
         }
     }
 }
+// =====END OF JANE SECTION=====

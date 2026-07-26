@@ -1,5 +1,6 @@
+// =====ZAHRA SECTION=====
 // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/TagValidator.cs === LINE 1-31 ===
-// Verbatim from the team's main2 branch — no logic changes.
+// From the team's main2 branch
 using System.Collections.Generic;
 
 public static class TagValidator
@@ -30,3 +31,5 @@ public static class TagValidator
         return tagName.Trim();
     }
 }
+
+// =====END OF ZAHRA SECTION=====

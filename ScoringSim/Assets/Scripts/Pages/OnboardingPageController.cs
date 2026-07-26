@@ -1,3 +1,4 @@
+// =====ZAHRA SECTION=====
 using System.Linq;
 using UnityEngine.UIElements;
 
@@ -40,10 +41,6 @@ namespace GameScope.Pages
             _btnBack.clicked += () => { _step = System.Math.Max(0, _step - 1); RenderStep(); };
             _btnNext.clicked += () => { _step = System.Math.Min(StepCount - 1, _step + 1); RenderStep(); };
             _btnFinish.clicked += () => _manager.OnOnboardingComplete(_draft);
-            // NEW: "Skip" lets the user bypass preference setup entirely instead of
-            // stepping through it — completes onboarding with a blank profile
-            // (any taps made so far on this step are discarded), keeping only
-            // the username.
             _btnSkip.clicked += () => _manager.OnOnboardingComplete(new UserProfile { Username = _draft.Username });
 
             RenderStep();
@@ -137,7 +134,6 @@ namespace GameScope.Pages
                     _stepContent.Add(priceLabel);
 
                     var slider = new Slider(0, 100) { value = _draft.PriceMax };
-                    // NEW: coloured fill on the price slider — see UIHelpers.StyleFilledSlider.
                     UIHelpers.StyleFilledSlider(slider);
                     slider.RegisterValueChangedCallback(evt =>
                     {
@@ -159,3 +155,5 @@ namespace GameScope.Pages
         }
     }
 }
+
+// =====END OF ZAHRA SECTION=====

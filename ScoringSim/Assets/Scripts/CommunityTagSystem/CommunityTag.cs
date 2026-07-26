@@ -1,5 +1,6 @@
+// =====ZAHRA SECTION=====
 // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTag.cs === LINE 1-33 ===
-// Verbatim from the team's main2 branch — no logic changes.
+// From the team's main2 branch.
 using System;
 
 [Serializable]
@@ -33,3 +34,5 @@ public class CommunityTag
         isOfficial = official;
     }
 }
+
+// =====END OF ZAHRA SECTION=====

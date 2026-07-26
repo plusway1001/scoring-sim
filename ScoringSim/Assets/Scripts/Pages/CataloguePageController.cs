@@ -1,3 +1,4 @@
+// =====JANE SECTION=====
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UIElements;
@@ -16,18 +17,14 @@ namespace GameScope.Pages
         private VisualElement _heroPanel, _legendRow, _grid;
         private Label _heroUsername, _heroSub, _heroMatches, _heroWishlistCount;
 
-        // NEW: Main Genre / Sub Genre / Tags replace what used to be a single genre
-        // dropdown, so the catalogue can filter on the richer Resources/Data/GenreTagData.csv
-        // taxonomy (see GameEntry.MainGenres/SubGenres) as well as the existing flavor tags.
+        //DROPDOWNS
         private readonly List<string> _mainGenreOptions;
         private readonly List<string> _subGenreOptions;
         private readonly List<string> _tagOptions;
         private readonly List<string> _ratingOptions;
         private readonly List<string> _sortOptions;
 
-        // NEW: distinct default-option labels so the four filter dropdowns don't all
-        // just say the same generic "All" (previously indistinguishable at a glance —
-        // see Refresh() below, where these same strings are the "no filter" sentinel).
+        // DROPDOWN LABELS
         private const string AllMainGenre = "All Main Genre";
         private const string AllSubGenre = "All Sub Genre";
         private const string AllTags = "All Tags";
@@ -37,9 +34,11 @@ namespace GameScope.Pages
         {
             _root = root;
             _manager = manager;
+            // =====CHLOE SECTION===== (genre/tag classification option lists)
             _mainGenreOptions = new List<string> { AllMainGenre }.Concat(GameDatabase.MainGenreOptions).ToList();
             _subGenreOptions = new List<string> { AllSubGenre }.Concat(GameDatabase.SubGenreOptions).ToList();
             _tagOptions = new List<string> { AllTags }.Concat(GameDatabase.Tags).ToList();
+            // =====END OF CHLOE SECTION=====
             _ratingOptions = new List<string> { AllRatings }.Concat(GameDatabase.Ratings).ToList();
             _sortOptions = User != null
                 ? new List<string> { "Sort: Your Score", "Sort: General Score", "Sort: Price", "Sort: Newest" }
@@ -65,16 +64,14 @@ namespace GameScope.Pages
             if (loggedIn) _navUsernameLink.text = User.Username;
 
             _search = _root.Q<TextField>("search-field");
-            // NEW: real in-field placeholder + guaranteed-visible white cursor.
-            // See UIHelpers.cs (AddPlaceholder / ForceWhiteText) for what/why.
             UIHelpers.AddPlaceholder(_search, "Search games...");
             UIHelpers.ForceWhiteText(_search);
-            // NEW: swap the plain UXML placeholders for real ThemedDropdown controls
-            // (see Scripts/ThemedDropdown.cs) — replaces Unity's native DropdownField,
-            // whose open list can't be restyled with USS.
+
+            // =====CHLOE SECTION===== (main/sub genre + tag dropdown wiring)
             _mainGenreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("main-genre-dropdown"));
             _subGenreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sub-genre-dropdown"));
             _tagDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("tag-dropdown"));
+            // =====END OF CHLOE SECTION=====
             _ratingDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("rating-dropdown"));
             _sortDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sort-dropdown"));
             _resultsCount = _root.Q<Label>("results-count");
@@ -120,6 +117,7 @@ namespace GameScope.Pages
             if (!string.IsNullOrEmpty(q))
                 filtered = filtered.Where(g => g.Title.ToLowerInvariant().Contains(q));
 
+            // =====CHLOE SECTION===== (genre/sub-genre/tag filtering)
             if (_mainGenreDropdown.value != AllMainGenre)
                 filtered = filtered.Where(g => g.MainGenres.Contains(_mainGenreDropdown.value));
 
@@ -128,12 +126,14 @@ namespace GameScope.Pages
 
             if (_tagDropdown.value != AllTags)
                 filtered = filtered.Where(g => g.Tags.Contains(_tagDropdown.value));
+            // =====END OF CHLOE SECTION=====
 
             if (_ratingDropdown.value != AllRatings)
                 filtered = filtered.Where(g => g.Rating == _ratingDropdown.value);
 
             var list = filtered.ToList();
 
+            // =====CHLOE SECTION===== (game sorting execution into the catalogue UI)
             switch (_sortDropdown.value)
             {
                 case "Sort: Your Score":
@@ -149,6 +149,7 @@ namespace GameScope.Pages
                     list.Sort((a, b) => b.Year.CompareTo(a.Year));
                     break;
             }
+            // =====END OF CHLOE SECTION=====
 
             _resultsCount.text = $"{list.Count} games";
             _emptyLabel.EnableInClassList("hidden", list.Count != 0);
@@ -214,9 +215,7 @@ namespace GameScope.Pages
             return card;
         }
 
-        /// <summary>NEW: swaps a plain placeholder VisualElement (declared
-        /// in UXML with a name/class so layout CSS still applies) for a real
-        /// ThemedDropdown at the same position in the tree.</summary>
+        /// DROPDOWN THEMES
         private static ThemedDropdown ReplaceWithThemedDropdown(VisualElement placeholder)
         {
             var dropdown = new ThemedDropdown { name = placeholder.name };
@@ -228,8 +227,6 @@ namespace GameScope.Pages
             return dropdown;
         }
 
-        /// <summary>Labels default to pickingMode = Ignore in UI Toolkit, so text used as a
-        /// nav link needs picking explicitly enabled before it will receive ClickEvents.</summary>
         private static void MakeClickable(VisualElement el, System.Action onClick)
         {
             el.pickingMode = PickingMode.Position;
@@ -240,10 +237,11 @@ namespace GameScope.Pages
         {
             row.EnableInClassList("game-card__wishlist--active", inWishlist);
             row.Q<Label>("card-heart").text = inWishlist ? "♥" : "♡";
-            // "Wishlist Cart": games you've added are the ones you intend to buy — see the
+            // "Wishlist Cart": games you've added are the ones you intend to buy
             // Wishlist Cart section on the Profile page and the "Go to Store" button there
             // and on the Game Detail page (adapted from main2's ScoreDisplayUI.OpenWebsite()).
             row.Q<Label>("card-wishlist-text").text = inWishlist ? "In Wishlist Cart" : "Add to Wishlist Cart";
         }
     }
 }
+// =====END OF JANE SECTION=====

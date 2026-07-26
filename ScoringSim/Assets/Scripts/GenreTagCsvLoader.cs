@@ -1,12 +1,5 @@
-// ADAPTED FROM main2/Assets/Scripts/Data Loader/GenreTagDataLoader.cs — same CSV
-// format and parsing rules (two tables in one file: a "Genre Name" header row
-// followed by main-genre rows, then a "Game Tag" header row followed by
-// sub-genre rows; each row is TRUE/FALSE membership per game column, matched by
-// title). main2's own version built a separate, parallel GameGenreData list that
-// was never actually merged back into the real game objects; this version merges
-// the same TRUE/FALSE data straight into GameEntry.MainGenres/SubGenres instead,
-// as a static utility rather than a MonoBehaviour, since GameCatalogueLoader
-// calls it once right after building the catalogue from JSON.
+// =====CHLOE SECTION=====
+// ADAPTED FROM main2/Assets/Scripts/Data Loader/GenreTagDataLoader.cs
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -82,3 +75,5 @@ namespace GameScope
         }
     }
 }
+
+// =====END OF CHLOE SECTION=====

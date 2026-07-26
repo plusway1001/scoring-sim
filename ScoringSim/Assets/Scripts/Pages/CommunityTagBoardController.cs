@@ -1,18 +1,5 @@
+// =====ZAHRA SECTION=====
 // === ADAPTED FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs === LINE 1-218 ===
-// The vote-counting / promotion-to-official logic (SubmitTag) is preserved exactly
-// as main2 wrote it — same "5 votes promotes a tag to official" rule, same
-// duplicate-vote-increments-count behaviour, same TagValidator/CommunityTag/TagDatabase
-// classes (copied verbatim in this folder). What had to change is the UI plumbing:
-// main2's version used TMP_InputField + Transform containers + Instantiate(prefab)
-// for UGUI; this version queries a UI Toolkit TextField/Button/VisualElement set
-// (see the "Community Tags" block added to GameDetailPage.uxml) and builds Label
-// chips instead of instantiating a prefab.
-//
-// main2's CommunityTagManager also only ever tracked ONE global TagDatabase (it was
-// a MonoBehaviour on a single scene object). GameScope has a catalogue of many
-// games, so this adaptation keeps one TagDatabase per game (keyed by GameEntry.Id)
-// and seeds each with that game's own Tags as the starting "official" tags, instead
-// of main2's three hardcoded names ("Platformer", "2D", "Metroidvania").
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -21,9 +8,6 @@ namespace GameScope.Pages
 {
     public class CommunityTagBoardController
     {
-        // Session-only per-game tag boards (SDD Priority 5 is a stretch goal / simulation
-        // feature — this is deliberately not persisted to disk, same as the rest of GameScope's
-        // in-memory catalogue state).
         private static readonly Dictionary<int, TagDatabase> _boards = new Dictionary<int, TagDatabase>();
 
         private readonly VisualElement _root;
@@ -54,9 +38,6 @@ namespace GameScope.Pages
             {
                 _tagDatabase = new TagDatabase();
                 // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs === LINE 116-123 (Start) ===
-                // main2 seeded 3 hardcoded official tags + 2 starter community tags; here we
-                // seed the official tags from the game's own catalogue Tags instead, since
-                // every game has different tags (see class header for why).
                 foreach (var t in _game.Tags)
                     _tagDatabase.communityTags.Add(new CommunityTag(t, true));
                 _boards[_game.Id] = _tagDatabase;
@@ -73,8 +54,6 @@ namespace GameScope.Pages
         }
 
         // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs === LINE 128-172 (SubmitTag) ===
-        // Vote/duplicate/promotion logic unchanged; only the UI calls at the edges (reading
-        // the TextField's value instead of TMP_InputField.text, clearing it the same way) differ.
         public void SubmitTag()
         {
             string newTag = TagValidator.NormalizeTag(_tagInput.value ?? "");
@@ -110,8 +89,6 @@ namespace GameScope.Pages
         }
 
         // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs === LINE 174-217 (RefreshCommunityTags / CreateTagUI) ===
-        // Same official-vs-community split; rebuilt with UI Toolkit Labels instead of
-        // Instantiate(communityTagPrefab, parent) + GetComponentInChildren<TMP_Text>().
         private void RefreshCommunityTags()
         {
             _officialRow.Clear();
@@ -129,3 +106,5 @@ namespace GameScope.Pages
         }
     }
 }
+
+// =====END OF ZAHRA SECTION=====

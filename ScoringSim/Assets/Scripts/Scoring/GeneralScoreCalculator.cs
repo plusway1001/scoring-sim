@@ -1,8 +1,5 @@
+// =====MARCO SECTION=====
 // === CODE FROM main2/Assets/Scripts/Scoring/GeneralScoreCalculator.cs === LINE 1-30 ===
-// Verbatim from the team's main2 branch — no logic changes, EXCEPT the 5
-// Debug.Log calls below are commented out (not removed). This method runs on
-// every score calculation (every catalogue card, every sort comparison), so
-// those logs were flooding the console with 900+ lines on a single page load.
 using UnityEngine;
 
 public static class GeneralScoreCalculator
@@ -34,3 +31,5 @@ public static class GeneralScoreCalculator
         return Mathf.Clamp(score, 0, 100);
     }
 }
+
+// =====END OF MARCO SECTION=====

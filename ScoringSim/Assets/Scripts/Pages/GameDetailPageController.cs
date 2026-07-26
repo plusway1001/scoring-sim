@@ -1,3 +1,4 @@
+// =====JANE SECTION=====
 using System;
 using System.Linq;
 using UnityEngine;
@@ -68,12 +69,6 @@ namespace GameScope.Pages
 
             // ---- General score breakdown ----
             // === CODE FROM main2/Assets/Scripts/Scoring/GeneralScoreCalculator.cs === LINE 8-11 ===
-            // Volume Bonus and Nostalgia Factor are recomputed here the same way main2's
-            // GeneralScoreCalculator.Calculate() does it, purely so this breakdown panel
-            // shows numbers consistent with what CalcGeneralScore (now backed by that same
-            // main2 code, see ScoreCalculator.cs) actually produced. Previously this panel
-            // used the old placeholder's own volume/nostalgia formula, which no longer
-            // matched the score being displayed above it.
             var breakdown = _root.Q<VisualElement>("general-breakdown");
             double vol = Math.Min(Math.Log10(_game.TotalRatings + 1) / 5.0, 1.0) * 100.0 * 0.15;
             int age = System.DateTime.Now.Year - _game.Year;
@@ -139,9 +134,6 @@ namespace GameScope.Pages
             }
 
             // ---- Community tags ----
-            // NEW wiring: CommunityTagBoardController itself is ADAPTED FROM main2
-            // (see that file's header) — this line is just the new call that hooks it
-            // up to the Game Detail page.
             new CommunityTagBoardController(_root, _game).Bind();
         }
 
@@ -180,11 +172,6 @@ namespace GameScope.Pages
         }
 
         // === CODE FROM main2/Assets/Scripts/Scoring/UserScoreCalculator.cs === LINE 330-410 ===
-        // Rebuilt to read main2's actual ScoreBreakdown (via ScoreCalculator.CalcUserScoreBreakdown,
-        // see ScoreCalculator.cs) instead of re-deriving its own modifier logic. This keeps the
-        // panel truthful to what main2's code really computed — including that main2 currently
-        // has no disliked-genre penalty and no price-minimum check (both are commented out in
-        // their UserScoreCalculator.cs), so those no longer show here either.
         private void BuildModifiers(VisualElement container)
         {
             var b = ScoreCalculator.CalcUserScoreBreakdown(_game, User);
@@ -231,7 +218,6 @@ namespace GameScope.Pages
             _btnCompleted.EnableInClassList("btn-toggle--active-green", inCompleted);
 
             // === ADAPTED FROM main2/Assets/Scripts/UI_Display_Test/ScoreDisplayUI.cs === LINE 592-608 (CheckWishlistBtnStatus) ===
-            // main2: OpenWebsiteBtn.SetActive(true) only once the game is in the wishlist.
             bool canBuy = inWishlist && !string.IsNullOrEmpty(_game.StoreUrl);
             _btnStore.EnableInClassList("hidden", !canBuy);
             _btnStore.SetEnabled(canBuy);
@@ -261,8 +247,7 @@ namespace GameScope.Pages
 
             BuildRatingButtons();
 
-            // Rating changes the user score panel + modifiers; simplest correct
-            // refresh is to redraw this whole detail page.
+            // Rating changes the user score panel + modifiers;
             _manager.ShowGameDetail(_game);
         }
 
@@ -280,3 +265,5 @@ namespace GameScope.Pages
         }
     }
 }
+
+// =====END OF JANE SECTION=====

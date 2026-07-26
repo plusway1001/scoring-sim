@@ -1,15 +1,10 @@
+// =====JANE SECTION=====
 using UnityEngine;
 using UnityEngine.UIElements;
 using GameScope.Pages;
 
 namespace GameScope
 {
-    /// <summary>
-    /// Attach to a GameObject that has a UIDocument component. Assign the six
-    /// VisualTreeAssets below in the Inspector. This drives all navigation and
-    /// holds the shared app state (current user, currently viewed game) that
-    /// the React version kept in the root <App/> component's useState hooks.
-    /// </summary>
     [RequireComponent(typeof(UIDocument))]
     public class UIManager : MonoBehaviour
     {
@@ -24,7 +19,6 @@ namespace GameScope
         private VisualElement _root;
         private UIDocument _document;
 
-        // ---- App-wide state (equivalent to App()'s useState hooks) ----
         public UserProfile CurrentUser { get; private set; }
         public GameEntry SelectedGame { get; private set; }
         public bool IsNewUser { get; private set; }
@@ -33,10 +27,6 @@ namespace GameScope
         {
             _document = GetComponent<UIDocument>();
             _root = _document.rootVisualElement;
-
-            // The root panel can be any actual window size; every page is authored
-            // at a fixed 1920x1080 canvas (see .page in GameScope.uss), so center
-            // that canvas within whatever space the panel gives us.
             _root.style.flexGrow = 1;
             _root.style.alignItems = Align.Center;
             _root.style.justifyContent = Justify.Center;
@@ -122,8 +112,8 @@ namespace GameScope
             ShowLogin();
         }
 
-        /// <summary>Call after mutating CurrentUser (wishlist/rating/etc.) from a detail
-        /// or profile view when you want to return to the catalogue afterwards.</summary>
         public void SetUser(UserProfile user) => CurrentUser = user;
     }
 }
+
+// =====END OF JANE SECTION=====

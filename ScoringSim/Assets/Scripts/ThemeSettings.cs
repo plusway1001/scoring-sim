@@ -1,12 +1,4 @@
-// NEW: lets you pick the app's colors from the Inspector instead of editing USS by
-// hand. GameScope.uss defines its palette as USS custom properties (--color-accent,
-// --color-bg, etc. — see the top of the .page rule there) and every other rule in
-// that file references them with var(--color-xxx). Unity has no public API to set a
-// USS custom property's value from C# at runtime, so this component instead edits
-// the .uss FILE ON DISK (in the Editor only) whenever you change a color here, then
-// asks Unity to reimport it — which is what actually makes the whole app re-theme
-// itself, including every hover/active/toggled state, since those all reference the
-// same variables. See THEMING.md at the project root for setup + how this works.
+// =====JANE SECTION=====
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -94,3 +86,5 @@ namespace GameScope
 #endif
     }
 }
+
+// =====END OF JANE SECTION=====

@@ -1,8 +1,4 @@
-// NEW: custom themed dropdown control. Unity's built-in DropdownField opens its
-// list as a native OS/IMGUI popup menu that can't be restyled with USS — this is a
-// self-built replacement (trigger + a themed floating list, one open at a time)
-// with the same API (.choices, .index, .value, RegisterValueChangedCallback) so
-// it drops straight into every place DropdownField was used before.
+// =====JANE SECTION=====
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
@@ -70,9 +66,6 @@ namespace GameScope
             trigger.AddToClassList("themed-dropdown__trigger");
             _valueLabel = new Label();
             _valueLabel.AddToClassList("themed-dropdown__label");
-            // A small CSS-drawn triangle (border trick) instead of a Unicode arrow
-            // glyph — the project's font doesn't have every arrow character, which
-            // was rendering as a "missing glyph" box next to the trigger text.
             var arrow = new VisualElement();
             arrow.AddToClassList("themed-dropdown__arrow");
             trigger.Add(_valueLabel);
@@ -101,13 +94,6 @@ namespace GameScope
 
             _open = true;
             AddToClassList("themed-dropdown--open");
-
-            // The menu is reparented to the page's own root element (not just toggled
-            // in place) so it paints above later siblings like the game grid, instead
-            // of being clipped underneath them by normal document paint order. It's
-            // still inside the current page's subtree, so UIManager's page-swap
-            // (`_root.Clear()`) still cleans it up automatically on navigation —
-            // nothing is left dangling above the page root.
             var pageRoot = FindPageRoot();
             if (pageRoot != null)
             {
@@ -190,3 +176,5 @@ namespace GameScope
         }
     }
 }
+
+// =====END OF JANE SECTION=====

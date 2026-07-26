@@ -1,10 +1,5 @@
-// NEW, adapted from main2's Data Loader/GameLoader.cs: same idea (load every game
-// from a Resources file) but reading one CSV file (Resources/Games/GamesData.csv,
-// one row per game) instead of one JSON file per game, and building plain GameEntry
-// objects instead of GameData MonoBehaviour components on new GameObjects — this
-// catalogue is plain C# data, not scene objects. After loading the CSV, it also
-// merges in MainGenres/SubGenres from the genre/tag CSV (see GenreTagCsvLoader.cs)
-// so GameDatabase.Games ends up fully populated in one call.
+// =====TIFFANY SECTION=====
+// NEW
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -105,3 +100,5 @@ namespace GameScope
         private static string[] SplitCsvLine(string line) => line.TrimEnd('\r').Split(',');
     }
 }
+
+// =====END OF TIFFANY SECTION=====
