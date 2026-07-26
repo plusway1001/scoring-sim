@@ -38,6 +38,15 @@ namespace GameScope.Pages
             icon.text = _game.Cover;
             if (ColorUtils.TryParse(_game.ColorHex, out var col)) icon.style.backgroundColor = col;
 
+            var background = _root.Q<VisualElement>("hero-background");
+
+            Sprite logo = Resources.Load<Sprite>(_game.Cover);
+
+            if (logo != null)
+            {
+                background.style.backgroundImage = new StyleBackground(logo);
+            }
+
             _root.Q<Label>("hero-eyebrow").text = $"{_game.Genre} · {_game.Year}";
             _root.Q<Label>("hero-title").text = _game.Title;
             _root.Q<Label>("hero-byline").text = $"by {_game.Dev} · {_game.Rating} · ${_game.Price:0.00}";

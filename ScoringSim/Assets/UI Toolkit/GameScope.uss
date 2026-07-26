@@ -912,10 +912,31 @@
 }
 
 /* ---------- Game detail ---------- */
-.detail-hero {
+/*.detail-hero {
     padding: 48px 32px 32px 32px;
     flex-direction: row;
     flex-wrap: wrap;
+}*/
+.detail-hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: 48px 32px 32px 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.detail-hero__background {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    unity-background-scale-mode: scale-and-crop;
+
+    opacity: 0.15;
 }
 
 .detail-hero__icon {
