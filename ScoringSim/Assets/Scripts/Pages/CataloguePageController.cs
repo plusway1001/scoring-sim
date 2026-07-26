@@ -11,21 +11,36 @@ namespace GameScope.Pages
         private UserProfile User => _manager.CurrentUser;
 
         private TextField _search;
-        private ThemedDropdown _genreDropdown, _ratingDropdown, _sortDropdown;
+        private ThemedDropdown _mainGenreDropdown, _subGenreDropdown, _tagDropdown, _ratingDropdown, _sortDropdown;
         private Label _resultsCount, _emptyLabel, _navUsernameLink, _navProfileLink, _navSignInLink;
         private VisualElement _heroPanel, _legendRow, _grid;
         private Label _heroUsername, _heroSub, _heroMatches, _heroWishlistCount;
 
-        private readonly List<string> _genreOptions;
+        // NEW: Main Genre / Sub Genre / Tags replace what used to be a single genre
+        // dropdown, so the catalogue can filter on the richer Resources/Data/GenreTagData.csv
+        // taxonomy (see GameEntry.MainGenres/SubGenres) as well as the existing flavor tags.
+        private readonly List<string> _mainGenreOptions;
+        private readonly List<string> _subGenreOptions;
+        private readonly List<string> _tagOptions;
         private readonly List<string> _ratingOptions;
         private readonly List<string> _sortOptions;
+
+        // NEW: distinct default-option labels so the four filter dropdowns don't all
+        // just say the same generic "All" (previously indistinguishable at a glance —
+        // see Refresh() below, where these same strings are the "no filter" sentinel).
+        private const string AllMainGenre = "All Main Genre";
+        private const string AllSubGenre = "All Sub Genre";
+        private const string AllTags = "All Tags";
+        private const string AllRatings = "All Ratings";
 
         public CataloguePageController(VisualElement root, UIManager manager)
         {
             _root = root;
             _manager = manager;
-            _genreOptions = new List<string> { "All" }.Concat(GameDatabase.Genres).ToList();
-            _ratingOptions = new List<string> { "All" }.Concat(GameDatabase.Ratings).ToList();
+            _mainGenreOptions = new List<string> { AllMainGenre }.Concat(GameDatabase.MainGenreOptions).ToList();
+            _subGenreOptions = new List<string> { AllSubGenre }.Concat(GameDatabase.SubGenreOptions).ToList();
+            _tagOptions = new List<string> { AllTags }.Concat(GameDatabase.Tags).ToList();
+            _ratingOptions = new List<string> { AllRatings }.Concat(GameDatabase.Ratings).ToList();
             _sortOptions = User != null
                 ? new List<string> { "Sort: Your Score", "Sort: General Score", "Sort: Price", "Sort: Newest" }
                 : new List<string> { "Sort: General Score", "Sort: Price", "Sort: Newest" };
@@ -57,7 +72,9 @@ namespace GameScope.Pages
             // NEW: swap the plain UXML placeholders for real ThemedDropdown controls
             // (see Scripts/ThemedDropdown.cs) — replaces Unity's native DropdownField,
             // whose open list can't be restyled with USS.
-            _genreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("genre-dropdown"));
+            _mainGenreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("main-genre-dropdown"));
+            _subGenreDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sub-genre-dropdown"));
+            _tagDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("tag-dropdown"));
             _ratingDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("rating-dropdown"));
             _sortDropdown = ReplaceWithThemedDropdown(_root.Q<VisualElement>("sort-dropdown"));
             _resultsCount = _root.Q<Label>("results-count");
@@ -71,15 +88,21 @@ namespace GameScope.Pages
             _heroMatches = _root.Q<Label>("hero-matches");
             _heroWishlistCount = _root.Q<Label>("hero-wishlist-count");
 
-            _genreDropdown.choices = _genreOptions;
-            _genreDropdown.index = 0;
+            _mainGenreDropdown.choices = _mainGenreOptions;
+            _mainGenreDropdown.index = 0;
+            _subGenreDropdown.choices = _subGenreOptions;
+            _subGenreDropdown.index = 0;
+            _tagDropdown.choices = _tagOptions;
+            _tagDropdown.index = 0;
             _ratingDropdown.choices = _ratingOptions;
             _ratingDropdown.index = 0;
             _sortDropdown.choices = _sortOptions;
             _sortDropdown.index = 0;
 
             _search.RegisterValueChangedCallback(_ => Refresh());
-            _genreDropdown.RegisterValueChangedCallback(_ => Refresh());
+            _mainGenreDropdown.RegisterValueChangedCallback(_ => Refresh());
+            _subGenreDropdown.RegisterValueChangedCallback(_ => Refresh());
+            _tagDropdown.RegisterValueChangedCallback(_ => Refresh());
             _ratingDropdown.RegisterValueChangedCallback(_ => Refresh());
             _sortDropdown.RegisterValueChangedCallback(_ => Refresh());
 
@@ -97,10 +120,16 @@ namespace GameScope.Pages
             if (!string.IsNullOrEmpty(q))
                 filtered = filtered.Where(g => g.Title.ToLowerInvariant().Contains(q));
 
-            if (_genreDropdown.value != "All")
-                filtered = filtered.Where(g => g.Genre == _genreDropdown.value);
+            if (_mainGenreDropdown.value != AllMainGenre)
+                filtered = filtered.Where(g => g.MainGenres.Contains(_mainGenreDropdown.value));
 
-            if (_ratingDropdown.value != "All")
+            if (_subGenreDropdown.value != AllSubGenre)
+                filtered = filtered.Where(g => g.SubGenres.Contains(_subGenreDropdown.value));
+
+            if (_tagDropdown.value != AllTags)
+                filtered = filtered.Where(g => g.Tags.Contains(_tagDropdown.value));
+
+            if (_ratingDropdown.value != AllRatings)
                 filtered = filtered.Where(g => g.Rating == _ratingDropdown.value);
 
             var list = filtered.ToList();

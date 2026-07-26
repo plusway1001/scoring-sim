@@ -1,0 +1,13 @@
+id,title,genre,genres,tags,rating,price,year,criticScore,communityAvg,totalRatings,dev,cover,colorHex,storeUrl
+1,Hollow Knight,Platformer,Platformer;Indie;Action,metroidvania;difficult;atmospheric;pixel-art,G,13.5,2017,90,9.1,28000,Team Cherry,🪲,#1a1a3e,https://store.steampowered.com/app/367520/Hollow_Knight/
+2,Elden Ring,RPG,RPG;Action;Adventure,open-world;difficult;fantasy;atmospheric,R16,79.9,2022,96,9.3,45000,FromSoftware,⚔️,#2a1a0e,https://store.steampowered.com/app/1245620/ELDEN_RING/
+3,Dead Space,Horror,Horror;Action;Shooter,sci-fi;atmospheric;difficult;story-rich,R18,59.9,2023,89,8.8,18000,Motive Studio,👾,#1a0a0a,https://store.steampowered.com/app/1693980/Dead_Space/
+4,Stardew Valley,Simulation,Simulation;Indie;RPG,relaxing;sandbox;pixel-art;co-op,G,19.9,2016,90,9.5,52000,ConcernedApe,🌾,#1a2e1a,https://store.steampowered.com/app/413150/Stardew_Valley/
+5,Hades,Action,Action;Indie;RPG,roguelike;story-rich;difficult;atmospheric,R16,29.9,2020,93,9.2,38000,Supergiant Games,🔱,#2e1a0a,https://store.steampowered.com/app/1145360/Hades/
+6,Celeste,Platformer,Platformer;Indie,difficult;pixel-art;story-rich;atmospheric,G,19.9,2018,94,9.0,22000,Maddy Thorson,⛰️,#1a0a2e,https://store.steampowered.com/app/504230/Celeste/
+7,FIFA 24,Sports,Sports,multiplayer;co-op;anime,G,69.9,2023,73,6.8,31000,EA Sports,⚽,#0a1a2e,https://www.ea.com/games/ea-sports-fc/fc-24
+8,Resident Evil 4,Horror,Horror;Action;Shooter,story-rich;atmospheric;difficult,R18,59.9,2023,93,9.1,24000,Capcom,🧟,#1a0e08,https://store.steampowered.com/app/2050650/Resident_Evil_4/
+9,Disco Elysium,RPG,RPG;Adventure;Indie,story-rich;atmospheric;fantasy,R18,39.9,2019,97,9.3,19000,ZA/UM,🕵️,#0e1a1a,https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/
+10,Tetris Effect,Puzzle,Puzzle;Indie,relaxing;atmospheric;pixel-art,G,29.9,2018,93,9.0,12000,Enhance,🟦,#0a0a2e,https://store.steampowered.com/app/1003590/Tetris_Effect_Connected/
+11,Street Fighter 6,Fighting,Fighting;Action,multiplayer;co-op;story-rich,PG13,59.9,2023,92,8.9,16000,Capcom,🥊,#2e0a0a,https://store.steampowered.com/app/1364780/Street_Fighter_6/
+12,Minecraft,Sandbox,Sandbox;Simulation;Adventure,open-world;co-op;relaxing;sandbox,G,29.9,2011,93,9.0,65000,Mojang,⛏️,#1e2e0e,https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc
