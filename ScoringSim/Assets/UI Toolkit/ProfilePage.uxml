@@ -1,12 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
     <ui:VisualElement name="profile-page" class="page" style="min-width: 1920px; min-height: 1080px;">
-        <ui:VisualElement class="navbar">
+        <ui:VisualElement class="navbar" style="height: 80px;">
             <ui:Label name="nav-brand" text="GAMESCOPE" class="navbar__brand"/>
             <ui:VisualElement class="navbar__links">
                 <ui:Label name="nav-catalogue-link" text="CATALOGUE" class="navbar__link"/>
                 <ui:Label text="PROFILE" class="navbar__link navbar__link--active"/>
-                <ui:Label name="nav-signout-link" text="Sign Out" class="navbar__link navbar__link--muted"/>
+                <ui:Label name="nav-signout-link" text="Sign Out" class="navbar__link navbar__link--muted" style="font-size: 14px;"/>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:ScrollView class="page-content">
@@ -20,19 +20,19 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="summary-view" class="summary-grid">
                     <ui:VisualElement class="summary-card">
-                        <ui:Label text="Liked Genres" class="summary-card__label"/>
+                        <ui:Label text="Liked Genres" class="summary-card__label" style="font-size: 14px; -unity-font-style: bold;"/>
                         <ui:VisualElement name="summary-liked-genres" class="summary-tags"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="summary-card">
-                        <ui:Label text="Disliked Genres" class="summary-card__label"/>
+                        <ui:Label text="Disliked Genres" class="summary-card__label" style="font-size: 14px; -unity-font-style: bold;"/>
                         <ui:VisualElement name="summary-disliked-genres" class="summary-tags"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="summary-card">
-                        <ui:Label text="Liked Tags" class="summary-card__label"/>
+                        <ui:Label text="Liked Tags" class="summary-card__label" style="font-size: 14px; -unity-font-style: bold;"/>
                         <ui:VisualElement name="summary-liked-tags" class="summary-tags"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="summary-card">
-                        <ui:Label text="Favourite Creators" class="summary-card__label"/>
+                        <ui:Label text="Favourite Creators" class="summary-card__label" style="font-size: 14px; -unity-font-style: bold;"/>
                         <ui:VisualElement name="summary-fav-creators" class="summary-tags"/>
                     </ui:VisualElement>
                 </ui:VisualElement>

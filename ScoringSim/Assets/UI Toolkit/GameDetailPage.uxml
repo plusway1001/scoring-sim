@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
     <ui:VisualElement name="detail-page" class="page" style="min-width: 1920px; min-height: 1080px; align-items: stretch;">
-        <ui:VisualElement class="navbar">
+        <ui:VisualElement class="navbar" style="height: 80px;">
             <ui:Button name="btn-back" text="← Back" class="back-btn"/>
             <ui:Label text="GAMESCOPE" class="navbar__brand"/>
         </ui:VisualElement>

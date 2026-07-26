@@ -10,13 +10,13 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement>
-                <ui:Label name="card-title" text="Game Title" class="game-card__title"/>
+                <ui:Label name="card-title" text="Game Title" class="game-card__title" style="font-size: 16px;"/>
                 <ui:Label name="card-meta" text="Genre · Year · $Price" class="game-card__meta" style="color: rgb(210, 222, 232);"/>
             </ui:VisualElement>
             <ui:VisualElement class="game-card__tags">
-                <ui:Label name="card-rating-chip" text="G" class="game-card__chip"/>
-                <ui:Label name="card-tag-1" text="tag" class="game-card__chip game-card__chip--accent" style="background-color: rgba(69, 170, 233, 0.07);"/>
-                <ui:Label name="card-tag-2" text="tag" class="game-card__chip game-card__chip--accent" style="background-color: rgba(69, 170, 233, 0.07);"/>
+                <ui:Label name="card-rating-chip" text="G" class="game-card__chip" style="font-size: 12px;"/>
+                <ui:Label name="card-tag-1" text="tag" class="game-card__chip game-card__chip--accent" style="background-color: rgba(69, 170, 233, 0.07); font-size: 12px;"/>
+                <ui:Label name="card-tag-2" text="tag" class="game-card__chip game-card__chip--accent" style="background-color: rgba(69, 170, 233, 0.07); font-size: 12px;"/>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="card-wishlist-row" class="game-card__wishlist hidden">

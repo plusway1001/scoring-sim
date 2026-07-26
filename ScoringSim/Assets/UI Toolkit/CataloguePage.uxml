@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
     <ui:VisualElement name="catalogue-page" class="page" style="min-width: 1920px; min-height: 1080px;">
-        <ui:VisualElement name="navbar" class="navbar">
+        <ui:VisualElement name="navbar" class="navbar" style="height: 80px;">
             <ui:Label name="nav-brand" text="GAMESCOPE" class="navbar__brand"/>
             <ui:VisualElement class="navbar__links">
                 <ui:Label text="CATALOGUE" class="navbar__link navbar__link--active"/>
@@ -35,7 +35,7 @@
                 <ui:VisualElement name="tag-dropdown" class="filter-dropdown"/>
                 <ui:VisualElement name="rating-dropdown" class="filter-dropdown"/>
                 <ui:VisualElement name="sort-dropdown" class="filter-dropdown"/>
-                <ui:Label name="results-count" text="0 games" class="results-count"/>
+                <ui:Label name="results-count" text="0 games" class="results-count" style="font-size: 14px;"/>
             </ui:VisualElement>
             <ui:VisualElement name="legend-row" class="legend-row hidden">
                 <ui:VisualElement class="legend-item">
