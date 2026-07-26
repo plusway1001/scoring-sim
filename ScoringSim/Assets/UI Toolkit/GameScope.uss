@@ -489,18 +489,19 @@
 
 .tag-submit-row .unity-text-field__input {
     color: var(--color-text);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .score-badge-col {
     align-items: center;
 }
 
-.score-badge-col__label {
-    font-size: 10px;
-    color: var(--color-text-muted);
+.game-card .score-badge-col__label {
+    font-size: 9px;
+    color: var(--color-text);
+    -unity-font-style: bold;
     letter-spacing: 1px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .score-badge {
@@ -942,7 +943,6 @@
     top: 0;
     bottom: 0;
     unity-background-scale-mode: scale-and-crop;
-    opacity: 0.15;
 }
 
 .detail-hero__icon {

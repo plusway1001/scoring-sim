@@ -1,13 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScope.uss?fileID=7433441132597879392&amp;guid=0ac598c2f2b6d7e478f7119a7176b2be&amp;type=3#GameScope"/>
-    <ui:VisualElement name="detail-page" class="page" style="min-width: 1920px; min-height: 1080px;">
+    <ui:VisualElement name="detail-page" class="page" style="min-width: 1920px; min-height: 1080px; align-items: stretch;">
         <ui:VisualElement class="navbar">
             <ui:Button name="btn-back" text="← Back" class="back-btn"/>
             <ui:Label text="GAMESCOPE" class="navbar__brand"/>
         </ui:VisualElement>
         <ui:ScrollView>
-            <ui:VisualElement name="detail-hero" class="detail-hero">
-                <ui:VisualElement name="hero-background" text="🎮" class="detail-hero__background" style="background-color: rgb(117, 109, 109); top: -20px;"/>
+            <ui:VisualElement name="detail-hero" class="detail-hero" style="align-items: center; align-self: center; justify-content: center; width: 941px; border-left-color: rgb(94, 121, 150); border-right-color: rgb(94, 121, 150); border-top-color: rgb(94, 121, 150); border-bottom-color: rgb(94, 121, 150);">
+                <ui:VisualElement name="hero-background" text="🎮" class="detail-hero__background" style="background-color: rgb(36, 52, 71); top: 18px; right: 2px; align-items: center; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(94, 122, 150); border-right-color: rgb(94, 122, 150); border-top-color: rgb(94, 122, 150); border-bottom-color: rgb(94, 122, 150); border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; bottom: 1px; left: 0; width: 941px;"/>
                 <ui:Label name="hero-icon" text="🎮" class="detail-hero__icon"/>
                 <ui:VisualElement class="detail-hero__info">
                     <ui:Label name="hero-eyebrow" text="Genre · Year" class="detail-hero__eyebrow" style="font-size: 14px;"/>
@@ -15,9 +15,9 @@
                     <ui:Label name="hero-byline" text="by Developer · Rating · $0.00" class="detail-hero__byline"/>
                     <ui:VisualElement name="hero-tags" class="detail-hero__tags"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="hero-scores" class="detail-hero__scores" style="display: flex;">
-                    <ui:VisualElement name="hero-general-score" class="score-badge-col"/>
-                    <ui:VisualElement name="hero-user-score" class="score-badge-col"/>
+                <ui:VisualElement name="hero-scores" class="detail-hero__scores" style="display: flex; margin-right: 16px; font-size: 16px;">
+                    <ui:VisualElement name="hero-general-score" class="score-badge-col" style="font-size: 16px; -unity-font-style: bold;"/>
+                    <ui:VisualElement name="hero-user-score" class="score-badge-col" style="font-size: 16px; -unity-font-style: bold;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="detail-body">

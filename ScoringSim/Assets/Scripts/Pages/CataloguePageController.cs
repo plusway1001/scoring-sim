@@ -176,11 +176,11 @@ namespace GameScope.Pages
             icon.text = game.Cover;
             if (ColorUtils.TryParse(game.ColorHex, out var col)) icon.style.backgroundColor = col;
 
-            UIHelpers.BuildScoreBadge(card.Q<VisualElement>("card-general-score"), ScoreCalculator.CalcGeneralScore(game), "score-badge--sm");
+            UIHelpers.BuildScoreBadge(card.Q<VisualElement>("card-general-score"), ScoreCalculator.CalcGeneralScore(game), "score-badge--sm", "General");
 
             var userScoreCol = card.Q<VisualElement>("card-user-score");
             if (User != null)
-                UIHelpers.BuildScoreBadge(userScoreCol, ScoreCalculator.CalcUserScore(game, User), "score-badge--sm");
+                UIHelpers.BuildScoreBadge(userScoreCol, ScoreCalculator.CalcUserScore(game, User), "score-badge--sm", "User");
             else
                 userScoreCol.style.display = DisplayStyle.None;
 
