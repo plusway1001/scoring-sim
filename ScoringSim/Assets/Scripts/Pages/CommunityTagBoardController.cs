@@ -81,7 +81,7 @@ namespace GameScope.Pages
 
             if (!TagValidator.IsValidTag(newTag))
             {
-                UnityEngine.Debug.Log("Tag cannot be empty.");
+                // UnityEngine.Debug.Log("Tag cannot be empty.");
                 return;
             }
 
@@ -96,7 +96,7 @@ namespace GameScope.Pages
 
                     RefreshCommunityTags();
                     _tagInput.value = "";
-                    UnityEngine.Debug.Log("Vote added to: " + existingTag.tagName);
+                    // UnityEngine.Debug.Log("Vote added to: " + existingTag.tagName);
                     return;
                 }
             }
@@ -106,7 +106,7 @@ namespace GameScope.Pages
 
             RefreshCommunityTags();
             _tagInput.value = "";
-            UnityEngine.Debug.Log("New tag added: " + tag.tagName);
+            // UnityEngine.Debug.Log("New tag added: " + tag.tagName);
         }
 
         // === CODE FROM main2/Assets/Scripts/CommunityTagSystem/CommunityTagManager.cs === LINE 174-217 (RefreshCommunityTags / CreateTagUI) ===

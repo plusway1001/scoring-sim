@@ -1,7 +1,8 @@
 // === CODE FROM main2/Assets/Scripts/Scoring/UserScoreCalculator.cs === LINE 1-130 ===
 // Verbatim from the team's main2 branch — no logic changes (including the two
 // commented-out lines: disliked-genre penalty and the price-minimum check are
-// exactly as disabled in main2, not something removed during this merge).
+// exactly as disabled in main2, not something removed during this merge), except
+// the one Debug.Log below is also commented out to cut console spam.
 // Operates on `GameData`/`UserData`; see Scripts/Scoring/ScoringBridge.cs.
 using UnityEngine;
 
@@ -57,7 +58,7 @@ public static class UserScoreCalculator
         if (IsAgeRestricted(game.ageRating, user.maxAgeRating))
         {
             result.ageRestricted = true;
-            Debug.Log("Test Max Age!");
+            // Debug.Log("Test Max Age!");
             result.finalScore = 0;
             return result;
         }
