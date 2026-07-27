@@ -942,7 +942,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    unity-background-scale-mode: scale-and-crop;
+    -unity-background-scale-mode: scale-and-crop;
 }
 
 .detail-hero__icon {
